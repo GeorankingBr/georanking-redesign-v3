@@ -15,24 +15,24 @@
 body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;color:#1F1F1F;-webkit-font-smoothing:antialiased}
 a{color:#1264C7;text-decoration:none}
 .ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:22px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
-.nav{display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border-radius:10px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;color:#3C4043;white-space:nowrap;transition:background .15s,color .15s}
-.nav:hover{background:#F3F6FA;color:#1F1F1F}
-.nav.on{background:#EAF1FB;color:#0B4FA8}
-.nav.on .ms{font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24}
-.grp{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:11px;font-weight:600;letter-spacing:.6px;color:#80868B;text-transform:uppercase;padding:14px 14px 6px}
-.cnt{margin-left:auto;min-width:22px;height:20px;padding:0 6px;border-radius:999px;background:#FCE8E6;color:#B3261E;font-size:11px;font-weight:600;display:inline-flex;align-items:center;justify-content:center}
+.arl-nav{display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border-radius:10px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;color:#3C4043;white-space:nowrap;transition:background .15s,color .15s}
+.arl-nav:hover{background:#F3F6FA;color:#1F1F1F}
+.arl-nav.on{background:#EAF1FB;color:#0B4FA8}
+.arl-nav.on .ms{font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24}
+.arl-grp{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:11px;font-weight:600;letter-spacing:.6px;color:#80868B;text-transform:uppercase;padding:14px 14px 6px}
+.arl-cnt{margin-left:auto;min-width:22px;height:20px;padding:0 6px;border-radius:999px;background:#FCE8E6;color:#B3261E;font-size:11px;font-weight:600;display:inline-flex;align-items:center;justify-content:center}
 </style>
 </helmet>
 <div style="width: 240px; height: 1720px; box-sizing: border-box; background: #ffffff; border-right: 1px solid #E2E6EA; padding: 16px 12px; display: flex; flex-direction: column; gap: 2px">
   <a href="PainelControle.dc.html" aria-label="GeoRanking — início" style="display: flex; padding: 6px 8px 18px"><img src="./assets/d7deb3dbeca88c52d3f7d166aae7502c.png" alt="GeoRanking" style="height: 36px; width: auto"></a>
   <sc-for list="{{itens}}" as="i" hint-placeholder-count="10">
-    <sc-if value="{{i.grp}}" hint-placeholder-val="{{ false }}"><span class="grp">{{i.grp}}</span></sc-if>
+    <sc-if value="{{i.grp}}" hint-placeholder-val="{{ false }}"><span class="arl-grp">{{i.grp}}</span></sc-if>
     <sc-if value="{{i.label}}" hint-placeholder-val="{{ true }}">
-      <a href="{{i.href}}" class="nav {{i.cls}}"><span class="ms">{{i.icon}}</span>{{i.label}}<sc-if value="{{i.cnt}}" hint-placeholder-val="{{ false }}"><span class="cnt">{{i.cnt}}</span></sc-if></a>
+      <a href="{{i.href}}" class="arl-nav {{i.cls}}"><span class="ms">{{i.icon}}</span>{{i.label}}<sc-if value="{{i.cnt}}" hint-placeholder-val="{{ false }}"><span class="arl-cnt">{{i.cnt}}</span></sc-if></a>
     </sc-if>
   </sc-for>
   <div style="flex: 1"></div>
-  <a href="#ajuda" class="nav"><span class="ms">help</span>Ajuda e suporte</a>
+  <a href="#ajuda" class="arl-nav"><span class="ms">help</span>Central de ajuda</a>
   <div style="display: flex; align-items: center; gap: 10px; padding: 12px 10px; margin-top: 6px; border-radius: 12px; background: #F7F9FC">
     <span style="width: 34px; height: 34px; border-radius: 999px; background: #EAF1FB; color: #0B4FA8; display: inline-flex; align-items: center; justify-content: center; font-family: 'Google Sans', Roboto, Arial, sans-serif; font-size: 13px; font-weight: 500">AG</span>
     <div style="display: flex; flex-direction: column; min-width: 0"><span style="font-family: 'Google Sans', Roboto, Arial, sans-serif; font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Administrador</span><span style="font-size: 12px; color: #5F6368">GeoRanking</span></div>
@@ -46,15 +46,15 @@ class Component extends DCLogic {
     const a = this.props.active ?? 'painel';
     const list = [
       { grp: 'Operação' },
-      { key: 'painel', label: 'Painel de controle', icon: 'space_dashboard', href: 'PainelControle.dc.html' },
-      { key: 'qualidade', label: 'Qualidade dos perfis', icon: 'verified_user', href: 'QualidadePerfis.dc.html', cnt: '2' },
-      { key: 'acompanhamento', label: 'Acompanhamento', icon: 'visibility', href: 'PerfisAcompanhamento.dc.html' },
+      { key: 'painel', label: 'Visão geral', icon: 'space_dashboard', href: 'PainelControle.dc.html' },
+      { key: 'qualidade', label: 'Saúde dos perfis', icon: 'verified_user', href: 'QualidadePerfis.dc.html', cnt: '2' },
+      { key: 'acompanhamento', label: 'Monitoramento', icon: 'visibility', href: 'PerfisAcompanhamento.dc.html' },
       { grp: 'Carteira' },
-      { key: 'ativos', label: 'Perfis ativos', icon: 'storefront', href: 'PerfisAtivos.dc.html' },
-      { key: 'cases', label: 'Cases de sucesso', icon: 'trending_up', href: 'Cases.dc.html' },
+      { key: 'ativos', label: 'Carteira de perfis', icon: 'storefront', href: 'PerfisAtivos.dc.html' },
+      { key: 'cases', label: 'Casos de sucesso', icon: 'trending_up', href: 'Cases.dc.html' },
       { grp: 'Conta' },
-      { key: 'email', label: 'Conexões Google', icon: 'link', href: 'ConectarEmail.dc.html' },
-      { key: 'usuarios', label: 'Usuários', icon: 'group', href: 'Usuarios.dc.html' }
+      { key: 'email', label: 'Integrações Google', icon: 'link', href: 'ConectarEmail.dc.html' },
+      { key: 'usuarios', label: 'Equipe e acessos', icon: 'group', href: 'Usuarios.dc.html' }
     ];
     return { itens: list.map((i) => ({ ...i, cls: i.key === a ? 'on' : '' })) };
   }

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Detalhe do perfil · painel lateral</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap}
+.btn-filled{background:#1264C7;color:#fff}.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-text{background:transparent;color:#5F6368}
+.btn-danger{background:#fff;color:#B3261E;border:1px solid #F9DEDC}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.iconbtn{width:36px;height:36px;border-radius:10px;border:0;background:transparent;color:#5F6368;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:999px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#EAF7EE;color:#137333}.b-yellow{background:#FFF7E0;color:#B06000}.b-red{background:#FCE8E6;color:#B3261E}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}
+.hint{font-size:13px;line-height:18px;color:#5F6368}
+.h1{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:30px;line-height:38px;font-weight:500;margin:0}
+.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:15px;font-weight:600;margin:0}
+.lbl{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:11px;font-weight:600;letter-spacing:.6px;color:#80868B;text-transform:uppercase}
+table{border-collapse:collapse;width:100%}
+th{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:600;color:#5F6368;text-align:left;padding:14px 16px;background:#F8FAFC;border-bottom:1px solid #E2E6EA;white-space:nowrap}
+td{padding:14px 16px;border-bottom:1px solid #EEF1F4;font-size:14px;vertical-align:middle}
+tr.sel td{background:#EAF1FB}
+.kpi{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-right:1px solid #EEF1F4}
+.kpi:last-child{border-right:0}
+.kpi b{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:24px;font-weight:500;letter-spacing:-.5px}
+.rep{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid #E2E6EA;border-radius:12px;background:#fff}
+.rep .ic{width:36px;height:36px;border-radius:10px;background:#EAF1FB;color:#0B4FA8;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.drawer{position:absolute;top:0;right:0;bottom:0;width:520px;background:#fff;border-left:1px solid #E2E6EA;box-shadow:-12px 0 36px rgba(31,35,41,.12);display:flex;flex-direction:column;overflow:hidden}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1100px; box-sizing: border-box; background: #F7F9FC; display: flex; overflow: hidden; position: relative">
+  <dc-import name="AdminRail" active="acompanhamento" hint-size="240px,1720px"></dc-import>
+  <div style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+  <dc-import name="TopBar" contexto="Admin" titulo="Monitoramento" hint-size="1200px,60px"></dc-import>
+  <main style="padding: 28px 32px 40px; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-direction: column; gap: 6px"><h1 class="h1">Monitoramento de perfis</h1><span class="hint" style="font-size: 14px">Clique numa linha para abrir o painel de detalhe sem sair da lista.</span></div>
+    <section class="card" style="overflow: hidden">
+      <table>
+        <thead><tr><th style="padding-left: 20px">Perfil</th><th>Localidade</th><th>Status</th><th>Palavras</th><th>Sincronização</th><th>Atualização</th></tr></thead>
+        <tbody>
+          <sc-for list="{{rows}}" as="r" hint-placeholder-count="6">
+            <tr class="{{r.cls}}"><td style="padding-left: 20px; font-weight: 500">{{r.nome}}</td><td class="hint">{{r.local}}</td><td><span class="badge {{r.stCls}}">{{r.st}}</span></td><td>{{r.kw}}</td><td class="hint">{{r.sync}}</td><td class="hint">{{r.data}}</td></tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  </div>
+
+  <div style="position: absolute; inset: 0; background: rgba(31,35,41,.28)"></div>
+  <aside class="drawer" role="dialog" aria-label="Detalhe do perfil Estilo Bordado">
+    <div style="display: flex; align-items: flex-start; gap: 14px; padding: 22px 24px 18px; border-bottom: 1px solid #EEF1F4">
+      <span class="gs" style="width: 44px; height: 44px; border-radius: 12px; background: #EAF7EE; color: #137333; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 500; flex-shrink: 0">EB</span>
+      <div style="display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0">
+        <span class="gs" style="font-size: 18px; font-weight: 600">Estilo Bordado</span>
+        <span class="hint">Piracicaba, SP · onboarding.perfis27@exemplo.com</span>
+        <div style="display: flex; gap: 6px; padding-top: 4px"><span class="badge b-green"><span style="width: 6px; height: 6px; border-radius: 999px; background: #1E8E3E"></span>Ativo</span><span class="badge b-grey"><span class="ms" style="font-size: 14px">sync</span>Atualizado 30/09/2026</span></div>
+      </div>
+      <button class="iconbtn" aria-label="Fechar painel"><span class="ms">close</span></button>
+    </div>
+
+    <div style="flex: 1; overflow: hidden; padding: 20px 24px; display: flex; flex-direction: column; gap: 20px">
+      <div class="card" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: hidden">
+        <div class="kpi"><span class="hint">Total de palavras</span><b>173</b></div>
+        <div class="kpi"><span class="hint">Ranqueadas</span><b style="color: #137333">163</b><span class="hint">94%</span></div>
+        <div class="kpi"><span class="hint">Última leitura</span><b style="font-size: 16px">30/09/2026</b><span class="hint">Radar GeoRanking</span></div>
+      </div>
+
+      <div style="display: flex; gap: 8px">
+        <a href="PerfilBasico.dc.html" class="btn btn-filled" style="flex: 1"><span class="ms">edit_square</span>Editar perfil</a>
+        <a href="#dashboard" class="btn btn-outlined" style="flex: 1"><span class="ms">open_in_new</span>Abrir relatório</a>
+      </div>
+      <span class="hint" style="margin-top: -10px">"Abrir relatório" leva ao relatório atual do vendedor (/dashboard/:id), sem alterações.</span>
+
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="lbl">Relatórios do cliente</span><span class="badge b-yellow">Só admin</span></div>
+        <div class="rep"><span class="ic"><span class="ms">summarize</span></span><div style="display: flex; flex-direction: column; gap: 2px; flex: 1"><span style="font-size: 14px; font-weight: 500">Relatório completo</span><span class="hint">Palavras, posições e evolução · /relatorio/:id</span></div><a href="#relatorio" class="btn btn-tonal btn-sm">Abrir</a></div>
+        <div class="rep"><span class="ic"><span class="ms">history</span></span><div style="display: flex; flex-direction: column; gap: 2px; flex: 1"><span style="font-size: 14px; font-weight: 500">Relatório de retorno</span><span class="hint">Versão para reconquista · /relatorio-winback/:id</span></div><a href="#winback" class="btn btn-tonal btn-sm">Abrir</a></div>
+        <div class="rep"><span class="ic"><span class="ms">link</span></span><div style="display: flex; flex-direction: column; gap: 2px; flex: 1"><span style="font-size: 14px; font-weight: 500">Link de retorno (24 h)</span><span class="hint">Abre o relatório sem login por 24 horas</span></div><button class="btn btn-outlined btn-sm"><span class="ms" style="font-size: 18px">content_copy</span>Copiar</button></div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <span class="lbl">Sincronização</span>
+        <div style="display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding: 10px 0; border-bottom: 1px solid #EEF1F4"><span>Palavras-chave</span><span class="badge b-green">Concluída · 30/09</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding: 10px 0; border-bottom: 1px solid #EEF1F4"><span>Ficha do Google</span><span class="badge b-green">Concluída · hoje, 14:20</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding: 10px 0"><span>Radar</span><span class="badge b-yellow">6 buscas sem resultado</span></div>
+      </div>
+    </div>
+
+    <div style="padding: 14px 24px 20px; border-top: 1px solid #EEF1F4; display: flex; align-items: center; justify-content: space-between; background: #fff">
+      <button class="btn btn-danger btn-sm"><span class="ms" style="font-size: 18px">visibility_off</span>Desativar monitoramento</button>
+      <button class="btn btn-text btn-sm">Fechar</button>
+    </div>
+  </aside>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const mk = (nome, local, st, kw, sync, data, sel) => ({ nome, local, st, stCls: st === 'Ok' ? 'b-green' : st === 'Atenção' ? 'b-yellow' : 'b-red', kw, sync, data, cls: sel ? 'sel' : '' });
+    const rows = [
+      mk('Estilo Bordado', 'Piracicaba · SP', 'Ok', '163 / 173', 'Atualizado · 6 sem resultado', '30/09/2026', true),
+      mk('Náutica Caça e Pesca', 'Barreiras · BA', 'Ok', '8 / 8', 'Atualizado', '30/09/2026', false),
+      mk('CSA Casa da Segurança Eletrônica', 'Rio Verde · GO', 'Ok', '9 / 10', 'Atualizado · 1 sem resultado', '30/09/2026', false),
+      mk('Pirulitos Carrossel', 'Aparecida · GO', 'Atenção', '5 / 12', 'Atualizado · 1 sem resultado', '30/09/2026', false),
+      mk('Point Car · Som e Acessórios', 'Aracaju · SE', 'Ok', '11 / 12', 'Atualizado', '30/09/2026', false),
+      mk('D.Simioni Gesso e Drywall', 'Vinhedo · SP', 'Ok', '7 / 8', 'Atualizado', '30/09/2026', false)
+    ];
+    return { rows };
+  }
+}
+</script>
+</body>
+</html>

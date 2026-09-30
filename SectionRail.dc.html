@@ -15,19 +15,19 @@
 body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;color:#1F1F1F;-webkit-font-smoothing:antialiased}
 a{color:#1264C7;text-decoration:none}
 .ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
-.sec{display:flex;align-items:center;gap:10px;height:40px;padding:0 12px;border-radius:10px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;color:#3C4043;white-space:nowrap;transition:background .15s,color .15s}
-.sec:hover{background:#F3F6FA;color:#1F1F1F}
-.sec.on{background:#EAF1FB;color:#0B4FA8}
-.sec.on .ms{font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24}
-.grp{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:11px;font-weight:600;letter-spacing:.6px;color:#80868B;text-transform:uppercase;padding:14px 12px 6px}
-.st{margin-left:auto;width:8px;height:8px;border-radius:999px}
+.srl-item{display:flex;align-items:center;gap:10px;height:40px;padding:0 12px;border-radius:10px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;color:#3C4043;white-space:nowrap;transition:background .15s,color .15s}
+.srl-item:hover{background:#F3F6FA;color:#1F1F1F}
+.srl-item.on{background:#EAF1FB;color:#0B4FA8}
+.srl-item.on .ms{font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24}
+.srl-grp{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:11px;font-weight:600;letter-spacing:.6px;color:#80868B;text-transform:uppercase;padding:14px 12px 6px}
+.srl-st{margin-left:auto;width:8px;height:8px;border-radius:999px}
 </style>
 </helmet>
 <div style="width: 240px; height: 1028px; box-sizing: border-box; background: #ffffff; border-right: 1px solid #E2E6EA; padding: 10px 12px 16px; display: flex; flex-direction: column; gap: 2px">
   <sc-for list="{{itens}}" as="i" hint-placeholder-count="16">
-    <sc-if value="{{i.grp}}" hint-placeholder-val="{{ false }}"><span class="grp">{{i.grp}}</span></sc-if>
+    <sc-if value="{{i.grp}}" hint-placeholder-val="{{ false }}"><span class="srl-grp">{{i.grp}}</span></sc-if>
     <sc-if value="{{i.label}}" hint-placeholder-val="{{ true }}">
-      <a href="{{i.href}}" class="sec {{i.cls}}"><span class="ms">{{i.icon}}</span>{{i.label}}<sc-if value="{{i.st}}" hint-placeholder-val="{{ false }}"><span class="st" style="background: {{i.st}}" title="{{i.stLabel}}" aria-label="{{i.stLabel}}"></span></sc-if></a>
+      <a href="{{i.href}}" class="srl-item {{i.cls}}"><span class="ms">{{i.icon}}</span>{{i.label}}<sc-if value="{{i.st}}" hint-placeholder-val="{{ false }}"><span class="srl-st" style="background: {{i.st}}" title="{{i.stLabel}}" aria-label="{{i.stLabel}}"></span></sc-if></a>
     </sc-if>
   </sc-for>
   <div style="flex: 1"></div>
