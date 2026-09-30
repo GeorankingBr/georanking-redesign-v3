@@ -33,9 +33,9 @@ a{color:#1264C7;text-decoration:none}
 .chip.on{background:#EAF1FB;border-color:#EAF1FB;color:#0B4FA8;font-weight:500}
 .kv{display:flex;flex-direction:column;gap:3px;padding:12px 14px;border-radius:10px;background:#F7F9FC}
 .kv b{font-weight:500;font-size:14px}
-.area{display:grid;grid-template-columns:44px minmax(0,1fr) 120px 200px;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid #EEF1F4}
+.area{display:grid;grid-template-columns:40px minmax(0,1fr) 120px 200px;align-items:center;gap:14px;padding:10px 18px;border-bottom:1px solid #EEF1F4}
 .area:last-child{border-bottom:0}
-.area .ic{width:44px;height:44px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;background:#EAF1FB;color:#0B4FA8}
+.area .ic{width:40px;height:40px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;background:#EAF1FB;color:#0B4FA8}
 .lim{display:flex;flex-direction:column;align-items:center;gap:2px;padding:12px 8px;border-radius:10px;background:#F7F9FC}
 .lim b{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:22px;font-weight:500;color:#0B4FA8}
 .lim span{font-size:11px;font-weight:600;letter-spacing:.4px;color:#5F6368;text-transform:uppercase}
@@ -43,10 +43,10 @@ a{color:#1264C7;text-decoration:none}
 .notice .ms{color:#B06000;flex-shrink:0}
 </style>
 </helmet>
-<div style="width: 1440px; height: 1400px; box-sizing: border-box; background: #F7F9FC; display: flex; flex-direction: column; position: relative; overflow: hidden">
+<div style="width: 1440px; height: 1500px; box-sizing: border-box; background: #F7F9FC; display: flex; flex-direction: column; position: relative; overflow: hidden">
   <dc-import name="ProfileHeader" hint-size="1440px,72px"></dc-import>
   <div style="display: flex; flex: 1; min-height: 0">
-  <dc-import name="SectionRail" active="ia" hint-size="240px,1328px"></dc-import>
+  <dc-import name="SectionRail" active="ia" hint-size="240px,1428px"></dc-import>
   <div style="flex: 1; min-width: 0; overflow: hidden">
   <div style="display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 24px; padding: 24px 32px 100px">
 
@@ -147,7 +147,7 @@ a{color:#1264C7;text-decoration:none}
   </footer>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1400}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
 class Component extends DCLogic {
   renderVals() {
     const termos = ['uniformes empresariais', 'uniformes personalizados', 'confecção de uniformes', 'uniformes corporativos', 'bordados personalizados', 'bordados para empresas', 'tecidos de qualidade', 'material para uniformes'];

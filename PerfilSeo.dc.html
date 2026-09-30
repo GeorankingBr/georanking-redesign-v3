@@ -32,7 +32,7 @@ a{color:#1264C7;text-decoration:none}
 .kpi b{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:24px;font-weight:500;letter-spacing:-.5px}
 table{border-collapse:collapse;width:100%}
 th{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:600;color:#5F6368;text-align:left;padding:12px 16px;background:#F8FAFC;border-bottom:1px solid #E2E6EA;white-space:nowrap}
-td{padding:12px 16px;border-bottom:1px solid #EEF1F4;font-size:14px;vertical-align:middle}
+td{padding:10px 16px;border-bottom:1px solid #EEF1F4;font-size:14px;vertical-align:middle}
 .inp{display:flex;align-items:center;gap:8px;height:36px;padding:0 10px;border:1px solid #E2E6EA;border-radius:8px;background:#fff}
 .inp input,.inp select{border:0;outline:0;flex:1;font:13px "Google Sans Text",Roboto,Arial,sans-serif;color:#1F1F1F;background:transparent;min-width:0;padding:0}
 .sw{width:36px;height:20px;border-radius:999px;background:#1264C7;position:relative;display:inline-block;border:0;cursor:pointer;padding:0}
@@ -77,15 +77,14 @@ td{padding:12px 16px;border-bottom:1px solid #EEF1F4;font-size:14px;vertical-ali
           <div style="display: flex; gap: 8px"><button class="btn btn-outlined btn-sm"><span class="ms" style="font-size: 18px">add</span>Adicionar serviço</button><button class="btn btn-tonal btn-sm"><span class="ms" style="font-size: 18px">playlist_add_check</span>Cadastrar 4 prontos</button></div>
         </div>
         <table>
-          <thead><tr><th style="padding-left: 18px">Incluir</th><th>Serviço</th><th>Categoria</th><th>Descrição curta</th><th>Origem</th><th>Situação</th><th></th></tr></thead>
+          <thead><tr><th style="padding-left: 18px; width: 40px">Incluir</th><th>Serviço e descrição curta</th><th style="width: 150px">Categoria</th><th style="width: 70px">Origem</th><th style="width: 90px">Situação</th><th style="width: 36px"></th></tr></thead>
           <tbody>
             <sc-for list="{{servicos}}" as="s" hint-placeholder-count="5">
               <tr>
                 <td style="padding-left: 18px"><button class="sw {{s.sw}}" aria-label="Incluir no plano"></button></td>
-                <td style="font-weight: 500">{{s.nome}}</td>
-                <td><label class="inp" style="width: 170px"><select><option>{{s.cat}}</option></select><span class="ms" style="font-size: 16px; color: #5F6368">expand_more</span></label></td>
-                <td class="hint" style="max-width: 260px">{{s.desc}}</td>
-                <td><span class="badge b-grey">{{s.orig}}</span></td>
+                <td><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 500">{{s.nome}}</span><span class="hint">{{s.desc}}</span></div></td>
+                <td><label class="inp" style="width: 140px"><select><option>{{s.cat}}</option></select><span class="ms" style="font-size: 16px; color: #5F6368">expand_more</span></label></td>
+                                <td><span class="badge b-grey">{{s.orig}}</span></td>
                 <td><span class="badge {{s.stCls}}"><span class="ms" style="font-size: 14px">{{s.stIcon}}</span>{{s.st}}</span></td>
                 <td style="text-align: right"><button class="iconbtn" aria-label="Editar"><span class="ms">edit</span></button></td>
               </tr>
