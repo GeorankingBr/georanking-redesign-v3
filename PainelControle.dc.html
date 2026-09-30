@@ -69,7 +69,7 @@ a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
           <span class="gs" style="font-size: 14px; font-weight: 500; color: #0B4FA8">Perfis ativos</span>
           <span class="ms" style="color: #0B4FA8; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">storefront</span>
         </div>
-        <div class="gs" style="font-size: 44px; line-height: 48px; font-weight: 500; color: #0B4FA8; letter-spacing: -1px">8.636</div>
+        <div class="gs" style="font-size: 44px; line-height: 48px; font-weight: 500; color: #1F1F1F; letter-spacing: -1px">8.636</div>
         <div style="font-size: 13px; color: #3C4043">de 12.906 clientes cadastrados</div>
       </div>
       <div class="card kpi up d2" style="padding: 24px; display: flex; flex-direction: column; gap: 14px">
@@ -77,7 +77,7 @@ a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
           <span class="gs" style="font-size: 14px; font-weight: 500; color: #137333">Em acompanhamento</span>
           <span class="ms" style="color: #137333; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">visibility</span>
         </div>
-        <div class="gs" style="font-size: 44px; line-height: 48px; font-weight: 500; color: #137333; letter-spacing: -1px">8.626</div>
+        <div class="gs" style="font-size: 44px; line-height: 48px; font-weight: 500; color: #1F1F1F; letter-spacing: -1px">8.626</div>
         <div style="font-size: 13px; color: #3C4043">100% dos perfis ativos</div>
       </div>
       <div class="card kpi up d3" style="padding: 24px; display: flex; flex-direction: column; gap: 14px">
@@ -85,7 +85,7 @@ a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
           <span class="gs" style="font-size: 14px; font-weight: 500; color: #B06000">Contas gestoras conectadas</span>
           <span class="ms" style="color: #B06000; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">manage_accounts</span>
         </div>
-        <div class="gs" style="font-size: 44px; line-height: 48px; font-weight: 500; color: #B06000; letter-spacing: -1px">110</div>
+        <div class="gs" style="font-size: 44px; line-height: 48px; font-weight: 500; color: #1F1F1F; letter-spacing: -1px">110</div>
         <div style="font-size: 13px; color: #3C4043">de 116 contas · 11 convites pendentes</div>
       </div>
       <div class="card kpi up d4" style="padding: 24px; display: flex; flex-direction: column; gap: 14px">
@@ -94,7 +94,7 @@ a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
           <span class="ms" style="color: #C5221F; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">sync_problem</span>
         </div>
         <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 12px">
-          <div class="gs" style="font-size: 44px; line-height: 48px; font-weight: 500; color: #C5221F; letter-spacing: -1px">2</div>
+          <div class="gs" style="font-size: 44px; line-height: 48px; font-weight: 500; color: #1F1F1F; letter-spacing: -1px">2</div>
           <a href="QualidadePerfis.dc.html" class="btn btn-sm" style="background: #fff; color: #C5221F">Ver contas<span class="ms" style="font-size: 18px">arrow_forward</span></a>
         </div>
         <div style="font-size: 13px; color: #3C4043">contas com token vencido ou revogado</div>
@@ -193,25 +193,21 @@ a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
         <div style="display: flex; align-items: flex-start; justify-content: space-between">
           <div style="display: flex; flex-direction: column; gap: 4px">
             <h2 class="gs" style="margin: 0; font-size: 20px; font-weight: 500">Novos perfis por mês</h2>
-            <span style="font-size: 13px; color: #5F6368">Perfis de clientes ativos cadastrados nos últimos 12 meses. Valores ilustrativos até ligar ao banco.</span>
+            <span style="font-size: 13px; color: #5F6368">Perfis de clientes ativos cadastrados nos últimos 12 meses. Fonte: banco GeoRanking.</span>
           </div>
           <span class="badge b-grey">12 meses</span>
         </div>
-        <div style="display: flex; align-items: flex-end; gap: 14px; height: 160px; padding: 0 4px">
-          <sc-for list="{{meses}}" as="m" hint-placeholder-count="12">
-            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; justify-content: flex-end">
-              <span class="gs" style="font-size: 12px; font-weight: 500; color: #3C4043">{{m.value}}</span>
-              <div class="col" style="width: 100%; border-radius: 8px 8px 4px 4px; background: {{m.color}}; height: {{m.pct}}"></div>
-              <span style="font-size: 12px; color: #5F6368">{{m.label}}</span>
-            </div>
-          </sc-for>
+        <div style="height: 160px; border-radius: 12px; background: #F7F9FC; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center">
+          <span class="ms" style="font-size: 30px; color: #9AA0A6">bar_chart</span>
+          <span class="gs" style="font-size: 14px; font-weight: 500">Dados históricos ainda não disponíveis</span>
+          <span style="font-size: 12px; color: #5F6368">A série mensal aparece quando o backend registrar a data de cadastro dos perfis.</span>
         </div>
       </section>
 
       <section class="card up d6" style="padding: 28px; display: flex; flex-direction: column; gap: 16px">
         <div style="display: flex; flex-direction: column; gap: 4px">
           <h2 class="gs" style="margin: 0; font-size: 20px; font-weight: 500">Maiores cidades</h2>
-          <span style="font-size: 13px; color: #5F6368">As oito maiores concentrações da base.</span>
+          <span style="font-size: 13px; color: #5F6368">As oito maiores concentrações da base. Fonte: banco GeoRanking.</span>
         </div>
         <div style="display: flex; flex-direction: column">
           <sc-for list="{{cidades}}" as="c" hint-placeholder-count="8">

@@ -21,6 +21,7 @@ a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
 .btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
 .btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #DADCE0}.btn-outlined:hover{background:#F8FAFD;border-color:#C2D7F5}
 .btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.btn-text{background:transparent;color:#5F6368}
 .iconbtn{width:36px;height:36px;border-radius:10px;border:0;background:transparent;color:#5F6368;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s}
 .iconbtn:hover{background:#F1F3F4;color:#202124}
 .chip{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border-radius:999px;border:1px solid #DADCE0;background:#fff;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;color:#3C4043;cursor:pointer;white-space:nowrap;transition:background .15s}
@@ -61,43 +62,38 @@ tbody tr{transition:background .15s}tbody tr:hover td{background:#F8FAFD}
       </div>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
-      <div class="card up d1" style="padding: 18px 22px; display: flex; align-items: center; gap: 14px">
+    <div class="card up d1" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: hidden">
+      <div style="padding: 18px 22px; display: flex; align-items: center; gap: 14px; border-right: 1px solid #EEF1F4">
         <span class="ms" style="width: 40px; height: 40px; border-radius: 12px; background: #EAF1FB; color: #0B4FA8; display: inline-flex; align-items: center; justify-content: center">visibility</span>
         <div style="display: flex; flex-direction: column"><span class="gs" style="font-size: 24px; font-weight: 500; letter-spacing: -.5px">8.626</span><span style="font-size: 12px; color: #5F6368">em acompanhamento</span></div>
       </div>
-      <div class="card up d2" style="padding: 18px 22px; display: flex; align-items: center; gap: 14px">
+      <div style="padding: 18px 22px; display: flex; align-items: center; gap: 14px; border-right: 1px solid #EEF1F4">
         <span class="ms" style="width: 40px; height: 40px; border-radius: 12px; background: #E6F4EA; color: #137333; display: inline-flex; align-items: center; justify-content: center">check_circle</span>
-        <div style="display: flex; flex-direction: column"><span class="gs" style="font-size: 24px; font-weight: 500; letter-spacing: -.5px">[OK]</span><span style="font-size: 12px; color: #5F6368">com 8+ palavras ranqueadas</span></div>
+        <div style="display: flex; flex-direction: column"><span class="gs" style="font-size: 24px; font-weight: 500; letter-spacing: -.5px">—</span><span style="font-size: 12px; color: #5F6368">saudáveis · 8+ palavras · ainda não disponível</span></div>
       </div>
-      <div class="card up d3" style="padding: 18px 22px; display: flex; align-items: center; gap: 14px">
+      <div style="padding: 18px 22px; display: flex; align-items: center; gap: 14px; border-right: 1px solid #EEF1F4">
         <span class="ms" style="width: 40px; height: 40px; border-radius: 12px; background: #FEF7E0; color: #B06000; display: inline-flex; align-items: center; justify-content: center">warning</span>
-        <div style="display: flex; flex-direction: column"><span class="gs" style="font-size: 24px; font-weight: 500; letter-spacing: -.5px">[ATENÇÃO]</span><span style="font-size: 12px; color: #5F6368">entre 1 e 7 palavras</span></div>
+        <div style="display: flex; flex-direction: column"><span class="gs" style="font-size: 24px; font-weight: 500; letter-spacing: -.5px">—</span><span style="font-size: 12px; color: #5F6368">atenção · 1–7 palavras · ainda não disponível</span></div>
       </div>
-      <div class="card up d4" style="padding: 18px 22px; display: flex; align-items: center; gap: 14px">
+      <div style="padding: 18px 22px; display: flex; align-items: center; gap: 14px; border-right: 1px solid #EEF1F4">
         <span class="ms" style="width: 40px; height: 40px; border-radius: 12px; background: #FCE8E6; color: #C5221F; display: inline-flex; align-items: center; justify-content: center">error</span>
-        <div style="display: flex; flex-direction: column"><span class="gs" style="font-size: 24px; font-weight: 500; letter-spacing: -.5px">[CRÍTICOS]</span><span style="font-size: 12px; color: #5F6368">zero palavras ou duplicata</span></div>
+        <div style="display: flex; flex-direction: column"><span class="gs" style="font-size: 24px; font-weight: 500; letter-spacing: -.5px">—</span><span style="font-size: 12px; color: #5F6368">críticos · sem ranking · ainda não disponível</span></div>
       </div>
     </div>
 
-    <div class="up d2" style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
-      <label class="search" style="width: 320px">
+    <div class="up d2" style="display: flex; align-items: center; gap: 10px">
+      <label class="search" style="width: 340px">
         <span class="ms" style="color: #5F6368">search</span>
         <input type="search" placeholder="Buscar por nome, e-mail ou localidade">
       </label>
-      <span style="width: 1px; height: 28px; background: #DADCE0"></span>
-      <span class="gs" style="font-size: 12px; font-weight: 500; color: #5F6368; text-transform: uppercase; letter-spacing: .3px">Status</span>
-      <button class="chip on">Todos</button>
-      <button class="chip"><span style="width: 8px; height: 8px; border-radius: 999px; background: #1E8E3E"></span>Ok</button>
-      <button class="chip"><span style="width: 8px; height: 8px; border-radius: 999px; background: #F9AB00"></span>Atenção</button>
-      <button class="chip"><span style="width: 8px; height: 8px; border-radius: 999px; background: #D93025"></span>Crítico</button>
-      <button class="chip"><span class="ms" style="font-size: 16px">content_copy</span>Duplicata no Google</button>
-      <span style="width: 1px; height: 28px; background: #DADCE0"></span>
-      <span class="gs" style="font-size: 12px; font-weight: 500; color: #5F6368; text-transform: uppercase; letter-spacing: .3px">Palavras</span>
-      <button class="chip on">Todas</button>
-      <button class="chip">Zero</button>
-      <button class="chip">1–7</button>
-      <button class="chip">8+</button>
+      <button class="chip">Status<span class="ms" style="font-size: 18px">expand_more</span></button>
+      <button class="chip">Palavras<span class="ms" style="font-size: 18px">expand_more</span></button>
+      <button class="chip"><span class="ms" style="font-size: 18px">tune</span>Mais filtros</button>
+      <span style="width: 1px; height: 24px; background: #E2E6EA"></span>
+      <span class="chip on" style="gap: 8px">Status: Crítico<span class="ms" style="font-size: 16px">close</span></span>
+      <button class="btn btn-text btn-sm" style="color: #5F6368">Limpar</button>
+      <span style="flex: 1"></span>
+      <span style="font-size: 13px; color: #5F6368">14 de 8.626 perfis</span>
     </div>
 
     <section class="card up d3" style="overflow: hidden">

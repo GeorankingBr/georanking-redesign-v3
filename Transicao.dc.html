@@ -35,7 +35,8 @@ a{color:#1264C7;text-decoration:none}
 @keyframes ring{0%{opacity:.6;transform:scale(.6)}100%{opacity:0;transform:scale(1.8)}}
 .bar{transform-box:fill-box;transform-origin:center;opacity:0;animation:bar .2s cubic-bezier(.2,.8,.2,1) forwards}
 @keyframes bar{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.base{opacity:0;animation:bar .2s cubic-bezier(.2,.8,.2,1) .32s forwards}
+.base{opacity:0;animation:reveal .22s cubic-bezier(.2,.8,.2,1) .32s forwards}
+@keyframes reveal{from{opacity:0;transform:translate(-50%,8px);clip-path:inset(0 100% 0 0)}to{opacity:1;transform:translate(-50%,0);clip-path:inset(0 0 0 0)}}
 .pinout{animation:pinout .2s cubic-bezier(.2,0,0,1) .44s forwards}
 @keyframes pinout{to{opacity:0;transform:translateY(-6px)}}
 .next{opacity:0;animation:next .21s cubic-bezier(.2,0,0,1) .44s forwards}
@@ -67,13 +68,8 @@ a{color:#1264C7;text-decoration:none}
             <circle cx="40" cy="150" r="4" fill="#fff" stroke="#1264C7" stroke-width="3"></circle>
             <circle class="ring" cx="160" cy="96" r="14" fill="none" stroke="#1264C7" stroke-width="2"></circle>
             <g class="pin pinout"><path d="M160 60c-10 0-18 8-18 18 0 13 18 30 18 30s18-17 18-30c0-10-8-18-18-18z" fill="#1264C7"></path><circle cx="160" cy="78" r="6.5" fill="#fff"></circle></g>
-            <g transform="translate(120 104) scale(.8)">
-              <rect class="bar" x="8" y="22" width="26" height="40" rx="7" fill="#FBBC04" style="animation-delay: .32s"></rect>
-              <rect class="bar" x="37" y="10" width="26" height="52" rx="7" fill="#34A853" style="animation-delay: .36s"></rect>
-              <rect class="bar" x="66" y="30" width="26" height="32" rx="6" fill="#EA4335" style="animation-delay: .40s"></rect>
-              <path class="base" d="M8 66h84v10a14 14 0 0 1-14 14H22A14 14 0 0 1 8 76z" fill="#1264C7"></path>
-            </g>
           </svg>
+          <img class="base" src="./assets/d7deb3dbeca88c52d3f7d166aae7502c.png" alt="GeoRanking" style="position: absolute; left: 50%; top: 58%; height: 56px; width: auto">
         </div>
         <div class="next" style="position: absolute; left: 0; right: 0; bottom: 0; height: 46%; padding: 24px 48px; box-sizing: border-box; background: #F7F9FC; border-top: 1px solid #E2E6EA; display: flex; flex-direction: column; gap: 12px">
           <div style="display: flex; align-items: center; gap: 8px"><span class="badge b-blue">Nova tela entra em 440–650 ms</span><span class="hint">sem bloquear a navegação real</span></div>
@@ -91,15 +87,15 @@ a{color:#1264C7;text-decoration:none}
       <div class="ph"><span>80–220 ms</span><div class="t"><span style="left: 12%; width: 22%"></span></div><span class="hint">rota curta desenha até o destino</span></div>
       <div class="ph"><span>180–320 ms</span><div class="t"><span style="left: 28%; width: 21%"></span></div><span class="hint">pin entra: 10 px, opacity, scale .96→1</span></div>
       <div class="ph"><span>260–420 ms</span><div class="t"><span style="left: 40%; width: 24%"></span></div><span class="hint">um pulso de confirmação, 220 ms</span></div>
-      <div class="ph"><span>320–520 ms</span><div class="t"><span style="left: 49%; width: 31%"></span></div><span class="hint">barras do símbolo entram, 40 ms entre elas</span></div>
+      <div class="ph"><span>320–520 ms</span><div class="t"><span style="left: 49%; width: 31%"></span></div><span class="hint">identidade GeoRanking revela (asset oficial, clip + fade)</span></div>
       <div class="ph"><span>440–650 ms</span><div class="t"><span style="left: 68%; width: 32%"></span></div><span class="hint">pin sai, nova tela entra</span></div>
       <span class="hint">Curvas: base cubic-bezier(.2,0,0,1) · ênfase cubic-bezier(.2,.8,.2,1). Sem bounce, sem loop, sem sombra pulsando.</span>
     </div>
     <div class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 12px">
       <span class="lab">Regras de marca</span>
       <div style="display: flex; align-items: center; gap: 16px">
-        <svg viewBox="0 0 100 100" width="56" height="56" aria-hidden="true"><rect x="8" y="22" width="26" height="40" rx="7" fill="#FBBC04"></rect><rect x="37" y="10" width="26" height="52" rx="7" fill="#34A853"></rect><rect x="66" y="30" width="26" height="32" rx="6" fill="#EA4335"></rect><path d="M8 66h84v10a14 14 0 0 1-14 14H22A14 14 0 0 1 8 76z" fill="#1264C7"></path></svg>
-        <span style="font-size: 13px; line-height: 19px; color: #2B2D31">O símbolo termina como no logotipo: três barras e base azul, sem pin dentro. O pin é um elemento temporário que se aproxima, confirma e some.</span>
+        <img src="./assets/d7deb3dbeca88c52d3f7d166aae7502c.png" alt="GeoRanking" style="height: 36px; width: auto">
+        <span style="font-size: 13px; line-height: 19px; color: #2B2D31">O logotipo oficial é a fonte de verdade: entra por reveal (clip + fade), sem redesenho do símbolo. O pin é temporário: aproxima, confirma e some.</span>
       </div>
     </div>
     <div class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 10px">

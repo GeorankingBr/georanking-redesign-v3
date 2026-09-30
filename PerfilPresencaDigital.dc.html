@@ -39,6 +39,8 @@ td{padding:12px 16px;border-bottom:1px solid #EEF1F4;font-size:14px;vertical-ali
 .qr{width:72px;height:72px;border-radius:8px;background:repeating-conic-gradient(#1F1F1F 0 25%, #fff 0 50%) 0 0/16px 16px;border:4px solid #fff;outline:1px solid #E2E6EA}
 .tip{display:flex;gap:12px;padding:14px 16px;border-radius:12px;background:#F3F6FA;font-size:13px;line-height:19px;color:#2B2D31}
 .tip .ms{flex-shrink:0;color:#1264C7}
+.spin{animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 .up{animation:up .4s cubic-bezier(.2,.8,.2,1) both}
 @keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .d1{animation-delay:.06s}.d2{animation-delay:.12s}
@@ -109,7 +111,7 @@ td{padding:12px 16px;border-bottom:1px solid #EEF1F4;font-size:14px;vertical-ali
   </div>
   <footer style="position: absolute; left: 240px; right: 0; bottom: 0; height: 72px; background: #fff; border-top: 1px solid #E2E6EA; box-shadow: 0 -4px 14px rgba(31,35,41,.04)">
     <div style="padding: 0 32px; height: 100%; display: flex; align-items: center; justify-content: space-between">
-      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #137333"><span class="ms" style="font-size: 18px">check_circle</span>Mini-site republicado às 19:42</div>
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #2B2D31"><span class="ms spin" style="font-size: 18px; color: #1264C7">progress_activity</span>Salvando…</div>
       <div style="display: flex; gap: 8px"><button class="btn btn-text">Fechar</button><button class="btn btn-filled"><span class="ms">publish</span>Republicar mini-site</button></div>
     </div>
   </footer>

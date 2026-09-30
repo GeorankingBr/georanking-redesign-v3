@@ -27,11 +27,10 @@ a{color:#1264C7;text-decoration:none}
   <sc-for list="{{itens}}" as="i" hint-placeholder-count="16">
     <sc-if value="{{i.grp}}" hint-placeholder-val="{{ false }}"><span class="grp">{{i.grp}}</span></sc-if>
     <sc-if value="{{i.label}}" hint-placeholder-val="{{ true }}">
-      <a href="{{i.href}}" class="sec {{i.cls}}"><span class="ms">{{i.icon}}</span>{{i.label}}<sc-if value="{{i.st}}" hint-placeholder-val="{{ false }}"><span class="st" style="background: {{i.st}}" aria-label="{{i.stLabel}}"></span></sc-if></a>
+      <a href="{{i.href}}" class="sec {{i.cls}}"><span class="ms">{{i.icon}}</span>{{i.label}}<sc-if value="{{i.st}}" hint-placeholder-val="{{ false }}"><span class="st" style="background: {{i.st}}" title="{{i.stLabel}}" aria-label="{{i.stLabel}}"></span></sc-if></a>
     </sc-if>
   </sc-for>
   <div style="flex: 1"></div>
-  <div style="padding: 12px; border-radius: 12px; background: #F7F9FC; font-size: 12px; line-height: 17px; color: #5F6368"><span style="display: inline-block; width: 8px; height: 8px; border-radius: 999px; background: #F9AB00; margin-right: 6px"></span>Pendência em Horários e Atributos<br><span style="display: inline-block; width: 8px; height: 8px; border-radius: 999px; background: #D93025; margin-right: 6px"></span>Alteração não salva em Descrição</div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"active":{"editor":"enum","options":["basico","contato","local","horarios","descricao","servicos","postagens","gabarito","atributos","ia","seo","presenca"],"default":"basico"},"$preview":{"width":240,"height":1028}}'>
@@ -43,7 +42,7 @@ class Component extends DCLogic {
       { key: 'basico', label: 'Informações básicas', icon: 'business', href: 'PerfilBasico.dc.html' },
       { key: 'contato', label: 'Contato', icon: 'contact_phone', href: 'PerfilContato.dc.html' },
       { key: 'local', label: 'Local e áreas', icon: 'place', href: 'PerfilLocal.dc.html' },
-      { key: 'horarios', label: 'Horários', icon: 'schedule', href: 'PerfilHorarios.dc.html', st: '#F9AB00', stLabel: 'Pendência' },
+      { key: 'horarios', label: 'Horários', icon: 'schedule', href: 'PerfilHorarios.dc.html', st: '#F9AB00', stLabel: '1 pendência' },
       { key: 'descricao', label: 'Descrição', icon: 'description', href: 'PerfilDescricao.dc.html', st: '#D93025', stLabel: 'Alteração não salva' },
       { grp: 'Conteúdo' },
       { key: 'servicos', label: 'Serviços', icon: 'build', href: 'PerfilServicos.dc.html' },
