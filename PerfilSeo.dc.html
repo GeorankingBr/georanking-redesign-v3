@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<title>Perfil · SEO</title>
+<title>Perfil · Plano de atualização (serviços e produtos)</title>
 <script src="./vendor/react.js"></script>
 <script src="./vendor/react-dom.js"></script>
 <script src="./support.js"></script>
@@ -13,132 +13,163 @@
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
 <style>
 body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
-a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+a{color:#1264C7;text-decoration:none}
 .gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
 .ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap}
-.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#0B4FA8}
-.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
-.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-outlined:hover{background:#F3F6FA}
-.btn-text{background:transparent;color:#5F6368}.btn-text:hover{background:#F3F6FA;color:#1F1F1F}
-.btn-sm{height:34px;padding:0 12px;font-size:13px;border-radius:10px}
+.btn-filled{background:#1264C7;color:#fff}.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-text{background:transparent;color:#5F6368}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.iconbtn{width:36px;height:36px;border-radius:10px;border:0;background:transparent;color:#5F6368;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
 .card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
-.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
-.b-green{background:#EAF7EE;color:#137333}.b-yellow{background:#FFF7E0;color:#B06000}.b-red{background:#FCE8E6;color:#B3261E}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}
-.lab{display:flex;align-items:center;gap:8px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;color:#2B2D31}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:999px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#EAF7EE;color:#137333}.b-yellow{background:#FFF7E0;color:#B06000}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}.b-red{background:#FCE8E6;color:#B3261E}
 .hint{font-size:13px;line-height:18px;color:#5F6368}
-.h2{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:22px;line-height:28px;font-weight:500;color:#1F1F1F;margin:0}
-.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:15px;font-weight:600;color:#1F1F1F;margin:0}
-.kpi{display:flex;flex-direction:column;gap:4px;padding:16px 20px;border-right:1px solid #EEF1F4}
+.h2{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:22px;line-height:28px;font-weight:500;margin:0}
+.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:15px;font-weight:600;margin:0}
+.lbl{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:11px;font-weight:600;letter-spacing:.6px;color:#80868B;text-transform:uppercase}
+.kpi{display:flex;flex-direction:column;gap:4px;padding:14px 18px;border-right:1px solid #EEF1F4}
 .kpi:last-child{border-right:0}
-.kpi b{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:28px;font-weight:500;letter-spacing:-.5px}
+.kpi b{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:24px;font-weight:500;letter-spacing:-.5px}
 table{border-collapse:collapse;width:100%}
 th{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:600;color:#5F6368;text-align:left;padding:12px 16px;background:#F8FAFC;border-bottom:1px solid #E2E6EA;white-space:nowrap}
-td{padding:12px 16px;border-bottom:1px solid #EEF1F4;font-size:14px;color:#1F1F1F;vertical-align:middle}
-tbody tr:hover td{background:#EAF1FB}
-.pos{display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:28px;padding:0 8px;border-radius:8px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500}
-.opp{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;border:1px solid #EEF1F4}
-.opp .ic{width:36px;height:36px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
-.tip{display:flex;gap:12px;padding:14px 16px;border-radius:12px;background:#F3F6FA;font-size:13px;line-height:19px;color:#2B2D31}
-.tip .ms{flex-shrink:0;color:#1264C7}
-.up{animation:up .4s cubic-bezier(.2,.8,.2,1) both}
-@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.d1{animation-delay:.06s}.d2{animation-delay:.12s}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+td{padding:12px 16px;border-bottom:1px solid #EEF1F4;font-size:14px;vertical-align:middle}
+.inp{display:flex;align-items:center;gap:8px;height:36px;padding:0 10px;border:1px solid #E2E6EA;border-radius:8px;background:#fff}
+.inp input,.inp select{border:0;outline:0;flex:1;font:13px "Google Sans Text",Roboto,Arial,sans-serif;color:#1F1F1F;background:transparent;min-width:0;padding:0}
+.sw{width:36px;height:20px;border-radius:999px;background:#1264C7;position:relative;display:inline-block;border:0;cursor:pointer;padding:0}
+.sw::after{content:"";position:absolute;top:2px;left:18px;width:16px;height:16px;border-radius:999px;background:#fff}
+.sw.off{background:#BDC1C6}.sw.off::after{left:2px}
+.prod{display:grid;grid-template-columns:72px minmax(0,1.2fr) minmax(0,1.4fr) 110px 130px 40px;align-items:center;gap:14px;padding:12px 16px;border-bottom:1px solid #EEF1F4}
+.prod:last-child{border-bottom:0}
+.thumb{width:72px;height:56px;border-radius:8px;background:#EAF1FB;color:#0B4FA8;display:inline-flex;align-items:center;justify-content:center}
+.thumb.empty{background:#fff;border:1px dashed #F6AEA9;color:#B3261E}
+.notice{display:flex;gap:10px;padding:12px 14px;border-radius:12px;background:#FFF7E0;border:1px solid #FDE293;font-size:13px;line-height:19px;color:#5F4200}
+.notice .ms{color:#B06000;flex-shrink:0}
+.step{display:flex;gap:10px;font-size:13px;line-height:18px;color:#2B2D31}
+.step b{width:22px;height:22px;border-radius:999px;background:#EAF1FB;color:#0B4FA8;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0}
 </style>
 </helmet>
-<div style="width: 1440px; height: 1100px; box-sizing: border-box; background: #F7F9FC; display: flex; flex-direction: column; position: relative; overflow: hidden">
+<div style="width: 1440px; height: 1300px; box-sizing: border-box; background: #F7F9FC; display: flex; flex-direction: column; position: relative; overflow: hidden">
   <dc-import name="ProfileHeader" hint-size="1440px,72px"></dc-import>
   <div style="display: flex; flex: 1; min-height: 0">
-  <dc-import name="SectionRail" active="seo" hint-size="240px,1028px"></dc-import>
+  <dc-import name="SectionRail" active="seo" hint-size="240px,1228px"></dc-import>
   <div style="flex: 1; min-width: 0; overflow: hidden">
+  <div style="display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 24px; padding: 24px 32px 100px">
 
-  <div style="margin: 0; display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 32px; padding: 24px 32px 100px">
-    <div class="up" style="display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-direction: column; gap: 20px">
       <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px">
         <div style="display: flex; flex-direction: column; gap: 4px">
-          <h2 class="h2">SEO local</h2>
-          <span class="hint">Posições medidas pelo Radar GeoRanking nas buscas do Google Maps. Última medição: hoje, 06:10 · Barreiras, BA.</span>
+          <h2 class="h2">Plano de atualização · serviços e produtos</h2>
+          <span class="hint">O que será cadastrado na ficha do Google pela extensão do Chrome, dentro do limite diário. Itens vêm do Gabarito e das sugestões da IA; você revisa antes.</span>
         </div>
-        <button class="btn btn-tonal"><span class="ms">auto_awesome</span>Pesquisar oportunidades com IA</button>
+        <a href="PerfilAssistenteIA.dc.html" class="btn btn-outlined"><span class="ms">auto_awesome</span>Voltar ao assistente</a>
       </div>
 
-      <div class="card" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr))">
-        <div class="kpi"><span class="hint">Palavras monitoradas</span><b>8</b><span class="hint">Plano Ouro · até 8</span></div>
-        <div class="kpi"><span class="hint">No Top 3</span><b style="color: #137333">4</b><span class="badge b-green" style="align-self: flex-start">+1 esta semana</span></div>
-        <div class="kpi"><span class="hint">No Top 10</span><b>7</b><span class="hint">de 8</span></div>
-        <div class="kpi"><span class="hint">Sem ranking</span><b style="color: #B3261E">1</b><span class="hint">"motor de popa"</span></div>
+      <div class="card" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: hidden">
+        <div class="kpi"><span class="hint">Serviços no plano</span><b>5</b><span class="hint">4 prontos · 1 revisar</span></div>
+        <div class="kpi"><span class="hint">Produtos no plano</span><b>3</b><span class="hint">1 sem foto</span></div>
+        <div class="kpi"><span class="hint">Publicados hoje</span><b>0<span style="font-size: 16px; color: #5F6368">/20</span></b><span class="hint">limite diário do Google</span></div>
+        <div class="kpi"><span class="hint">Publicação</span><b style="font-size: 16px">Extensão do Chrome</b><span class="badge b-green" style="align-self: flex-start">Conta conectada</span></div>
       </div>
 
-      <div class="card" style="overflow: hidden">
+      <section class="card" style="overflow: hidden">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid #E2E6EA; background: #F8FAFC">
+          <div style="display: flex; flex-direction: column; gap: 2px"><span class="h3" style="font-size: 14px">Serviços a cadastrar</span><span class="hint">Nome, categoria e descrição curta. Duplicidades com a ficha são removidas automaticamente.</span></div>
+          <div style="display: flex; gap: 8px"><button class="btn btn-outlined btn-sm"><span class="ms" style="font-size: 18px">add</span>Adicionar serviço</button><button class="btn btn-tonal btn-sm"><span class="ms" style="font-size: 18px">playlist_add_check</span>Cadastrar 4 prontos</button></div>
+        </div>
         <table>
-          <thead><tr><th>Palavra-chave</th><th>Posição</th><th>Variação 30 d</th><th>Cidade</th><th>Medido em</th><th></th></tr></thead>
+          <thead><tr><th style="padding-left: 18px">Incluir</th><th>Serviço</th><th>Categoria</th><th>Descrição curta</th><th>Origem</th><th>Situação</th><th></th></tr></thead>
           <tbody>
-            <sc-for list="{{rows}}" as="r" hint-placeholder-count="8">
+            <sc-for list="{{servicos}}" as="s" hint-placeholder-count="5">
               <tr>
-                <td style="font-weight: 500">{{r.kw}}</td>
-                <td><span class="pos" style="background: {{r.bg}}; color: {{r.fg}}">{{r.pos}}</span></td>
-                <td><span class="badge {{r.vCls}}"><span class="ms" style="font-size: 14px">{{r.vIcon}}</span>{{r.var}}</span></td>
-                <td style="color: #5F6368; font-size: 13px">{{r.cidade}}</td>
-                <td style="color: #5F6368; font-size: 13px">{{r.data}}</td>
-                <td style="text-align: right"><a href="ClienteRelatorioPalavras.dc.html" class="btn btn-text btn-sm">Histórico<span class="ms" style="font-size: 16px">chevron_right</span></a></td>
+                <td style="padding-left: 18px"><button class="sw {{s.sw}}" aria-label="Incluir no plano"></button></td>
+                <td style="font-weight: 500">{{s.nome}}</td>
+                <td><label class="inp" style="width: 170px"><select><option>{{s.cat}}</option></select><span class="ms" style="font-size: 16px; color: #5F6368">expand_more</span></label></td>
+                <td class="hint" style="max-width: 260px">{{s.desc}}</td>
+                <td><span class="badge b-grey">{{s.orig}}</span></td>
+                <td><span class="badge {{s.stCls}}"><span class="ms" style="font-size: 14px">{{s.stIcon}}</span>{{s.st}}</span></td>
+                <td style="text-align: right"><button class="iconbtn" aria-label="Editar"><span class="ms">edit</span></button></td>
               </tr>
             </sc-for>
           </tbody>
         </table>
-      </div>
+      </section>
+
+      <section class="card" style="overflow: hidden">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid #E2E6EA; background: #F8FAFC">
+          <div style="display: flex; flex-direction: column; gap: 2px"><span class="h3" style="font-size: 14px">Produtos a preparar</span><span class="hint">Cada produto precisa de foto e link válido (site, página ou WhatsApp) para ser publicado.</span></div>
+          <div style="display: flex; gap: 8px"><button class="btn btn-outlined btn-sm"><span class="ms" style="font-size: 18px">add</span>Adicionar produto</button><button class="btn btn-tonal btn-sm"><span class="ms" style="font-size: 18px">visibility</span>Simular na ficha</button></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 72px minmax(0, 1.2fr) minmax(0, 1.4fr) 110px 130px 40px; gap: 14px; padding: 10px 16px; font-family: 'Google Sans', Roboto, Arial, sans-serif; font-size: 12px; font-weight: 600; color: #5F6368; border-bottom: 1px solid #EEF1F4"><span>Foto</span><span>Produto</span><span>Link</span><span>Preço</span><span>Situação</span><span></span></div>
+        <sc-for list="{{produtos}}" as="p" hint-placeholder-count="3">
+          <div class="prod">
+            <div class="thumb {{p.thCls}}"><span class="ms" style="font-size: 22px">{{p.thIcon}}</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 14px; font-weight: 500">{{p.nome}}</span><span class="hint">{{p.desc}}</span></div>
+            <label class="inp"><span class="ms" style="font-size: 16px; color: #5F6368">link</span><input value="{{p.link}}"></label>
+            <label class="inp"><input value="{{p.preco}}"></label>
+            <span class="badge {{p.stCls}}"><span class="ms" style="font-size: 14px">{{p.stIcon}}</span>{{p.st}}</span>
+            <button class="iconbtn" aria-label="Mais"><span class="ms">more_vert</span></button>
+          </div>
+        </sc-for>
+      </section>
     </div>
 
     <aside style="display: flex; flex-direction: column; gap: 16px">
-      <div class="card up d1" style="padding: 20px; display: flex; flex-direction: column; gap: 12px">
-        <div style="display: flex; align-items: center; justify-content: space-between"><span class="lab"><span class="ms" style="color: #1264C7">insights</span>Oportunidades</span><span class="badge b-blue">4</span></div>
-        <div class="opp"><span class="ic" style="background: #EAF1FB; color: #0B4FA8"><span class="ms">build</span></span><div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 500">Cadastrar serviço "motor de popa"</span><span class="hint">Palavra sem ranking e sem serviço na ficha</span></div><button class="btn btn-tonal btn-sm">Abrir</button></div>
-        <div class="opp"><span class="ic" style="background: #FFF7E0; color: #B06000"><span class="ms">feed</span></span><div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 500">Postagem sobre iscas artificiais</span><span class="hint">Posição 6, sem post nos últimos 30 dias</span></div><button class="btn btn-tonal btn-sm">Criar</button></div>
-        <div class="opp"><span class="ic" style="background: #EAF7EE; color: #137333"><span class="ms">inventory_2</span></span><div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 500">Preparar 3 produtos com foto e link</span><span class="hint">Produtos aparecem no painel "Produtos" da ficha</span></div><button class="btn btn-tonal btn-sm">Preparar</button></div>
-        <div class="opp"><span class="ic" style="background: #F3F6FA; color: #5F6368"><span class="ms">tune</span></span><div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 500">Marcar "Pet-friendly" e "Estacionamento"</span><span class="hint">Atributos recomendados para a categoria</span></div><button class="btn btn-tonal btn-sm">Abrir</button></div>
+      <div class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 12px">
+        <span class="h3" style="display: flex; align-items: center; gap: 8px"><span class="ms" style="color: #0B4FA8">extension</span>Como será publicado</span>
+        <div class="step"><b>1</b><span>Você aprova o plano nesta tela.</span></div>
+        <div class="step"><b>2</b><span>A extensão GeoRanking, aberta no Chrome do operador logado na conta do perfil, executa o cadastro na ficha.</span></div>
+        <div class="step"><b>3</b><span>Serviços entram primeiro; produtos só com foto e link válidos.</span></div>
+        <div class="step"><b>4</b><span>Respeita o limite de 20 itens por dia. O que sobrar fica agendado para amanhã.</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 4px"><span class="hint">Conta do perfil</span><span style="font-size: 13px; font-weight: 500">perfil.sp@exemplo.com</span></div>
       </div>
-      <div class="card up d2" style="padding: 20px; display: flex; flex-direction: column; gap: 10px">
-        <span class="lab">Histórico</span>
-        <div style="display: flex; align-items: center; justify-content: space-between; font-size: 13px"><span class="hint">Primeira medição · 12/08</span><span class="hint">Hoje</span></div>
-        <div style="display: flex; align-items: center; gap: 12px"><span class="pos" style="background: #F3F6FA; color: #5F6368; font-size: 16px; height: 36px">média 9,4º</span><span class="ms" style="color: #137333">trending_flat</span><span class="pos" style="background: #EAF7EE; color: #137333; font-size: 16px; height: 36px">média 3,8º</span></div>
-        <span class="hint">7 semanas de medição. Concorrentes: ainda sem dados suficientes para comparação.</span>
+      <div class="notice"><span class="ms" style="font-size: 18px">shield</span>Nome e categoria principal nunca são alterados. Serviços duvidosos pedem confirmação. Duplicidades são eliminadas antes de publicar.</div>
+      <div class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 10px">
+        <span class="lbl">Simulação · como aparece na ficha</span>
+        <div style="border: 1px solid #E2E6EA; border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font-size: 12px; color: #5F6368">Serviços · Bordados</span>
+          <div style="display: flex; justify-content: space-between; font-size: 14px"><span style="font-weight: 500">Bordados profissionais</span><span class="hint">Sob consulta</span></div>
+          <span class="hint">Bordado personalizado em uniformes, camisas e bonés para empresas de Piracicaba.</span>
+          <div style="height: 1px; background: #EEF1F4"></div>
+          <span style="font-size: 12px; color: #5F6368">Produtos</span>
+          <div style="display: flex; gap: 10px; align-items: center"><div class="thumb" style="width: 48px; height: 40px"><span class="ms" style="font-size: 18px">checkroom</span></div><div style="display: flex; flex-direction: column"><span style="font-size: 14px; font-weight: 500">Camisa polo bordada</span><span class="hint">a partir de R$ 59 · Comprar</span></div></div>
+        </div>
       </div>
-      <div class="tip"><span class="ms">info</span>Posições são medidas por buscas reais no Maps a partir do centro de cada área cadastrada. Variam por ponto e horário.</div>
+      <div class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 8px">
+        <span class="lbl">Pendências antes de publicar</span>
+        <span class="hint" style="display: flex; gap: 8px"><span class="ms" style="font-size: 18px; color: #B06000">warning</span>"Uniformes bordados" parece duplicar "Bordado em uniformes" já na ficha. Confirme ou remova.</span>
+        <span class="hint" style="display: flex; gap: 8px"><span class="ms" style="font-size: 18px; color: #B3261E">error</span>"Jaleco bordado" está sem foto.</span>
+      </div>
     </aside>
   </div>
+  </div>
+  </div>
 
-  </div>
-  </div>
   <footer style="position: absolute; left: 240px; right: 0; bottom: 0; height: 72px; background: #fff; border-top: 1px solid #E2E6EA; box-shadow: 0 -4px 14px rgba(31,35,41,.04)">
     <div style="padding: 0 32px; height: 100%; display: flex; align-items: center; justify-content: space-between">
-      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #2B2D31"><span class="ms" style="font-size: 18px; color: #5F6368">info</span>Esta aba é de leitura; as ações abrem a aba correspondente.</div>
-      <div style="display: flex; gap: 8px"><button class="btn btn-outlined"><span class="ms">download</span>Exportar relatório</button><button class="btn btn-text">Fechar</button></div>
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #2B2D31"><span style="width: 8px; height: 8px; border-radius: 999px; background: #F9AB00"></span>6 itens prontos · 2 pendências</div>
+      <div style="display: flex; gap: 8px"><button class="btn btn-text">Salvar plano</button><button class="btn btn-filled"><span class="ms">extension</span>Publicar 6 itens pela extensão</button></div>
     </div>
   </footer>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
 class Component extends DCLogic {
   renderVals() {
-    const mk = (kw, pos, v, cidade) => {
-      const p = pos === null ? '—' : pos + 'º';
-      const bg = pos === null ? '#FCE8E6' : pos <= 3 ? '#EAF7EE' : pos <= 10 ? '#FFF7E0' : '#F3F6FA';
-      const fg = pos === null ? '#B3261E' : pos <= 3 ? '#137333' : pos <= 10 ? '#B06000' : '#5F6368';
-      const vCls = v > 0 ? 'b-green' : v < 0 ? 'b-red' : 'b-grey';
-      const vIcon = v > 0 ? 'arrow_upward' : v < 0 ? 'arrow_downward' : 'remove';
-      return { kw, pos: p, bg, fg, var: v === null ? 'novo' : (v > 0 ? '+' : '') + v, vCls: v === null ? 'b-grey' : vCls, vIcon: v === null ? 'fiber_new' : vIcon, cidade, data: 'hoje, 06:10' };
-    };
-    const rows = [
-      mk('loja de pesca em Barreiras', 1, 2, 'Barreiras'),
-      mk('artigos de pesca', 2, 1, 'Barreiras'),
-      mk('equipamentos de camping', 3, 4, 'Barreiras'),
-      mk('loja de caça e pesca', 3, 0, 'Barreiras'),
-      mk('isca artificial', 6, 3, 'Barreiras'),
-      mk('conserto de molinete', 8, null, 'Barreiras'),
-      mk('colete salva-vidas', 9, -2, 'Luís Eduardo Magalhães'),
-      mk('motor de popa', null, null, 'Barreiras')
+    const sv = (nome, cat, desc, orig, st, on) => ({ nome, cat, desc, orig, st, sw: on ? '' : 'off', stCls: st === 'Pronto' ? 'b-green' : st === 'Revisar' ? 'b-yellow' : 'b-grey', stIcon: st === 'Pronto' ? 'check' : st === 'Revisar' ? 'warning' : 'remove' });
+    const servicos = [
+      sv('Bordados profissionais em Piracicaba', 'Bordados', 'Bordado personalizado em uniformes, camisas e bonés para empresas.', 'Gabarito', 'Pronto', true),
+      sv('Bordados personalizados', 'Bordados', 'Logotipos, nomes e identidade visual bordados sob medida.', 'Gabarito', 'Pronto', true),
+      sv('Bordados sob medida', 'Bordados', 'Peças únicas e pequenas tiragens com acabamento de qualidade.', 'IA', 'Pronto', true),
+      sv('Uniformes bordados', 'Uniformes', 'Camisas, polos e jalecos bordados para equipes.', 'Gabarito', 'Revisar', true),
+      sv('Orçamento de bordados industriais', 'Bordados', 'Atendimento a grandes instituições e bancos.', 'IA', 'Pronto', false)
     ];
-    return { rows };
+    const pr = (nome, desc, link, preco, st, foto) => ({ nome, desc, link, preco, st, thCls: foto ? '' : 'empty', thIcon: foto ? 'checkroom' : 'add_photo_alternate', stCls: st === 'Pronto' ? 'b-green' : st === 'Sem foto' ? 'b-red' : 'b-yellow', stIcon: st === 'Pronto' ? 'check' : 'error' });
+    const produtos = [
+      pr('Camisa polo bordada', 'Malha piquet, bordado no peito', 'meulink.com.vc/estilo-bordados', 'a partir de R$ 59', 'Pronto', true),
+      pr('Boné bordado', 'Aba curva, bordado frontal', 'wa.me/5519999990000', 'R$ 39', 'Pronto', true),
+      pr('Jaleco bordado', 'Jaleco branco com nome e logotipo', 'meulink.com.vc/estilo-bordados', 'sob consulta', 'Sem foto', false)
+    ];
+    return { servicos, produtos };
   }
 }
 </script>

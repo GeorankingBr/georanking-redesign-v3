@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<title>Perfil · Presença digital</title>
+<title>Perfil · Presença digital (mini-site)</title>
 <script src="./vendor/react.js"></script>
 <script src="./vendor/react-dom.js"></script>
 <script src="./support.js"></script>
@@ -13,123 +13,130 @@
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
 <style>
 body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
-a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+a{color:#1264C7;text-decoration:none}
 .gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
 .ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap}
-.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#0B4FA8}
-.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
-.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-outlined:hover{background:#F3F6FA}
-.btn-text{background:transparent;color:#5F6368}.btn-text:hover{background:#F3F6FA;color:#1F1F1F}
-.btn-sm{height:34px;padding:0 12px;font-size:13px;border-radius:10px}
+.btn-filled{background:#1264C7;color:#fff}.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-text{background:transparent;color:#5F6368}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
 .card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
-.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
-.b-green{background:#EAF7EE;color:#137333}.b-yellow{background:#FFF7E0;color:#B06000}.b-red{background:#FCE8E6;color:#B3261E}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}
-.lab{display:flex;align-items:center;gap:8px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;color:#2B2D31}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:999px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#EAF7EE;color:#137333}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}
 .hint{font-size:13px;line-height:18px;color:#5F6368}
-.h2{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:22px;line-height:28px;font-weight:500;color:#1F1F1F;margin:0}
-.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:16px;font-weight:600;color:#1F1F1F;margin:0}
-.inp{display:flex;align-items:center;gap:10px;height:44px;padding:0 14px;border:1px solid #E2E6EA;border-radius:12px;background:#fff}
-.inp input,.inp select{border:0;outline:0;flex:1;font:14px "Google Sans Text",Roboto,Arial,sans-serif;color:#1F1F1F;background:transparent;min-width:0;padding:0}
-.inp .ms{color:#5F6368}
-table{border-collapse:collapse;width:100%}
-th{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:600;color:#5F6368;text-align:left;padding:12px 16px;background:#F8FAFC;border-bottom:1px solid #E2E6EA}
-td{padding:12px 16px;border-bottom:1px solid #EEF1F4;font-size:14px;vertical-align:middle}
-.prod{display:flex;flex-direction:column;gap:12px;padding:18px;border:1px solid #E2E6EA;border-radius:16px;background:#fff}
-.qr{width:72px;height:72px;border-radius:8px;background:repeating-conic-gradient(#1F1F1F 0 25%, #fff 0 50%) 0 0/16px 16px;border:4px solid #fff;outline:1px solid #E2E6EA}
-.tip{display:flex;gap:12px;padding:14px 16px;border-radius:12px;background:#F3F6FA;font-size:13px;line-height:19px;color:#2B2D31}
-.tip .ms{flex-shrink:0;color:#1264C7}
-.spin{animation:spin 1s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.up{animation:up .4s cubic-bezier(.2,.8,.2,1) both}
-@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.d1{animation-delay:.06s}.d2{animation-delay:.12s}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.h2{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:22px;line-height:28px;font-weight:500;margin:0}
+.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:15px;font-weight:600;margin:0}
+.seg{display:inline-flex;border:1px solid #E2E6EA;border-radius:10px;overflow:hidden;background:#fff}
+.seg button{height:38px;padding:0 14px;border:0;background:#fff;font:500 13px "Google Sans",Roboto,Arial,sans-serif;color:#5F6368;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.seg button+button{border-left:1px solid #E2E6EA}.seg .on{background:#EAF1FB;color:#0B4FA8}
+.step{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 12px 0 6px;border-radius:999px;border:1px solid #E2E6EA;background:#fff;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;color:#5F6368}
+.step b{width:22px;height:22px;border-radius:999px;background:#F3F6FA;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#5F6368}
+.step.done{border-color:#CDEFD8;color:#137333}.step.done b{background:#EAF7EE;color:#137333}
+.step.on{border-color:#1264C7;color:#0B4FA8;background:#EAF1FB}.step.on b{background:#1264C7;color:#fff}
+.tpl{display:flex;flex-direction:column;border:1px solid #E2E6EA;border-radius:12px;overflow:hidden;background:#fff;cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.tpl:hover{border-color:#A8C6EE}
+.tpl.on{border:2px solid #1264C7;box-shadow:0 0 0 3px rgba(18,100,199,.12)}
+.tpl .pv{height:150px;display:flex;flex-direction:column;align-items:center;gap:5px;padding:14px 16px 0;box-sizing:border-box;position:relative;overflow:hidden}
+.tpl .av{width:24px;height:24px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:600}
+.tpl .ln{height:4px;border-radius:2px;width:70%}
+.tpl .cta{width:82%;height:14px;border-radius:7px;margin-top:6px}
+.tpl .cta2{width:82%;height:10px;border-radius:5px;border:1px solid rgba(0,0,0,.12)}
+.tpl .nm{padding:10px 12px;display:flex;flex-direction:column;gap:2px;border-top:1px solid #EEF1F4}
+.phone{width:300px;height:560px;border-radius:36px;background:#1F1F1F;padding:12px;box-sizing:border-box;box-shadow:0 20px 50px rgba(31,35,41,.25)}
+.screen{width:100%;height:100%;border-radius:26px;background:#fff;overflow:hidden;display:flex;flex-direction:column;box-sizing:border-box;padding:22px 18px 16px;gap:10px}
+.pbtn{height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:8px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:600}
 </style>
 </helmet>
-<div style="width: 1440px; height: 1100px; box-sizing: border-box; background: #F7F9FC; display: flex; flex-direction: column; position: relative; overflow: hidden">
+<div style="width: 1440px; height: 1300px; box-sizing: border-box; background: #F7F9FC; display: flex; flex-direction: column; position: relative; overflow: hidden">
   <dc-import name="ProfileHeader" hint-size="1440px,72px"></dc-import>
   <div style="display: flex; flex: 1; min-height: 0">
-  <dc-import name="SectionRail" active="presenca" hint-size="240px,1028px"></dc-import>
+  <dc-import name="SectionRail" active="presenca" hint-size="240px,1228px"></dc-import>
   <div style="flex: 1; min-width: 0; overflow: hidden">
+  <div style="padding: 24px 32px 100px; display: flex; flex-direction: column; gap: 18px">
 
-  <div style="margin: 0; display: flex; flex-direction: column; gap: 20px; padding: 24px 32px 100px">
-    <div class="up" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px">
+    <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px">
       <div style="display: flex; flex-direction: column; gap: 4px">
         <h2 class="h2">Presença digital</h2>
-        <span class="hint">Tudo que leva o cliente até a ficha: canais conectados, cartão de avaliação com QR e o mini-site gerado do perfil.</span>
+        <span class="hint">Mini-site gerado do perfil, cartão de avaliação com QR e link para bio. Tudo sai dos dados já cadastrados; nada precisa ser redigitado.</span>
       </div>
-      <span class="badge b-green"><span class="ms" style="font-size: 14px">hub</span>5 de 6 canais conectados</span>
+      <div class="seg"><button class="on"><span class="ms" style="font-size: 18px">language</span>Mini-site</button><button><span class="ms" style="font-size: 18px">qr_code_2</span>Cartão de avaliação</button><button><span class="ms" style="font-size: 18px">link</span>Link para bio</button></div>
     </div>
 
-    <div class="up d1" style="display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 24px">
-      <div class="card" style="overflow: hidden">
-        <div style="padding: 16px 18px; border-bottom: 1px solid #EEF1F4; display: flex; align-items: center; justify-content: space-between"><span class="h3">Canais e consistência</span><button class="btn btn-outlined btn-sm"><span class="ms" style="font-size: 16px">refresh</span>Verificar todos</button></div>
-        <table>
-          <thead><tr><th>Canal</th><th>Status</th><th>Endereço</th><th>Nome · telefone · endereço</th><th>Verificado</th></tr></thead>
-          <tbody>
-            <sc-for list="{{canais}}" as="c" hint-placeholder-count="6">
-              <tr>
-                <td style="font-weight: 500; display: flex; align-items: center; gap: 8px"><span class="ms" style="font-size: 18px; color: #5F6368">{{c.icon}}</span>{{c.nome}}</td>
-                <td><span class="badge {{c.stCls}}"><span class="ms" style="font-size: 14px">{{c.stIcon}}</span>{{c.st}}</span></td>
-                <td style="font-size: 13px; color: #1264C7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px">{{c.url}}</td>
-                <td><span class="badge {{c.napCls}}">{{c.nap}}</span></td>
-                <td style="font-size: 13px; color: #5F6368">{{c.quando}}</td>
-              </tr>
-            </sc-for>
-          </tbody>
-        </table>
-        <div style="padding: 12px 18px; background: #FFF7E0; font-size: 13px; color: #5F4200; display: flex; gap: 8px; align-items: center"><span class="ms" style="font-size: 18px; color: #B06000">warning</span>Instagram mostra o telefone antigo (77) 3611-2200. Atualize lá para manter a consistência de nome, endereço e telefone.</div>
-      </div>
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <sc-for list="{{steps}}" as="s" hint-placeholder-count="7"><span class="step {{s.cls}}"><b>{{s.n}}</b>{{s.label}}</span></sc-for>
+      <span style="flex: 1"></span>
+      <span class="badge b-green"><span class="ms" style="font-size: 14px">public</span>No ar em estilobordados.georanking.site</span>
+    </div>
 
-      <div style="display: flex; flex-direction: column; gap: 16px">
-        <div class="prod">
-          <div style="display: flex; align-items: center; justify-content: space-between"><span class="h3" style="display: flex; align-items: center; gap: 8px"><span class="ms" style="color: #0B4FA8">qr_code_2</span>Cartão de avaliação</span><span class="badge b-green">criado · 12/09</span></div>
-          <div style="display: flex; gap: 14px; align-items: center">
-            <div style="width: 120px; height: 84px; border-radius: 10px; background: #1F1F1F; color: #fff; padding: 10px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between"><span class="gs" style="font-size: 11px; font-weight: 500">Gostou do atendimento?</span><span style="font-size: 9px; color: #BDC1C6">Avalie a Náutica no Google</span><div class="qr" style="width: 28px; height: 28px; border-width: 2px; background-size: 7px 7px; align-self: flex-end"></div></div>
-            <div style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: #2B2D31"><span>Impressão A6 · tema Escuro</span><span class="hint">O QR abre: link de avaliação do Google</span><span class="hint">Escaneado 41 vezes em 30 dias</span></div>
-          </div>
-          <div style="display: flex; gap: 8px"><button class="btn btn-tonal btn-sm"><span class="ms" style="font-size: 16px">edit</span>Editar cartão</button><button class="btn btn-outlined btn-sm"><span class="ms" style="font-size: 16px">download</span>PDF</button><button class="btn btn-outlined btn-sm"><span class="ms" style="font-size: 16px">print</span>Imprimir</button></div>
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 24px; align-items: start">
+      <section class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between">
+          <div style="display: flex; flex-direction: column; gap: 3px"><span class="h3" style="font-size: 16px">1 · Modelo</span><span class="hint">O visual da página. Dá para trocar depois sem perder nada.</span></div>
+          <div style="display: flex; gap: 6px"><button class="btn btn-outlined btn-sm">Todos</button><button class="btn btn-outlined btn-sm">Por segmento</button><button class="btn btn-outlined btn-sm">Recomendados</button></div>
         </div>
-        <div class="prod">
-          <div style="display: flex; align-items: center; justify-content: space-between"><span class="h3" style="display: flex; align-items: center; gap: 8px"><span class="ms" style="color: #0B4FA8">language</span>Mini-site e link para bio</span><span class="badge b-green">no ar</span></div>
-          <div style="display: flex; gap: 14px">
-            <div style="width: 96px; height: 150px; border-radius: 14px; border: 3px solid #1F1F1F; background: #fff; padding: 8px; box-sizing: border-box; display: flex; flex-direction: column; gap: 5px; flex-shrink: 0"><div style="height: 28px; border-radius: 6px; background: #EAF1FB"></div><div style="height: 8px; width: 70%; border-radius: 4px; background: #E2E6EA"></div><div style="height: 8px; width: 50%; border-radius: 4px; background: #EEF1F4"></div><div style="height: 18px; border-radius: 6px; background: #1264C7"></div><div style="height: 18px; border-radius: 6px; background: #EAF7EE"></div><div style="height: 18px; border-radius: 6px; background: #F3F6FA"></div></div>
-            <div style="display: flex; flex-direction: column; gap: 8px; flex: 1">
-              <label class="inp" for="dom" style="height: 40px"><span class="ms" style="font-size: 18px">link</span><input id="dom" value="nautica.georanking.site"><button class="btn btn-text btn-sm" style="height: 30px">Copiar</button></label>
-              <label class="inp" for="seg" style="height: 40px"><span class="ms" style="font-size: 18px">category</span><select id="seg"><option>Segmento: Caça e pesca</option></select></label>
-              <span class="hint">Frase principal e de apoio vêm do Gabarito. Botões: WhatsApp, Rotas, Avaliar, Site.</span>
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+          <sc-for list="{{tpls}}" as="t" hint-placeholder-count="8">
+            <div class="tpl {{t.cls}}">
+              <div class="pv" style="background: {{t.bg}}">
+                <span class="av" style="background: {{t.avBg}}; color: {{t.avFg}}">EB</span>
+                <span style="font-size: 9px; font-weight: 600; color: {{t.fg}}">Estilo Bordados</span>
+                <span class="ln" style="background: {{t.ln}}"></span><span class="ln" style="background: {{t.ln}}; width: 60%"></span><span class="ln" style="background: {{t.ln}}; width: 66%"></span>
+                <span class="cta" style="background: {{t.cta}}"></span><span class="cta2"></span><span class="cta2"></span>
+              </div>
+              <div class="nm"><span style="font-size: 13px; font-weight: 600">{{t.nome}}</span><span class="hint" style="font-size: 12px">{{t.seg}}</span><sc-if value="{{t.rec}}" hint-placeholder-val="{{ false }}"><span class="badge b-green" style="align-self: flex-start; margin-top: 4px">Recomendado</span></sc-if></div>
             </div>
-          </div>
-          <div style="display: flex; gap: 8px"><button class="btn btn-tonal btn-sm"><span class="ms" style="font-size: 16px">settings</span>Configurar</button><button class="btn btn-outlined btn-sm"><span class="ms" style="font-size: 16px">open_in_new</span>Abrir</button><button class="btn btn-outlined btn-sm"><span class="ms" style="font-size: 16px">share</span>Compartilhar</button></div>
+          </sc-for>
         </div>
-      </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 4px">
+          <span class="hint">Selecionado: <b style="color: #1F1F1F; font-weight: 500">Clean Google</b> · universal · serviços</span>
+          <div style="display: flex; gap: 8px"><button class="btn btn-outlined">Ver mais modelos</button><button class="btn btn-filled">Continuar: Marca<span class="ms">arrow_forward</span></button></div>
+        </div>
+      </section>
+
+      <aside class="card" style="padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 14px">
+        <div class="seg"><button class="on"><span class="ms" style="font-size: 18px">smartphone</span>Celular</button><button><span class="ms" style="font-size: 18px">desktop_windows</span>Desktop</button></div>
+        <div class="phone">
+          <div class="screen">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="width: 44px; height: 44px; border-radius: 999px; background: #EAF7EE; color: #137333; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600">EB</span><span class="gs" style="font-size: 15px; font-weight: 600">Estilo Bordados</span><span style="font-size: 10px; letter-spacing: .6px; color: #137333; font-weight: 600">BORDADO · PIRACICABA</span></div>
+            <p style="margin: 0; font-size: 12px; line-height: 18px; color: #2B2D31; text-align: center">Estilo Bordados é especializada em bordados personalizados e uniformes profissionais. Soluções para empresas que buscam qualidade, padronização e apresentação profissional da equipe.</p>
+            <div class="pbtn" style="background: #1E7A3E; color: #fff; margin-top: auto"><span class="ms" style="font-size: 18px">chat</span>Falar no WhatsApp</div>
+            <div class="pbtn" style="border: 1px solid #D4D9DE; color: #1F1F1F"><span class="ms" style="font-size: 18px">call</span>Ligar agora</div>
+            <div class="pbtn" style="border: 1px solid #D4D9DE; color: #1F1F1F"><span class="ms" style="font-size: 18px">near_me</span>Como chegar</div>
+            <span style="font-size: 9px; color: #80868B; text-align: center">Av. Nações · Piracicaba, SP · Aberto até 18h</span>
+          </div>
+        </div>
+        <span class="hint" style="text-align: center">Pré-visualização real: é o mesmo componente que gera a página publicada.</span>
+        <div style="display: flex; gap: 8px"><button class="btn btn-outlined btn-sm"><span class="ms" style="font-size: 18px">open_in_new</span>Abrir no ar</button><button class="btn btn-outlined btn-sm"><span class="ms" style="font-size: 18px">qr_code_2</span>QR do site</button><button class="btn btn-outlined btn-sm"><span class="ms" style="font-size: 18px">share</span>Compartilhar</button></div>
+      </aside>
     </div>
   </div>
+  </div>
+  </div>
 
-  </div>
-  </div>
   <footer style="position: absolute; left: 240px; right: 0; bottom: 0; height: 72px; background: #fff; border-top: 1px solid #E2E6EA; box-shadow: 0 -4px 14px rgba(31,35,41,.04)">
     <div style="padding: 0 32px; height: 100%; display: flex; align-items: center; justify-content: space-between">
-      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #2B2D31"><span class="ms spin" style="font-size: 18px; color: #1264C7">progress_activity</span>Salvando…</div>
-      <div style="display: flex; gap: 8px"><button class="btn btn-text">Fechar</button><button class="btn btn-filled"><span class="ms">publish</span>Republicar mini-site</button></div>
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #137333"><span class="ms" style="font-size: 18px">check_circle</span>Rascunho salvo automaticamente · publicado pela última vez em 28/09, 16:10</div>
+      <div style="display: flex; gap: 8px"><button class="btn btn-text">Voltar</button><button class="btn btn-tonal">Salvar rascunho</button><button class="btn btn-filled"><span class="ms">publish</span>Publicar mini-site</button></div>
     </div>
   </footer>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
 class Component extends DCLogic {
   renderVals() {
-    const mk = (icon, nome, st, url, nap, quando) => ({ icon, nome, st, stCls: st === 'Conectado' ? 'b-green' : st === 'Não cadastrado' ? 'b-grey' : 'b-yellow', stIcon: st === 'Conectado' ? 'check' : st === 'Não cadastrado' ? 'remove' : 'warning', url, nap, napCls: nap === 'Consistente' ? 'b-green' : nap === '—' ? 'b-grey' : 'b-yellow', quando });
-    const canais = [
-      mk('storefront', 'Google (ficha)', 'Conectado', 'g.page/nautica-caca-pesca', 'Consistente', 'hoje, 14:20'),
-      mk('language', 'Site', 'Conectado', 'georanking.com.br/teste-nautica', 'Consistente', 'hoje'),
-      mk('chat', 'WhatsApp', 'Conectado', 'wa.me/5577988888888', 'Consistente', 'hoje'),
-      mk('thumb_up', 'Facebook', 'Conectado', 'facebook.com/nautica.codex.teste', 'Consistente', 'ontem'),
-      mk('photo_camera', 'Instagram', 'Divergência', 'instagram.com/nautica.codex.teste', 'Telefone diferente', 'ontem'),
-      mk('work', 'LinkedIn', 'Não cadastrado', '—', '—', '—')
+    const names = ['Modelo', 'Marca', 'Textos', 'Links', 'Fotos', 'Estilo', 'Publicar'];
+    const steps = names.map((label, i) => ({ n: i < 2 ? '✓' : String(i + 1), label, cls: i < 2 ? 'done' : i === 2 ? 'on' : '' }));
+    const t = (nome, seg, bg, fg, ln, cta, avBg, avFg, rec, on) => ({ nome, seg, bg, fg, ln, cta, avBg, avFg, rec, cls: on ? 'on' : '' });
+    const tpls = [
+      t('Aurora Glass', 'Universal · moderno', 'linear-gradient(180deg,#F2F6FB,#E6EEF8)', '#1F1F1F', '#C9D3E0', '#1E7A3E', '#E3ECFB', '#0B4FA8', false, false),
+      t('Grafite & Ouro', 'Joalheria · advocacia · estética', 'linear-gradient(180deg,#F5EFE3,#EADFCB)', '#3B2F1E', '#D7C8AE', '#1E7A3E', '#EFE4CF', '#7A5A1E', false, false),
+      t('Terra Quente', 'Padaria · café · restaurante', '#F7F1EA', '#3B2A1E', '#DDD0C2', '#1E7A3E', '#F0E2D6', '#8A4B22', false, false),
+      t('Clean Google', 'Universal · serviços', '#FFFFFF', '#1F1F1F', '#E2E6EA', '#1E7A3E', '#EAF7EE', '#137333', true, true),
+      t('Neon Tech', 'Assistência · tech · games', 'linear-gradient(180deg,#F4F7FF,#E8EEFF)', '#1F1F1F', '#CFD8F6', '#1E7A3E', '#DCE6FF', '#1A48B8', false, false),
+      t('Pastel Wellness', 'Salão · estética · spa', '#F6F3F5', '#2B2D31', '#E0D8DE', '#1E7A3E', '#EEE3EA', '#7A3E62', false, false),
+      t('Bloco Urgência', 'Chaveiro · desentupidora · guincho', '#FFFFFF', '#1F1F1F', '#E2E6EA', '#0F7A2E', '#EAF7EE', '#137333', false, false),
+      t('Foto Hero', 'Restaurante · hotel · imóveis', 'linear-gradient(180deg,#DCE3EA,#F7F9FC)', '#1F1F1F', '#C9D3E0', '#1E7A3E', '#E3ECFB', '#0B4FA8', false, false)
     ];
-    return { canais };
+    return { steps, tpls };
   }
 }
 </script>

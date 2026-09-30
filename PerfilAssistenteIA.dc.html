@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<title>Perfil · Assistente IA</title>
+<title>Perfil · Assistente IA e SEO</title>
 <script src="./vendor/react.js"></script>
 <script src="./vendor/react-dom.js"></script>
 <script src="./support.js"></script>
@@ -13,135 +13,155 @@
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
 <style>
 body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
-a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+a{color:#1264C7;text-decoration:none}
 .gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
 .ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap}
-.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#0B4FA8}
-.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
-.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-outlined:hover{background:#F3F6FA}
-.btn-text{background:transparent;color:#5F6368}.btn-text:hover{background:#F3F6FA;color:#1F1F1F}
-.btn-sm{height:34px;padding:0 12px;font-size:13px;border-radius:10px}
-.iconbtn{width:36px;height:36px;border-radius:10px;border:0;background:transparent;color:#5F6368;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
-.iconbtn:hover{background:#F3F6FA;color:#1F1F1F}
+.btn-filled{background:#1264C7;color:#fff}.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-text{background:transparent;color:#5F6368}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
 .card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
-.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
-.b-green{background:#EAF7EE;color:#137333}.b-yellow{background:#FFF7E0;color:#B06000}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}
-.lab{display:flex;align-items:center;gap:8px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;color:#2B2D31}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:999px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#EAF7EE;color:#137333}.b-yellow{background:#FFF7E0;color:#B06000}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}.b-red{background:#FCE8E6;color:#B3261E}
 .hint{font-size:13px;line-height:18px;color:#5F6368}
-.h2{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:22px;line-height:28px;font-weight:500;color:#1F1F1F;margin:0}
-.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:15px;font-weight:600;color:#1F1F1F;margin:0}
-.task{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;font-size:13px;color:#2B2D31;cursor:pointer}
-.task:hover{background:#F3F6FA}.task.on{background:#EAF1FB;color:#0B4FA8}
-.msg{display:flex;gap:12px;max-width:92%}
-.msg .av{width:32px;height:32px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
-.bub{padding:12px 16px;border-radius:14px;font-size:14px;line-height:22px;color:#1F1F1F}
-.bub.ai{background:#F7F9FC;border:1px solid #EEF1F4}
-.bub.me{background:#EAF1FB}
-.chg{display:flex;flex-direction:column;gap:8px;padding:14px;border:1px solid #E2E6EA;border-radius:12px}
-.chg .kv{font-size:13px;line-height:19px}
-.chg .old{color:#B3261E;text-decoration:line-through}
-.chg .new{color:#137333;font-weight:500}
-.inp{display:flex;align-items:center;gap:10px;min-height:52px;padding:0 8px 0 16px;border:1px solid #E2E6EA;border-radius:14px;background:#fff}
-.inp:focus-within{border-color:#1264C7;box-shadow:0 0 0 2px rgba(18,100,199,.25)}
-.inp input{border:0;outline:0;flex:1;font:15px "Google Sans Text",Roboto,Arial,sans-serif;color:#1F1F1F;background:transparent;min-width:0}
-.pulse{animation:pulse 1.6s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
-.up{animation:up .4s cubic-bezier(.2,.8,.2,1) both}
-@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.d1{animation-delay:.06s}.d2{animation-delay:.12s}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.h2{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:22px;line-height:28px;font-weight:500;margin:0}
+.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:15px;font-weight:600;margin:0}
+.lbl{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:11px;font-weight:600;letter-spacing:.6px;color:#80868B;text-transform:uppercase}
+.inp{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border:1px solid #D4D9DE;border-radius:12px;background:#fff}
+.inp:focus-within{border-color:#1264C7;box-shadow:0 0 0 2px rgba(18,100,199,.2)}
+.inp textarea{border:0;outline:0;flex:1;font:15px/24px "Google Sans Text",Roboto,Arial,sans-serif;color:#1F1F1F;background:transparent;min-width:0;padding:0;resize:none}
+.chip{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:999px;border:1px solid #E2E6EA;background:#fff;font-size:13px;color:#2B2D31;cursor:pointer}
+.chip.on{background:#EAF1FB;border-color:#EAF1FB;color:#0B4FA8;font-weight:500}
+.kv{display:flex;flex-direction:column;gap:3px;padding:12px 14px;border-radius:10px;background:#F7F9FC}
+.kv b{font-weight:500;font-size:14px}
+.area{display:grid;grid-template-columns:44px minmax(0,1fr) 120px 200px;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid #EEF1F4}
+.area:last-child{border-bottom:0}
+.area .ic{width:44px;height:44px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;background:#EAF1FB;color:#0B4FA8}
+.lim{display:flex;flex-direction:column;align-items:center;gap:2px;padding:12px 8px;border-radius:10px;background:#F7F9FC}
+.lim b{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:22px;font-weight:500;color:#0B4FA8}
+.lim span{font-size:11px;font-weight:600;letter-spacing:.4px;color:#5F6368;text-transform:uppercase}
+.notice{display:flex;gap:10px;padding:12px 14px;border-radius:12px;background:#FFF7E0;border:1px solid #FDE293;font-size:13px;line-height:19px;color:#5F4200}
+.notice .ms{color:#B06000;flex-shrink:0}
 </style>
 </helmet>
-<div style="width: 1440px; height: 1100px; box-sizing: border-box; background: #F7F9FC; display: flex; flex-direction: column; position: relative; overflow: hidden">
+<div style="width: 1440px; height: 1400px; box-sizing: border-box; background: #F7F9FC; display: flex; flex-direction: column; position: relative; overflow: hidden">
   <dc-import name="ProfileHeader" hint-size="1440px,72px"></dc-import>
   <div style="display: flex; flex: 1; min-height: 0">
-  <dc-import name="SectionRail" active="ia" hint-size="240px,1028px"></dc-import>
+  <dc-import name="SectionRail" active="ia" hint-size="240px,1328px"></dc-import>
   <div style="flex: 1; min-width: 0; overflow: hidden">
+  <div style="display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 24px; padding: 24px 32px 100px">
 
-  <div style="margin: 0; display: grid; grid-template-columns: 240px minmax(520px, 1fr) 340px; gap: 24px; padding: 24px 24px 96px; box-sizing: border-box">
-    <aside class="card up" style="padding: 18px; display: flex; flex-direction: column; gap: 14px; overflow: hidden">
-      <span class="lab"><span class="ms" style="color: #1264C7">auto_awesome</span>Recomendações</span>
-      <div style="display: flex; flex-direction: column; gap: 2px">
-        <button class="task on"><span class="ms" style="font-size: 18px">description</span>Gerar descrição<span class="badge b-yellow" style="margin-left: auto">nova</span></button>
-        <button class="task"><span class="ms" style="font-size: 18px">key</span>Sugerir palavras-chave</button>
-        <button class="task"><span class="ms" style="font-size: 18px">category</span>Sugerir categorias</button>
-        <button class="task"><span class="ms" style="font-size: 18px">insights</span>Plano comercial para SEO</button>
-        <button class="task"><span class="ms" style="font-size: 18px">reviews</span>Responder 3 avaliações pendentes</button>
-      </div>
-      <div style="height: 1px; background: #EEF1F4"></div>
-      <span class="lab">Histórico</span>
-      <div style="display: flex; flex-direction: column; gap: 2px">
-        <button class="task"><span class="ms" style="font-size: 18px; color: #5F6368">history</span><span style="display: flex; flex-direction: column; align-items: flex-start"><span>Palavras-chave · 5 aplicadas</span><span class="hint">ontem, 16:10</span></span></button>
-        <button class="task"><span class="ms" style="font-size: 18px; color: #5F6368">history</span><span style="display: flex; flex-direction: column; align-items: flex-start"><span>Categorias · 2 aplicadas</span><span class="hint">22/09</span></span></button>
-      </div>
-      <div style="flex: 1"></div>
-      <div style="padding: 12px; border-radius: 10px; background: #F3F6FA; font-size: 12px; line-height: 17px; color: #5F6368">Contexto usado: Gabarito, categoria, descrição atual, 8 palavras monitoradas e 23 avaliações.</div>
-    </aside>
-
-    <section class="card up d1" style="display: flex; flex-direction: column; overflow: hidden">
-      <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid #EEF1F4">
-        <div style="display: flex; flex-direction: column; gap: 2px"><span class="h3">Assistente GeoRanking</span><span class="hint">Náutica Caça e Pesca · Barreiras, BA</span></div>
+    <div style="display: flex; flex-direction: column; gap: 20px">
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 class="h2" style="display: flex; align-items: center; gap: 10px"><span class="ms" style="color: #1264C7">auto_awesome</span>Assistente IA e SEO</h2>
+          <span class="hint">Diga o que você quer vender ou destacar. A IA analisa o perfil, o Gabarito e a região e sugere o que mudar em cada área. Nada é publicado sem sua confirmação.</span>
+        </div>
         <span class="badge b-green"><span class="ms" style="font-size: 14px">verified_user</span>Nada será publicado sem sua confirmação</span>
       </div>
-      <div style="flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 16px; overflow: hidden">
-        <div class="msg" style="align-self: flex-end; flex-direction: row-reverse">
-          <span class="av" style="background: #EAF1FB; color: #0B4FA8"><span class="ms" style="font-size: 18px">person</span></span>
-          <div class="bub me">Gere uma descrição nova destacando garantia nos motores e a entrega para a região.</div>
-        </div>
-        <div class="msg">
-          <span class="av" style="background: #1264C7; color: #fff"><span class="ms" style="font-size: 18px">auto_awesome</span></span>
-          <div class="bub ai">Li o Gabarito e a descrição atual. Preparei uma versão com 1.180 caracteres que abre com a categoria e a cidade, cita garantia e assistência nos motores e lista as 3 cidades de entrega. Ela usa 5 das 5 palavras-chave principais.<br><br>Coloquei como <b style="font-weight: 500">mudança proposta</b> ao lado. Também notei que "conserto de molinete" é monitorada mas não existe como serviço; posso propor o cadastro.</div>
-        </div>
-        <div class="msg">
-          <span class="av" style="background: #1264C7; color: #fff"><span class="ms" style="font-size: 18px">auto_awesome</span></span>
-          <div class="bub ai" style="display: flex; gap: 6px; align-items: center; padding: 10px 16px"><span class="pulse" style="width: 8px; height: 8px; border-radius: 999px; background: #1264C7"></span><span class="pulse" style="width: 8px; height: 8px; border-radius: 999px; background: #1264C7; animation-delay: .2s"></span><span class="pulse" style="width: 8px; height: 8px; border-radius: 999px; background: #1264C7; animation-delay: .4s"></span></div>
-        </div>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto">
-          <button class="btn btn-outlined btn-sm">Sim, propor o serviço</button>
-          <button class="btn btn-outlined btn-sm">Encurtar a descrição</button>
-          <button class="btn btn-outlined btn-sm">Tom mais formal</button>
-        </div>
-      </div>
-      <div style="padding: 12px 16px 16px; border-top: 1px solid #EEF1F4">
-        <label class="inp" for="ask"><input id="ask" placeholder="Peça algo: descrição, palavras-chave, categorias, respostas…"><button class="iconbtn" aria-label="Anexar"><span class="ms">attach_file</span></button><button class="btn btn-filled" style="height: 40px; padding: 0 14px"><span class="ms">send</span></button></label>
-      </div>
-    </section>
 
-    <aside class="card up d2" style="padding: 18px; display: flex; flex-direction: column; gap: 14px; overflow: hidden">
-      <div style="display: flex; align-items: center; justify-content: space-between"><span class="lab">Mudanças propostas</span><span class="badge b-blue">2</span></div>
-      <div class="chg">
-        <div style="display: flex; align-items: center; justify-content: space-between"><span class="badge b-grey"><span class="ms" style="font-size: 14px">description</span>Descrição</span><span class="hint">1.180 caracteres</span></div>
-        <div class="kv"><span class="hint">Atual</span><br><span class="old">A Náutica Caça e Pesca é a loja de referência em Barreiras (BA) para quem vive o campo…</span></div>
-        <div class="kv"><span class="hint">Proposto</span><br><span class="new">Loja de artigos para caça e pesca em Barreiras (BA): equipamentos, motores de popa com garantia e assistência, entrega para Luís Eduardo Magalhães, Barra e Ibotirama…</span></div>
-        <div class="hint">Por quê: categoria e cidade no início; cita garantia; cobre as 5 palavras principais.</div>
-        <div style="display: flex; gap: 6px"><button class="btn btn-filled btn-sm"><span class="ms" style="font-size: 16px">check</span>Aprovar</button><button class="btn btn-outlined btn-sm">Editar</button><button class="btn btn-text btn-sm">Rejeitar</button></div>
+      <section class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 14px">
+        <span class="h3">O que você quer vender ou destacar?</span>
+        <label class="inp" for="ctx"><span class="ms" style="color: #5F6368; padding-top: 2px">edit_note</span><textarea id="ctx" rows="3">Uniformes bordados para empresas, escolas e bancos em Piracicaba e região. Bordado personalizado em camisas, bonés e jalecos, com entrega para grandes instituições.</textarea></label>
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+          <span class="hint">Atalhos:</span>
+          <button class="chip on">Vender mais um serviço</button>
+          <button class="chip">Lançar produto</button>
+          <button class="chip">Melhorar posição em uma palavra</button>
+          <button class="chip">Responder avaliações pendentes</button>
+          <span style="flex: 1"></span>
+          <button class="btn btn-filled"><span class="ms">auto_awesome</span>Analisar com IA</button>
+        </div>
+        <span class="hint">A IA usa o nome, o local, a categoria atual, o contexto escrito aqui e as palavras do Gabarito. Nome e categoria principal nunca são alterados.</span>
+      </section>
+
+      <section class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="h3">Perfil analisado</span><span class="badge b-grey"><span class="ms" style="font-size: 14px">sync</span>Fonte: Google Business Profile</span></div>
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px">
+          <div class="kv"><span class="lbl">Empresa</span><b>Estilo Bordados</b></div>
+          <div class="kv"><span class="lbl">Segmento</span><b>Loja de uniformes</b></div>
+          <div class="kv"><span class="lbl">Local</span><b>Piracicaba · SP</b></div>
+          <div class="kv"><span class="lbl">Site</span><b style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">meulink.com.vc/estilo-bordados</b></div>
+        </div>
+        <div style="padding: 14px 16px; border-radius: 12px; background: #EAF1FB; font-size: 14px; line-height: 21px; color: #1F1F1F">
+          <b style="font-weight: 500">Diagnóstico da pesquisa.</b> A empresa tem forte presença local em Piracicaba, com destaque para bordados e uniformes personalizados para grandes instituições. Vale ampliar as palavras focadas em contratação, orçamento e contato direto, e otimizar o perfil para buscas próximas e serviços de interesse imediato.
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px">
+          <sc-for list="{{termos}}" as="t" hint-placeholder-count="8"><span class="badge b-grey">{{t}}</span></sc-for>
+        </div>
+      </section>
+
+      <section class="card" style="overflow: hidden">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid #E2E6EA; background: #F8FAFC">
+          <span class="h3" style="font-size: 14px">Sugestões por área</span>
+          <div style="display: flex; align-items: center; gap: 10px"><span class="hint">20 sugestões · 0 aprovadas</span><button class="btn btn-tonal btn-sm">Aprovar todas as seguras</button></div>
+        </div>
+        <sc-for list="{{areas}}" as="a" hint-placeholder-count="7">
+          <div class="area">
+            <span class="ic"><span class="ms">{{a.icon}}</span></span>
+            <div style="display: flex; flex-direction: column; gap: 3px; min-width: 0">
+              <span style="font-size: 14px; font-weight: 500">{{a.nome}}</span>
+              <span class="hint" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{a.resumo}}</span>
+            </div>
+            <span class="badge {{a.cls}}">{{a.qtd}}</span>
+            <div style="display: flex; justify-content: flex-end; gap: 6px"><a href="{{a.href}}" class="btn btn-outlined btn-sm">Revisar</a><button class="btn btn-tonal btn-sm">Aprovar</button></div>
+          </div>
+        </sc-for>
+      </section>
+    </div>
+
+    <aside style="display: flex; flex-direction: column; gap: 16px">
+      <div class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 12px">
+        <span class="h3" style="display: flex; align-items: center; gap: 8px"><span class="ms" style="color: #0B4FA8">shield</span>Controle da automação</span>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+          <div class="lim"><b>5</b><span>serviços</span></div>
+          <div class="lim"><b>3</b><span>produtos</span></div>
+          <div class="lim"><b>0/20</b><span>hoje</span></div>
+        </div>
+        <div class="notice"><span class="ms" style="font-size: 18px">info</span>Nome e categoria do negócio nunca são alterados. A publicação é feita pela extensão do Chrome, no navegador do operador que gerencia o perfil.</div>
+        <div style="display: flex; flex-direction: column; gap: 4px"><span class="lbl">Conta Google do perfil</span><div style="display: flex; align-items: center; justify-content: space-between"><span style="font-size: 13px; font-weight: 500">perfil.sp@exemplo.com</span><span class="badge b-green">Conectada</span></div></div>
       </div>
-      <div class="chg">
-        <div style="display: flex; align-items: center; justify-content: space-between"><span class="badge b-grey"><span class="ms" style="font-size: 14px">build</span>Serviços</span><span class="hint">novo item</span></div>
-        <div class="kv"><span class="hint">Proposto</span><br><span class="new">Conserto de molinetes e carretilhas</span> em "Pesca", a partir de R$ 60</div>
-        <div class="hint">Por quê: palavra monitorada sem serviço correspondente na ficha.</div>
-        <div style="display: flex; gap: 6px"><button class="btn btn-filled btn-sm"><span class="ms" style="font-size: 16px">check</span>Aprovar</button><button class="btn btn-outlined btn-sm">Editar</button><button class="btn btn-text btn-sm">Rejeitar</button></div>
+
+      <div class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="h3" style="display: flex; align-items: center; gap: 8px"><span class="ms" style="color: #0B4FA8">bookmark</span>Palavras do Gabarito</span><span class="badge b-blue">8 de 8</span></div>
+        <span class="hint">Selecione as palavras que viram serviços no plano de atualização.</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px">
+          <sc-for list="{{gab}}" as="g" hint-placeholder-count="8"><button class="chip on" style="height: 30px; font-size: 12px"><span class="ms" style="font-size: 14px">check</span>{{g}}</button></sc-for>
+        </div>
+        <a href="PerfilSeo.dc.html" class="btn btn-filled"><span class="ms">playlist_add</span>Aplicar 8 no plano</a>
       </div>
-      <div style="flex: 1"></div>
-      <button class="btn btn-tonal">Aprovar as 2 e levar ao Salvar</button>
+
+      <div class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 8px">
+        <span class="lbl">Como funciona</span>
+        <span class="hint">1. Você descreve o que quer vender. 2. A IA propõe mudanças por área. 3. Você revisa e aprova. 4. Serviços e produtos entram no plano de atualização e são publicados pela extensão dentro do limite diário.</span>
+      </div>
     </aside>
   </div>
+  </div>
+  </div>
 
-  </div>
-  </div>
   <footer style="position: absolute; left: 240px; right: 0; bottom: 0; height: 72px; background: #fff; border-top: 1px solid #E2E6EA; box-shadow: 0 -4px 14px rgba(31,35,41,.04)">
-    <div style="padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between">
-      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #2B2D31"><span class="ms" style="font-size: 18px; color: #5F6368">info</span>Mudanças aprovadas entram nas abas correspondentes e só vão ao Google quando você salvar.</div>
-      <div style="display: flex; gap: 8px"><button class="btn btn-text">Descartar</button><button class="btn btn-filled" style="opacity: .5">Salvar alterações</button></div>
+    <div style="padding: 0 32px; height: 100%; display: flex; align-items: center; justify-content: space-between">
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #2B2D31"><span class="ms" style="font-size: 18px; color: #5F6368">info</span>Sugestões aprovadas entram nas abas correspondentes e só vão ao Google quando você publicar.</div>
+      <div style="display: flex; gap: 8px"><button class="btn btn-text">Descartar sugestões</button><a href="PerfilSeo.dc.html" class="btn btn-filled"><span class="ms">arrow_forward</span>Ver plano de atualização</a></div>
     </div>
   </footer>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1400}}'>
 class Component extends DCLogic {
   renderVals() {
-    return {};
+    const termos = ['uniformes empresariais', 'uniformes personalizados', 'confecção de uniformes', 'uniformes corporativos', 'bordados personalizados', 'bordados para empresas', 'tecidos de qualidade', 'material para uniformes'];
+    const gab = ['bordados profissionais em Piracicaba', 'fazer bordados personalizados', 'loja de bordados preço', 'serviço de bordados sob medida', 'uniformes bordados', 'bordados industriais orçamento', 'onde fazer bordados', 'bordados de alta qualidade'];
+    const areas = [
+      { icon: 'category', nome: 'Categorias adicionais', resumo: 'Adicionar "Serviço de bordados" e "Loja de camisetas personalizadas"', qtd: '2 propostas', cls: 'b-blue', href: 'PerfilBasico.dc.html' },
+      { icon: 'description', nome: 'Descrição', resumo: 'Nova versão citando uniformes para empresas, escolas e bancos em Piracicaba', qtd: '1 proposta', cls: 'b-blue', href: 'PerfilDescricao.dc.html' },
+      { icon: 'build', nome: 'Serviços', resumo: 'Cadastrar 5 serviços a partir das palavras do Gabarito, com descrição curta', qtd: '5 para cadastrar', cls: 'b-green', href: 'PerfilSeo.dc.html' },
+      { icon: 'inventory_2', nome: 'Produtos', resumo: 'Preparar 3 produtos com foto e link: camisa bordada, boné, jaleco', qtd: '3 para preparar', cls: 'b-yellow', href: 'PerfilSeo.dc.html' },
+      { icon: 'feed', nome: 'Postagens', resumo: 'Dois rascunhos: "uniformes para escolas" e "bordado em jalecos"', qtd: '2 rascunhos', cls: 'b-blue', href: 'PerfilPostagens.dc.html' },
+      { icon: 'reviews', nome: 'Respostas a avaliações', resumo: 'Três avaliações sem resposta, respostas geradas com o tom do Gabarito', qtd: '3 pendentes', cls: 'b-yellow', href: 'ClienteComentarios.dc.html' },
+      { icon: 'assignment', nome: 'Gabarito', resumo: 'Incluir 4 termos novos: uniformes corporativos, jaleco bordado, boné bordado, orçamento', qtd: '4 termos', cls: 'b-grey', href: 'PerfilGabarito.dc.html' }
+    ];
+    return { termos, gab, areas };
   }
 }
 </script>
