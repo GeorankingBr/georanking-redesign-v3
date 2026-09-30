@@ -48,10 +48,10 @@ td{padding:10px 16px;border-bottom:1px solid #EEF1F4;font-size:14px;vertical-ali
 .step b{width:22px;height:22px;border-radius:999px;background:#EAF1FB;color:#0B4FA8;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0}
 </style>
 </helmet>
-<div style="width: 1440px; height: 1300px; box-sizing: border-box; background: #F7F9FC; display: flex; flex-direction: column; position: relative; overflow: hidden">
+<div style="width: 1440px; height: 1500px; box-sizing: border-box; background: #F7F9FC; display: flex; flex-direction: column; position: relative; overflow: hidden">
   <dc-import name="ProfileHeader" hint-size="1440px,72px"></dc-import>
   <div style="display: flex; flex: 1; min-height: 0">
-  <dc-import name="SectionRail" active="seo" hint-size="240px,1228px"></dc-import>
+  <dc-import name="SectionRail" active="seo" hint-size="240px,1428px"></dc-import>
   <div style="flex: 1; min-width: 0; overflow: hidden">
   <div style="display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 24px; padding: 24px 32px 100px">
 
@@ -151,7 +151,7 @@ td{padding:10px 16px;border-bottom:1px solid #EEF1F4;font-size:14px;vertical-ali
   </footer>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
 class Component extends DCLogic {
   renderVals() {
     const sv = (nome, cat, desc, orig, st, on) => ({ nome, cat, desc, orig, st, sw: on ? '' : 'off', stCls: st === 'Pronto' ? 'b-green' : st === 'Revisar' ? 'b-yellow' : 'b-grey', stIcon: st === 'Pronto' ? 'check' : st === 'Revisar' ? 'warning' : 'remove' });
