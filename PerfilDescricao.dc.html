@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Perfil · Descrição</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap;transition:box-shadow .15s,background .15s}
+.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#0B4FA8;box-shadow:0 4px 14px rgba(31,35,41,.08)}
+.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
+.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-outlined:hover{background:#F3F6FA;border-color:#D4D9DE}
+.btn-text{background:transparent;color:#5F6368}.btn-text:hover{background:#F3F6FA;color:#1F1F1F}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#EAF7EE;color:#137333}.b-red{background:#FCE8E6;color:#B3261E}.b-yellow{background:#FFF7E0;color:#B06000}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}
+.lab{display:flex;align-items:center;gap:8px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;color:#2B2D31}
+.lab .ms{font-size:18px;color:#5F6368}
+.src{display:inline-flex;align-items:center;gap:4px;height:20px;padding:0 8px;border-radius:999px;background:#EAF7EE;color:#137333;font-size:11px;font-weight:500}
+.src .ms{font-size:13px;color:#137333}
+.inp{display:flex;align-items:flex-start;gap:10px;padding:14px 16px;border:1px solid #E2E6EA;border-radius:12px;background:#fff;transition:border-color .15s,box-shadow .15s}
+.inp:hover{border-color:#D4D9DE}.inp:focus-within{border-color:#1264C7;box-shadow:0 0 0 2px rgba(18,100,199,.25)}
+.inp textarea{border:0;outline:0;flex:1;font:16px/26px "Google Sans Text",Roboto,Arial,sans-serif;color:#1F1F1F;background:transparent;min-width:0;padding:0;resize:none}
+.hint{font-size:13px;line-height:18px;color:#5F6368}
+.h2{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:22px;line-height:28px;font-weight:500;color:#1F1F1F;margin:0}
+.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:16px;font-weight:600;color:#1F1F1F;margin:0}
+.chk{display:flex;align-items:center;gap:10px;font-size:13px;color:#2B2D31}
+.chk .ms{font-size:18px}
+.tip{display:flex;gap:12px;padding:14px 16px;border-radius:12px;background:#F3F6FA;font-size:13px;line-height:19px;color:#2B2D31}
+.tip .ms{flex-shrink:0;color:#1264C7}
+.diff-del{background:#FCE8E6;color:#B3261E;text-decoration:line-through;border-radius:4px;padding:0 2px}
+.diff-add{background:#EAF7EE;color:#137333;border-radius:4px;padding:0 2px}
+.up{animation:up .4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.d1{animation-delay:.06s}.d2{animation-delay:.12s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1100px; box-sizing: border-box; background: #F7F9FC; display: flex; flex-direction: column; position: relative; overflow: hidden">
+  <dc-import name="ProfileHeader" hint-size="1440px,72px"></dc-import>
+  <div style="display: flex; flex: 1; min-height: 0">
+  <dc-import name="SectionRail" active="descricao" hint-size="240px,1028px"></dc-import>
+  <div style="flex: 1; min-width: 0; overflow: hidden">
+
+  <div style="margin: 0; display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 32px; padding: 24px 32px 100px">
+    <div class="up" style="display: flex; flex-direction: column; gap: 24px">
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 class="h2">Descrição do negócio</h2>
+          <span class="hint">Texto que aparece na ficha em "Sobre". O Google exibe as primeiras 250 letras e esconde o resto atrás de "mais".</span>
+        </div>
+        <span class="src"><span class="ms">sync</span>Sincronizado com o Google</span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <span class="lab"><span class="ms">description</span>Descrição detalhada</span>
+          <span class="hint"><b style="color: #1F1F1F; font-weight: 500">1.240</b> / 2.000 caracteres</span>
+        </div>
+        <label class="inp" for="desc" style="min-height: 260px">
+          <textarea id="desc" rows="10">A Náutica Caça e Pesca é a loja de referência em Barreiras (BA) para quem vive o campo, o rio e a natureza. Há mais de 15 anos oferecemos equipamentos de pesca, artigos para camping, acessórios náuticos e itens de caça esportiva com orientação de quem entende do assunto.
+
+Atendemos Barreiras e toda a região do Oeste Baiano, com entrega para Luís Eduardo Magalhães, Barra e Ibotirama. Na loja você encontra varas, molinetes, carretilhas, iscas, motores de popa, coletes, barracas e vestuário técnico das melhores marcas.
+
+Nossa equipe ajuda a montar o kit certo para cada tipo de pescaria e a escolher o equipamento ideal para a sua próxima aventura.</textarea>
+        </label>
+        <div style="height: 6px; border-radius: 999px; background: #EEF1F4; overflow: hidden"><div style="width: 62%; height: 100%; background: #1E8E3E; border-radius: 999px"></div></div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 10px">
+        <button class="btn btn-tonal"><span class="ms">auto_awesome</span>Melhorar com IA</button>
+        <button class="btn btn-outlined"><span class="ms">spellcheck</span>Revisar ortografia</button>
+        <button class="btn btn-text"><span class="ms">history</span>Versões anteriores</button>
+      </div>
+
+      <section class="card up d1" style="padding: 20px 24px; display: flex; flex-direction: column; gap: 14px; border-color: #D6E4F7; background: #FBFDFF">
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <span class="h3" style="display: flex; align-items: center; gap: 8px"><span class="ms" style="color: #1264C7">auto_awesome</span>Sugestão da IA · trecho 1 de 2</span>
+          <span class="badge b-blue">Nada é publicado sem sua confirmação</span>
+        </div>
+        <p style="margin: 0; font-size: 15px; line-height: 24px; color: #2B2D31">A Náutica Caça e Pesca é a loja de referência em Barreiras (BA) para quem vive o campo, o rio e a natureza. <span class="diff-del">Há mais de 15 anos oferecemos</span> <span class="diff-add">Desde 2009, oferecemos</span> equipamentos de pesca, artigos para camping, acessórios náuticos e itens de caça esportiva <span class="diff-add">com garantia e assistência</span>, com orientação de quem entende do assunto.</p>
+        <span class="hint">Motivo: datas concretas e garantia aumentam a confiança e citam termos que os clientes buscam ("assistência").</span>
+        <div style="display: flex; gap: 8px">
+          <button class="btn btn-filled btn-sm"><span class="ms" style="font-size: 18px">check</span>Aceitar trecho</button>
+          <button class="btn btn-outlined btn-sm"><span class="ms" style="font-size: 18px">edit</span>Editar antes</button>
+          <button class="btn btn-text btn-sm">Descartar</button>
+        </div>
+      </section>
+    </div>
+
+    <aside style="display: flex; flex-direction: column; gap: 16px">
+      <div class="card up d1" style="padding: 20px; display: flex; flex-direction: column; gap: 12px">
+        <span class="lab">Como aparece no Google</span>
+        <div style="display: flex; flex-direction: column; gap: 6px; padding: 14px; border-radius: 12px; background: #F7F9FC">
+          <span class="gs" style="font-size: 15px; font-weight: 500">Sobre</span>
+          <p style="margin: 0; font-size: 13px; line-height: 19px; color: #2B2D31">A Náutica Caça e Pesca é a loja de referência em Barreiras (BA) para quem vive o campo, o rio e a natureza. Há mais de 15 anos oferecemos equipamentos de pesca, artigos para camping, acessórios náuticos e itens de caça esportiva com orientação de quem… <a href="#mais">mais</a></p>
+        </div>
+        <span class="hint">O corte em 250 letras acontece no meio de "quem entende". Considere mover a frase mais importante para o início.</span>
+      </div>
+      <div class="card up d2" style="padding: 20px; display: flex; flex-direction: column; gap: 10px">
+        <span class="lab">Regras do Google e boas práticas</span>
+        <span class="chk"><span class="ms" style="color: #1E8E3E">check_circle</span>Cita a cidade e a região atendida</span>
+        <span class="chk"><span class="ms" style="color: #1E8E3E">check_circle</span>Lista produtos e serviços principais</span>
+        <span class="chk"><span class="ms" style="color: #1E8E3E">check_circle</span>Sem links, telefones ou promoções</span>
+        <span class="chk"><span class="ms" style="color: #F9AB00">radio_button_unchecked</span>Diferencial nas primeiras 250 letras</span>
+        <span class="chk"><span class="ms" style="color: #F9AB00">radio_button_unchecked</span>Palavras do Gabarito: 3 de 5 usadas</span>
+      </div>
+      <div class="tip"><span class="ms">lightbulb</span>Descrições completas (acima de 750 letras) com categoria e cidade no primeiro parágrafo ranqueiam melhor para buscas "perto de mim".</div>
+    </aside>
+  </div>
+
+  </div>
+  </div>
+  <footer style="position: absolute; left: 240px; right: 0; bottom: 0; height: 72px; background: #fff; border-top: 1px solid #E2E6EA; box-shadow: 0 -4px 14px rgba(31,35,41,.04)">
+    <div style="padding: 0 32px; height: 100%; display: flex; align-items: center; justify-content: space-between">
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #2B2D31"><span style="width: 8px; height: 8px; border-radius: 999px; background: #F9AB00"></span>1 alteração não salva<span class="hint">· última atualização 29/09/2026</span></div>
+      <div style="display: flex; gap: 8px"><button class="btn btn-text">Descartar</button><button class="btn btn-filled"><span class="ms">save</span>Salvar alterações</button></div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

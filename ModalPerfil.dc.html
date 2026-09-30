@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Cabeçalho do modal Gerenciar Perfil</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;color:#202124;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.tab{display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 12px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;color:#3C4043;white-space:nowrap;position:relative;transition:background .15s,color .15s}
+.tab:hover{background:#F1F3F4;color:#202124}
+.tab.on{background:#EAF1FB;color:#0B4FA8}
+.tab.on .ms{font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24}
+.tab.on::after{content:"";position:absolute;left:12px;right:12px;bottom:-9px;height:3px;border-radius:3px 3px 0 0;background:#1264C7}
+.iconbtn{width:40px;height:40px;border-radius:10px;border:0;background:transparent;color:#3C4043;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s}
+.iconbtn:hover{background:#F1F3F4}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 16px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:1px solid #DADCE0;background:#fff;color:#0B4FA8;cursor:pointer;white-space:nowrap}
+.btn:hover{background:#F8FAFD;border-color:#C2D7F5}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+</style>
+</helmet>
+<div style="width: 1440px; height: 128px; box-sizing: border-box; background: #ffffff; border-bottom: 1px solid #E2E6EA; display: flex; flex-direction: column">
+  <div style="height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; gap: 24px">
+    <div style="display: flex; align-items: center; gap: 14px; min-width: 0">
+      <span class="ms" style="width: 44px; height: 44px; border-radius: 14px; background: #EAF1FB; color: #0B4FA8; display: inline-flex; align-items: center; justify-content: center; font-size: 24px; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">storefront</span>
+      <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
+        <span style="font-size: 12px; color: #5F6368; font-family: 'Google Sans', Roboto, Arial, sans-serif; font-weight: 500; letter-spacing: .3px; text-transform: uppercase">Gerenciar perfil</span>
+        <span style="font-family: 'Google Sans', Roboto, Arial, sans-serif; font-size: 20px; font-weight: 500; color: #202124; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{nome}}</span>
+      </div>
+      <span class="badge" style="background: #E6F4EA; color: #137333; margin-left: 8px"><span style="width: 6px; height: 6px; border-radius: 999px; background: #1E8E3E"></span>Aberto e operacional</span>
+      <span class="badge" style="background: #F1F3F4; color: #5F6368"><span class="ms" style="font-size: 14px">sync</span>Sincronizado hoje, 14:20</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px">
+      <a href="#google" class="btn"><span class="ms" style="font-size: 18px">open_in_new</span>Ver no Google</a>
+      <button class="iconbtn" aria-label="Histórico de alterações"><span class="ms">history</span></button>
+      <button class="iconbtn" aria-label="Fechar"><span class="ms">close</span></button>
+    </div>
+  </div>
+  <nav aria-label="Seções do perfil" style="height: 56px; display: flex; align-items: center; gap: 2px; padding: 0 24px; overflow: hidden">
+    <sc-for list="{{tabs}}" as="t" hint-placeholder-count="12">
+      <a href="{{t.href}}" class="tab {{t.cls}}"><span class="ms" style="font-size: 18px">{{t.icon}}</span><span>{{t.label}}</span></a>
+    </sc-for>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"active":{"editor":"enum","options":["basico","contato","local","horarios","descricao","servicos","postagens","gabarito","atributos","ia","seo","presenca"],"default":"basico"},"nome":{"editor":"text","default":"Náutica Caça e Pesca"},"$preview":{"width":1440,"height":128}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const active = this.props.active ?? 'basico';
+    const list = [
+      { key: 'basico', label: 'Informações básicas', icon: 'business', href: 'PerfilBasico.dc.html' },
+      { key: 'contato', label: 'Contato', icon: 'contact_phone', href: 'PerfilContato.dc.html' },
+      { key: 'local', label: 'Local e áreas', icon: 'place', href: 'PerfilLocal.dc.html' },
+      { key: 'horarios', label: 'Horários', icon: 'schedule', href: 'PerfilHorarios.dc.html' },
+      { key: 'descricao', label: 'Descrição', icon: 'description', href: 'PerfilDescricao.dc.html' },
+      { key: 'servicos', label: 'Serviços', icon: 'build', href: 'PerfilServicos.dc.html' },
+      { key: 'postagens', label: 'Postagens', icon: 'feed', href: 'PerfilPostagens.dc.html' },
+      { key: 'gabarito', label: 'Gabarito', icon: 'assignment', href: 'PerfilGabarito.dc.html' },
+      { key: 'atributos', label: 'Mais atributos', icon: 'tune', href: 'PerfilAtributos.dc.html' },
+      { key: 'ia', label: 'Assistente IA', icon: 'auto_awesome', href: 'PerfilAssistenteIA.dc.html' },
+      { key: 'seo', label: 'SEO', icon: 'travel_explore', href: 'PerfilSeo.dc.html' },
+      { key: 'presenca', label: 'Presença digital', icon: 'qr_code_2', href: 'PerfilPresencaDigital.dc.html' }
+    ];
+    return { nome: this.props.nome ?? 'Náutica Caça e Pesca', tabs: list.map((t) => ({ ...t, cls: t.key === active ? 'on' : '' })) };
+  }
+}
+</script>
+</body>
+</html>

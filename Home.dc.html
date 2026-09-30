@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Home do cliente</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap}
+.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#0B4FA8}
+.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
+.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-outlined:hover{background:#F3F6FA}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:999px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#EAF7EE;color:#137333}.b-yellow{background:#FFF7E0;color:#B06000}.b-red{background:#FCE8E6;color:#B3261E}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}
+.hint{font-size:13px;line-height:18px;color:#5F6368}
+.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:17px;font-weight:600;margin:0}
+.kpi{display:flex;flex-direction:column;gap:6px;padding:18px 22px;border-right:1px solid #EEF1F4}
+.kpi:last-child{border-right:0}
+.kpi b{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:30px;font-weight:500;letter-spacing:-.5px}
+.pos{display:inline-grid;place-items:center;min-width:34px;height:28px;padding:0 8px;border-radius:8px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-weight:500;font-size:13px;overflow:hidden}
+.pos .a,.pos .b{grid-area:1/1}
+.pos .a{animation:swapA 6s ease-in-out 1.5s infinite}.pos .b{animation:swapB 6s ease-in-out 1.5s infinite}
+@keyframes swapA{0%,30%{opacity:1;transform:none}40%,95%{opacity:0;transform:translateY(-10px)}100%{opacity:1;transform:none}}
+@keyframes swapB{0%,30%{opacity:0;transform:translateY(10px)}40%,95%{opacity:1;transform:none}100%{opacity:0;transform:translateY(10px)}}
+.act{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #EEF1F4;font-size:14px}
+.act .ic{width:34px;height:34px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;background:#EAF7EE;color:#137333}
+.hl{display:flex;align-items:center;gap:10px;font-size:13px;color:#2B2D31}
+.hl .ms{font-size:18px}
+.fab{position:absolute;right:32px;bottom:32px;width:56px;height:56px;border-radius:16px;background:#25D366;color:#fff;border:0;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 14px rgba(37,211,102,.35)}
+.up{animation:up .4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.d1{animation-delay:.06s}.d2{animation-delay:.12s}.d3{animation-delay:.18s}.d4{animation-delay:.24s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1600px; box-sizing: border-box; background: #F7F9FC; display: flex; overflow: hidden; position: relative">
+  <dc-import name="SidebarCliente" active="home" hint-size="264px,1400px"></dc-import>
+
+  <main style="flex: 1; min-width: 0; padding: 32px 40px 48px; display: flex; flex-direction: column; gap: 20px">
+    <section class="up" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; padding-bottom: 4px">
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; align-items: center; gap: 8px">
+          <span class="badge b-green"><span style="width: 6px; height: 6px; border-radius: 999px; background: #1E8E3E"></span>Perfil ativo</span>
+          <span class="badge b-grey"><span class="ms" style="font-size: 14px">sync</span>Sincronizado hoje, 14:20 · fonte: Google Business Profile</span>
+        </div>
+        <h1 class="gs" style="margin: 0; font-size: 34px; line-height: 40px; font-weight: 500; letter-spacing: -.5px">Olá, Náutica Caça e Pesca</h1>
+        <p style="margin: 0; font-size: 15px; line-height: 22px; color: #5F6368; max-width: 640px">Seu Perfil da Empresa está sincronizado e sendo acompanhado. Abaixo, o que mudou nos últimos 30 dias e o que a GeoRanking fez por você.</p>
+      </div>
+      <div style="display: flex; gap: 8px"><a href="ClienteRelatorioPerformance.dc.html" class="btn btn-outlined"><span class="ms">monitoring</span>Relatório completo</a><a href="PerfilBasico.dc.html" class="btn btn-filled"><span class="ms">edit_square</span>Gerenciar perfil</a></div>
+    </section>
+
+    <div class="card up d1" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: hidden">
+      <div class="kpi"><span class="hint">Visualizações no Maps e na Busca</span><b>1.284</b><span class="badge b-green" style="align-self: flex-start"><span class="ms" style="font-size: 14px">arrow_upward</span>12% vs. 30 d anteriores</span></div>
+      <div class="kpi"><span class="hint">Cliques no site</span><b>312</b><span class="badge b-green" style="align-self: flex-start"><span class="ms" style="font-size: 14px">arrow_upward</span>8%</span></div>
+      <div class="kpi"><span class="hint">Ligações</span><b>96</b><span class="badge b-green" style="align-self: flex-start"><span class="ms" style="font-size: 14px">arrow_upward</span>5%</span></div>
+      <div class="kpi"><span class="hint">Rotas solicitadas</span><b>148</b><span class="badge b-green" style="align-self: flex-start"><span class="ms" style="font-size: 14px">arrow_upward</span>17%</span></div>
+    </div>
+
+    <div class="up d2" style="display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 20px">
+      <section class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="h3">Como você está aparecendo</span><a href="ClienteRelatorioPalavras.dc.html" style="font-size: 13px; font-family: 'Google Sans', Roboto, Arial, sans-serif; font-weight: 500">Ver as 8 palavras</a></div>
+        <div style="display: flex; flex-direction: column">
+          <sc-for list="{{rank}}" as="r" hint-placeholder-count="4">
+            <div style="display: grid; grid-template-columns: minmax(0, 1fr) 90px 110px 140px; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #EEF1F4; font-size: 14px">
+              <span style="font-weight: 500">{{r.kw}}</span>
+              <span class="pos" style="background: {{r.bg}}; color: {{r.fg}}"><span class="a">{{r.antes}}</span><span class="b">{{r.pos}}</span></span>
+              <span class="badge {{r.vCls}}"><span class="ms" style="font-size: 14px">{{r.vIcon}}</span>{{r.var}}</span>
+              <span class="hint">{{r.cidade}}</span>
+            </div>
+          </sc-for>
+        </div>
+        <span class="hint">Posição média das 8 palavras: <b style="color: #137333; font-weight: 500">3,8º</b> · medido hoje às 06:10 pelo Radar GeoRanking.</span>
+      </section>
+
+      <section class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 12px; background: #EAF1FB; border-color: #EAF1FB">
+        <div style="display: flex; align-items: center; gap: 8px"><span class="ms" style="color: #0B4FA8">bolt</span><span class="h3" style="color: #0B4FA8">1 ação pode melhorar seu perfil</span></div>
+        <span class="gs" style="font-size: 18px; font-weight: 500; line-height: 24px">Adicione o horário especial do feriado de 12 de outubro.</span>
+        <span style="font-size: 14px; line-height: 20px; color: #2B2D31">Sem essa informação, o Google mostra o horário normal e clientes podem ir até a loja fechada. Leva 1 minuto.</span>
+        <div style="display: flex; gap: 8px; padding-top: 4px"><a href="PerfilHorarios.dc.html" class="btn btn-filled">Resolver agora</a><button class="btn btn-tonal" style="background: #fff">Lembrar depois</button></div>
+        <div style="height: 1px; background: #D6E4F7; margin: 6px 0"></div>
+        <span class="hint" style="color: #0B4FA8">Saúde do perfil</span>
+        <span class="hl"><span class="ms" style="color: #1E8E3E">check_circle</span>Conta Google conectada · sincroniza a cada 24 h</span>
+        <span class="hl"><span class="ms" style="color: #1E8E3E">check_circle</span>Perfil 82% completo</span>
+        <span class="hl"><span class="ms" style="color: #F9AB00">warning</span>3 avaliações aguardando resposta</span>
+      </section>
+    </div>
+
+    <div class="up d3" style="display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 20px">
+      <section class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 6px">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 6px"><span class="h3">O que fizemos por você</span><span class="badge b-grey">últimos 30 dias</span></div>
+        <sc-for list="{{feitos}}" as="f" hint-placeholder-count="5">
+          <div class="act"><span class="ic"><span class="ms" style="font-size: 18px">{{f.icon}}</span></span><div style="display: flex; flex-direction: column; gap: 2px; flex: 1"><span style="font-weight: 500">{{f.titulo}}</span><span class="hint">{{f.sub}}</span></div><span class="hint" style="white-space: nowrap">{{f.data}}</span></div>
+        </sc-for>
+        <a href="ClienteRelatorioPerformance.dc.html" class="btn btn-tonal btn-sm" style="align-self: flex-start; margin-top: 10px">Ver todas as ações<span class="ms" style="font-size: 16px">arrow_forward</span></a>
+      </section>
+
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <section class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 12px">
+          <span class="h3">Resultado do período</span>
+          <div style="display: flex; align-items: baseline; gap: 10px"><span class="gs" style="font-size: 36px; font-weight: 500; letter-spacing: -1px">317</span><span style="font-size: 14px; color: #2B2D31">contatos gerados pela ficha</span></div>
+          <span class="hint">ligações + conversas no WhatsApp + rotas · <span class="badge b-green">+14%</span> vs. 30 dias anteriores</span>
+          <div style="display: flex; align-items: center; gap: 12px; padding-top: 4px"><span class="pos" style="background: #F3F6FA; color: #5F6368; font-size: 16px; height: 36px">9,4º</span><span class="ms" style="color: #137333">trending_flat</span><span class="pos" style="background: #EAF7EE; color: #137333; font-size: 16px; height: 36px">3,8º</span><span class="hint">posição média desde 12/08</span></div>
+        </section>
+        <section class="card" style="padding: 20px 22px; display: flex; align-items: center; gap: 16px; background: #F7F9FC; border-color: #E2E6EA; color: #1F1F1F">
+          <span class="ms" style="width: 44px; height: 44px; border-radius: 12px; background: #EAF1FB; color: #0B4FA8; display: inline-flex; align-items: center; justify-content: center; font-size: 24px">support_agent</span>
+          <div style="display: flex; flex-direction: column; gap: 2px; flex: 1"><span class="gs" style="font-size: 15px; font-weight: 500">Precisa de ajuda?</span><span style="font-size: 13px; color: #5F6368">Seg. a sex., 8h às 18h</span></div>
+          <a href="#tel" class="btn btn-sm btn-outlined"><span class="ms" style="font-size: 18px">call</span>0800 800 1700</a>
+        </section>
+      </div>
+    </div>
+  </main>
+  <button class="fab" aria-label="Falar no WhatsApp"><span class="ms" style="font-size: 28px">chat</span></button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const mk = (kw, antes, pos, v, cidade) => ({ kw, antes: antes + 'º', pos: pos + 'º', bg: pos <= 3 ? '#EAF7EE' : '#FFF7E0', fg: pos <= 3 ? '#137333' : '#B06000', var: (v > 0 ? '+' : '') + v + ' em 30 d', vCls: v > 0 ? 'b-green' : 'b-grey', vIcon: v > 0 ? 'arrow_upward' : 'remove', cidade });
+    const rank = [mk('loja de pesca em Barreiras', 8, 1, 2, 'Barreiras'), mk('artigos de pesca', 12, 2, 1, 'Barreiras'), mk('equipamentos de camping', 9, 3, 4, 'Barreiras'), mk('isca artificial', 14, 6, 3, 'Barreiras')];
+    const feitos = [
+      { icon: 'feed', titulo: '3 postagens publicadas na ficha', sub: 'Motores de popa, iscas artificiais e torneio de pesca · 592 visualizações', data: '27/09' },
+      { icon: 'reviews', titulo: '11 avaliações respondidas com o seu gabarito', sub: 'Tempo médio de resposta: 6 horas', data: '26/09' },
+      { icon: 'query_stats', titulo: '"isca artificial" subiu de 9º para 6º', sub: 'Medição diária do Radar em Barreiras', data: '25/09' },
+      { icon: 'category', titulo: 'Categoria "Loja de equipamentos náuticos" adicionada', sub: 'Recomendação da IA aprovada por você', data: '23/09' },
+      { icon: 'schedule', titulo: 'Horário de domingo corrigido na ficha', sub: 'Após avaliação de cliente sobre loja fechada', data: '21/09' }
+    ];
+    return { rank, feitos };
+  }
+}
+</script>
+</body>
+</html>

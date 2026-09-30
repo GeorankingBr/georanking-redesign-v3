@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Cliente · Relatório de palavras-chave</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap}
+.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#0B4FA8}
+.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
+.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-outlined:hover{background:#F3F6FA}
+.btn-text{background:transparent;color:#5F6368}.btn-text:hover{background:#F3F6FA;color:#1F1F1F}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#EAF7EE;color:#137333}.b-yellow{background:#FFF7E0;color:#B06000}.b-red{background:#FCE8E6;color:#B3261E}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}
+.hint{font-size:13px;line-height:18px;color:#5F6368}
+.h1{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:32px;line-height:40px;font-weight:500;margin:0}
+.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:17px;font-weight:600;margin:0}
+.inp{display:flex;align-items:center;gap:10px;height:44px;padding:0 14px;border:1px solid #E2E6EA;border-radius:12px;background:#fff}
+.inp input,.inp select{border:0;outline:0;flex:1;font:14px "Google Sans Text",Roboto,Arial,sans-serif;color:#1F1F1F;background:transparent;min-width:0;padding:0}
+.inp .ms{color:#5F6368}
+.kpi{display:flex;flex-direction:column;gap:4px;padding:16px 20px;border-right:1px solid #EEF1F4}
+.kpi:last-child{border-right:0}
+.kpi b{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:28px;font-weight:500;letter-spacing:-.5px}
+table{border-collapse:collapse;width:100%}
+th{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:600;color:#5F6368;text-align:left;padding:12px 16px;background:#F8FAFC;border-bottom:1px solid #E2E6EA;white-space:nowrap}
+td{padding:12px 16px;border-bottom:1px solid #EEF1F4;font-size:14px;vertical-align:middle}
+tbody tr:hover td{background:#EAF1FB}
+.pos{display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:28px;padding:0 8px;border-radius:8px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500}
+.spark{display:flex;align-items:flex-end;gap:2px;height:28px}
+.spark span{width:6px;border-radius:2px;background:#D6E4F7}
+.spark span.last{background:#1264C7}
+.grow{transform-origin:left;animation:grow .8s cubic-bezier(.2,.8,.2,1) .2s both}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.up{animation:up .4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.d1{animation-delay:.06s}.d2{animation-delay:.12s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1400px; box-sizing: border-box; background: #F7F9FC; display: flex; overflow: hidden">
+  <dc-import name="SidebarCliente" active="palavras" hint-size="264px,1400px"></dc-import>
+
+  <main style="flex: 1; min-width: 0; padding: 32px 40px; display: flex; flex-direction: column; gap: 22px">
+    <div class="up" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h1 class="h1">Relatório de palavras-chave</h1>
+        <span class="hint" style="font-size: 14px">Posição da sua ficha no Google Maps para cada palavra monitorada. Medido pelo Radar GeoRanking a partir das áreas cadastradas.</span>
+      </div>
+      <div style="display: flex; gap: 8px">
+        <label class="inp" for="perfil" style="width: 250px"><span class="ms">storefront</span><select id="perfil"><option>Náutica Caça e Pesca</option></select></label>
+        <button class="btn btn-outlined"><span class="ms">refresh</span>Atualizar</button>
+        <button class="btn btn-tonal"><span class="ms">download</span>Exportar</button>
+      </div>
+    </div>
+
+    <div class="card up d1" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr))">
+      <div class="kpi"><span class="hint">Palavras monitoradas</span><b>8</b><span class="hint">Plano Ouro</span></div>
+      <div class="kpi"><span class="hint">Posição média</span><b style="color: #137333">3,8º</b><span class="badge b-green" style="align-self: flex-start"><span class="ms" style="font-size: 14px">arrow_upward</span>1,2 posições em 30 d</span></div>
+      <div class="kpi"><span class="hint">No Top 3</span><b>4</b><span class="hint">de 8</span></div>
+      <div class="kpi"><span class="hint">Busca no Maps · mês</span><b>2.640</b><span class="hint">soma das palavras</span></div>
+      <div class="kpi"><span class="hint">Última medição</span><b style="font-size: 20px">hoje, 06:10</b><span class="hint">próxima amanhã</span></div>
+    </div>
+
+    <div class="up d2" style="display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <section class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 16px">
+          <div style="display: flex; align-items: center; justify-content: space-between">
+            <div style="display: flex; flex-direction: column; gap: 2px"><span class="h3">Posição atual das palavras-chave</span><span class="hint">Quanto menor a barra, melhor. Selecione de 2 a 10 palavras para comparar a evolução.</span></div>
+            <label class="inp" for="per" style="height: 36px"><select id="per"><option>Últimos 30 dias</option><option>Últimos 90 dias</option><option>Desde a primeira medição</option></select></label>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <sc-for list="{{rows}}" as="r" hint-placeholder-count="8">
+              <div style="display: grid; grid-template-columns: 220px minmax(0, 1fr) 48px; align-items: center; gap: 12px">
+                <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer"><input type="checkbox" style="width: 16px; height: 16px; accent-color: #1264C7; margin: 0">{{r.kw}}</label>
+                <div style="height: 20px; border-radius: 6px; background: #F3F6FA; overflow: hidden"><div class="grow" style="height: 100%; border-radius: 6px; background: {{r.color}}; width: {{r.pct}}"></div></div>
+                <span class="gs" style="font-size: 13px; font-weight: 500; color: {{r.color}}">{{r.pos}}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display: flex; gap: 16px; font-size: 12px; color: #5F6368"><span><span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: #1E8E3E; vertical-align: middle"></span> Top 3</span><span><span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: #F9AB00; vertical-align: middle"></span> 4º a 10º</span><span><span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: #D93025; vertical-align: middle"></span> Fora do top 20</span></div>
+        </section>
+
+        <section class="card" style="overflow: hidden">
+          <table>
+            <thead><tr><th>Palavra-chave</th><th>Posição atual</th><th>Variação</th><th>Últimas 8 semanas</th><th>Busca no Maps</th><th>Cidade</th><th></th></tr></thead>
+            <tbody>
+              <sc-for list="{{rows}}" as="r" hint-placeholder-count="8">
+                <tr>
+                  <td style="font-weight: 500">{{r.kw}}</td>
+                  <td><span class="pos" style="background: {{r.bg}}; color: {{r.color}}">{{r.pos}}</span></td>
+                  <td><span class="badge {{r.vCls}}"><span class="ms" style="font-size: 14px">{{r.vIcon}}</span>{{r.var}}</span></td>
+                  <td><div class="spark"><sc-for list="{{r.spark}}" as="s" hint-placeholder-count="8"><span class="{{s.cls}}" style="height: {{s.h}}"></span></sc-for></div></td>
+                  <td>{{r.vol}}</td>
+                  <td class="hint">{{r.cidade}}</td>
+                  <td style="text-align: right"><button class="btn btn-text btn-sm">Detalhes<span class="ms" style="font-size: 16px">chevron_right</span></button></td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </section>
+      </div>
+
+      <aside style="display: flex; flex-direction: column; gap: 16px">
+        <section class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 12px">
+          <span class="h3" style="font-size: 15px">Evolução desde a primeira medição</span>
+          <div style="display: flex; align-items: center; gap: 12px"><span class="pos" style="background: #F3F6FA; color: #5F6368; font-size: 18px; height: 40px">9,4º</span><span class="ms" style="color: #137333">trending_flat</span><span class="pos" style="background: #EAF7EE; color: #137333; font-size: 18px; height: 40px">3,8º</span></div>
+          <span class="hint">12/08 → hoje · 7 semanas · média das 8 palavras</span>
+        </section>
+        <section class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 10px">
+          <span class="h3" style="font-size: 15px">Peso para o negócio</span>
+          <span class="hint">Frequência com que cada palavra foi buscada no período e em quais meses apareceu.</span>
+          <div style="display: flex; justify-content: space-between; font-size: 13px"><span>loja de pesca em Barreiras</span><span style="font-weight: 500">880/mês</span></div>
+          <div style="display: flex; justify-content: space-between; font-size: 13px"><span>artigos de pesca</span><span style="font-weight: 500">720/mês</span></div>
+          <div style="display: flex; justify-content: space-between; font-size: 13px"><span>isca artificial</span><span style="font-weight: 500">390/mês</span></div>
+          <div style="display: flex; justify-content: space-between; font-size: 13px"><span>motor de popa</span><span style="font-weight: 500">260/mês</span></div>
+        </section>
+        <section class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 10px; background: #EAF1FB; border-color: #EAF1FB">
+          <span class="h3" style="font-size: 15px; color: #0B4FA8">Próxima melhor ação</span>
+          <span style="font-size: 14px; line-height: 20px">"motor de popa" tem 260 buscas/mês e a ficha não aparece. Cadastre o serviço e publique uma postagem sobre o tema.</span>
+          <a href="PerfilServicos.dc.html" class="btn btn-filled btn-sm" style="align-self: flex-start">Resolver agora</a>
+        </section>
+      </aside>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const mk = (kw, pos, v, vol, cidade, hist) => {
+      const color = pos === null ? '#D93025' : pos <= 3 ? '#1E8E3E' : pos <= 10 ? '#F9AB00' : '#D93025';
+      const bg = pos === null ? '#FCE8E6' : pos <= 3 ? '#EAF7EE' : pos <= 10 ? '#FFF7E0' : '#FCE8E6';
+      const pct = pos === null ? '100%' : Math.round(pos / 20 * 100) + '%';
+      const vCls = v === null ? 'b-grey' : v > 0 ? 'b-green' : v < 0 ? 'b-red' : 'b-grey';
+      const vIcon = v === null ? 'fiber_new' : v > 0 ? 'arrow_upward' : v < 0 ? 'arrow_downward' : 'remove';
+      const spark = hist.map((h, i) => ({ h: Math.max(4, 28 - h * 1.3) + 'px', cls: i === hist.length - 1 ? 'last' : '' }));
+      return { kw, pos: pos === null ? '—' : pos + 'º', color, bg, pct, var: v === null ? 'novo' : (v > 0 ? '+' : '') + v, vCls, vIcon, vol, cidade, spark };
+    };
+    const rows = [
+      mk('loja de pesca em Barreiras', 1, 2, '880', 'Barreiras', [6, 5, 4, 3, 3, 2, 2, 1]),
+      mk('artigos de pesca', 2, 1, '720', 'Barreiras', [5, 5, 4, 4, 3, 3, 2, 2]),
+      mk('equipamentos de camping', 3, 4, '310', 'Barreiras', [12, 10, 9, 8, 7, 5, 4, 3]),
+      mk('loja de caça e pesca', 3, 0, '420', 'Barreiras', [4, 4, 3, 3, 3, 3, 3, 3]),
+      mk('isca artificial', 6, 3, '390', 'Barreiras', [14, 12, 11, 10, 9, 9, 7, 6]),
+      mk('conserto de molinete', 8, null, '150', 'Barreiras', [0, 0, 0, 0, 0, 0, 9, 8]),
+      mk('colete salva-vidas', 9, -2, '180', 'Luís Eduardo Magalhães', [8, 7, 7, 7, 7, 7, 8, 9]),
+      mk('motor de popa', null, null, '260', 'Barreiras', [20, 20, 20, 20, 20, 20, 20, 20])
+    ];
+    return { rows };
+  }
+}
+</script>
+</body>
+</html>

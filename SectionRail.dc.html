@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Navegação de seções do perfil</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.sec{display:flex;align-items:center;gap:10px;height:40px;padding:0 12px;border-radius:10px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;color:#3C4043;white-space:nowrap;transition:background .15s,color .15s}
+.sec:hover{background:#F3F6FA;color:#1F1F1F}
+.sec.on{background:#EAF1FB;color:#0B4FA8}
+.sec.on .ms{font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24}
+.grp{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:11px;font-weight:600;letter-spacing:.6px;color:#80868B;text-transform:uppercase;padding:14px 12px 6px}
+.st{margin-left:auto;width:8px;height:8px;border-radius:999px}
+</style>
+</helmet>
+<div style="width: 240px; height: 1028px; box-sizing: border-box; background: #ffffff; border-right: 1px solid #E2E6EA; padding: 10px 12px 16px; display: flex; flex-direction: column; gap: 2px">
+  <sc-for list="{{itens}}" as="i" hint-placeholder-count="16">
+    <sc-if value="{{i.grp}}" hint-placeholder-val="{{ false }}"><span class="grp">{{i.grp}}</span></sc-if>
+    <sc-if value="{{i.label}}" hint-placeholder-val="{{ true }}">
+      <a href="{{i.href}}" class="sec {{i.cls}}"><span class="ms">{{i.icon}}</span>{{i.label}}<sc-if value="{{i.st}}" hint-placeholder-val="{{ false }}"><span class="st" style="background: {{i.st}}" aria-label="{{i.stLabel}}"></span></sc-if></a>
+    </sc-if>
+  </sc-for>
+  <div style="flex: 1"></div>
+  <div style="padding: 12px; border-radius: 12px; background: #F7F9FC; font-size: 12px; line-height: 17px; color: #5F6368"><span style="display: inline-block; width: 8px; height: 8px; border-radius: 999px; background: #F9AB00; margin-right: 6px"></span>Pendência em Horários e Atributos<br><span style="display: inline-block; width: 8px; height: 8px; border-radius: 999px; background: #D93025; margin-right: 6px"></span>Alteração não salva em Descrição</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"active":{"editor":"enum","options":["basico","contato","local","horarios","descricao","servicos","postagens","gabarito","atributos","ia","seo","presenca"],"default":"basico"},"$preview":{"width":240,"height":1028}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const a = this.props.active ?? 'basico';
+    const list = [
+      { grp: 'Empresa' },
+      { key: 'basico', label: 'Informações básicas', icon: 'business', href: 'PerfilBasico.dc.html' },
+      { key: 'contato', label: 'Contato', icon: 'contact_phone', href: 'PerfilContato.dc.html' },
+      { key: 'local', label: 'Local e áreas', icon: 'place', href: 'PerfilLocal.dc.html' },
+      { key: 'horarios', label: 'Horários', icon: 'schedule', href: 'PerfilHorarios.dc.html', st: '#F9AB00', stLabel: 'Pendência' },
+      { key: 'descricao', label: 'Descrição', icon: 'description', href: 'PerfilDescricao.dc.html', st: '#D93025', stLabel: 'Alteração não salva' },
+      { grp: 'Conteúdo' },
+      { key: 'servicos', label: 'Serviços', icon: 'build', href: 'PerfilServicos.dc.html' },
+      { key: 'postagens', label: 'Postagens', icon: 'feed', href: 'PerfilPostagens.dc.html' },
+      { key: 'gabarito', label: 'Gabarito', icon: 'assignment', href: 'PerfilGabarito.dc.html' },
+      { grp: 'Otimização' },
+      { key: 'atributos', label: 'Mais atributos', icon: 'tune', href: 'PerfilAtributos.dc.html', st: '#F9AB00', stLabel: 'Pendência' },
+      { key: 'ia', label: 'Assistente IA', icon: 'auto_awesome', href: 'PerfilAssistenteIA.dc.html' },
+      { key: 'seo', label: 'SEO', icon: 'travel_explore', href: 'PerfilSeo.dc.html' },
+      { grp: 'Distribuição' },
+      { key: 'presenca', label: 'Presença digital', icon: 'hub', href: 'PerfilPresencaDigital.dc.html' }
+    ];
+    return { itens: list.map((i) => ({ ...i, cls: i.key === a ? 'on' : '' })) };
+  }
+}
+</script>
+</body>
+</html>

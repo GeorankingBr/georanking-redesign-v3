@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Login · estados</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:22px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 20px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:16px;font-weight:500;border:0;cursor:pointer;width:100%;box-sizing:border-box}
+.btn-filled{background:#1264C7;color:#fff}.btn-outlined{background:#fff;color:#2B2D31;border:1px solid #E2E6EA}.btn-tonal{background:#EAF1FB;color:#0B4FA8}
+.field{display:flex;align-items:center;gap:12px;height:52px;padding:0 16px;border:1px solid #E2E6EA;border-radius:12px;background:#fff}
+.field.err{border-color:#D93025;box-shadow:0 0 0 1px #D93025}
+.field.focus{border-color:#1264C7;box-shadow:0 0 0 2px rgba(18,100,199,.25)}
+.field input{border:0;outline:0;flex:1;font:16px "Google Sans Text",Roboto,Arial,sans-serif;color:#1F1F1F;background:transparent;min-width:0}
+.err-msg{display:flex;align-items:center;gap:6px;font-size:13px;color:#B3261E}
+.card{width:440px;box-sizing:border-box;background:#fff;border:1px solid #E2E6EA;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:16px;box-shadow:0 4px 14px rgba(31,35,41,.08)}
+.lbl{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:11px;font-weight:600;letter-spacing:.6px;color:#80868B;text-transform:uppercase}
+.hint{font-size:13px;line-height:18px;color:#5F6368}
+.notice{display:flex;gap:10px;padding:12px 14px;border-radius:12px;font-size:13px;line-height:19px}
+.spin{animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.spin{animation:none}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 900px; box-sizing: border-box; background: #F7F9FC; padding: 40px 48px; display: grid; grid-template-columns: repeat(3, 440px); justify-content: space-between; align-content: start; gap: 24px">
+
+  <div style="display: flex; flex-direction: column; gap: 12px">
+    <span class="lbl">Validação após blur e submit</span>
+    <form class="card">
+      <h2 class="gs" style="margin: 0; font-size: 26px; font-weight: 500">Entrar</h2>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <label class="field err" for="e1"><span class="ms" style="color: #B3261E">mail</span><input id="e1" value="reinaldo@georanking"><span class="ms" style="color: #B3261E">error</span></label>
+        <span class="err-msg"><span class="ms" style="font-size: 16px">error</span>Digite um e-mail válido, como nome@empresa.com.br</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <label class="field err" for="s1"><span class="ms" style="color: #B3261E">lock</span><input id="s1" type="password" value="••••••"><span class="ms" style="color: #5F6368">visibility</span></label>
+        <span class="err-msg"><span class="ms" style="font-size: 16px">error</span>Senha incorreta. Você tem mais 4 tentativas.</span>
+      </div>
+      <button type="button" class="btn btn-filled">Entrar</button>
+      <a href="#r" style="font-size: 14px; font-family: 'Google Sans', Roboto, Arial, sans-serif; font-weight: 500; text-align: center">Esqueceu a senha?</a>
+    </form>
+    <span class="hint">Sem shake. Erro = borda + ícone + mensagem que diz o que fazer. Contagem de tentativas só quando o backend informa.</span>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 12px">
+    <span class="lbl">Carregando (até 800 ms sem transição)</span>
+    <form class="card">
+      <h2 class="gs" style="margin: 0; font-size: 26px; font-weight: 500">Entrar</h2>
+      <label class="field" for="e2" style="opacity: .6"><span class="ms" style="color: #5F6368">mail</span><input id="e2" value="ana@exemplo.com" disabled></label>
+      <label class="field" for="s2" style="opacity: .6"><span class="ms" style="color: #5F6368">lock</span><input id="s2" type="password" value="••••••••••" disabled></label>
+      <button type="button" class="btn btn-filled" style="opacity: .85" disabled><span class="ms spin" style="font-size: 20px">progress_activity</span>Entrando…</button>
+      <div style="display: flex; align-items: center; gap: 12px; color: #80868B; font-size: 12px"><span style="flex: 1; height: 1px; background: #EEF1F4"></span>ou<span style="flex: 1; height: 1px; background: #EEF1F4"></span></div>
+      <button type="button" class="btn btn-outlined" disabled style="opacity: .6"><span class="ms spin" style="font-size: 20px; color: #5F6368">progress_activity</span>Aguardando o Google…</button>
+      <span class="hint" style="text-align: center">Uma janela do Google foi aberta. Conclua o login lá para continuar.</span>
+    </form>
+    <span class="hint">Depois de autenticado: transição "Encontrando sua posição" (650 ms) e home. Se a API demorar mais de 700 ms, o texto do botão muda para "Sincronizando com o Google…".</span>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 12px">
+    <span class="lbl">Sessão expirada, rede e recuperação</span>
+    <form class="card" style="gap: 14px">
+      <div class="notice" style="background: #FFF7E0; color: #5F4200"><span class="ms" style="font-size: 20px; color: #B06000">schedule</span><span><b style="font-weight: 500">Sua sessão expirou.</b> Entre de novo para continuar de onde parou: Perfis em acompanhamento.</span></div>
+      <div class="notice" style="background: #FCE8E6; color: #5C1A15"><span class="ms" style="font-size: 20px; color: #B3261E">wifi_off</span><span><b style="font-weight: 500">Sem conexão com o servidor.</b> Suas credenciais não foram enviadas. <a href="#retry" style="font-weight: 500">Tentar de novo</a></span></div>
+      <div style="height: 1px; background: #EEF1F4"></div>
+      <div class="notice" style="background: #EAF7EE; color: #0D3D1E"><span class="ms" style="font-size: 20px; color: #137333">mark_email_read</span><span><b style="font-weight: 500">Enviamos um link para ana@exemplo.com.</b> Ele vale por 30 minutos. Não chegou? <a href="#again" style="font-weight: 500">Reenviar</a></span></div>
+      <label class="field focus" for="e3"><span class="ms" style="color: #1264C7">mail</span><input id="e3" value="ana@exemplo.com"></label>
+      <button type="button" class="btn btn-tonal">Voltar para o login</button>
+    </form>
+    <span class="hint">Recuperação de senha: um campo, uma confirmação. O e-mail de recuperação hoje não sai (SMTP pendente no backend).</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

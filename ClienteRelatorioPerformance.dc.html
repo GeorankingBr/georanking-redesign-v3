@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Cliente · Relatório de performance</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap}
+.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#0B4FA8}
+.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
+.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-outlined:hover{background:#F3F6FA}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#EAF7EE;color:#137333}.b-yellow{background:#FFF7E0;color:#B06000}.b-red{background:#FCE8E6;color:#B3261E}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}
+.hint{font-size:13px;line-height:18px;color:#5F6368}
+.h1{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:32px;line-height:40px;font-weight:500;margin:0}
+.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:17px;font-weight:600;margin:0}
+.inp{display:flex;align-items:center;gap:10px;height:44px;padding:0 14px;border:1px solid #E2E6EA;border-radius:12px;background:#fff}
+.inp select{border:0;outline:0;flex:1;font:14px "Google Sans Text",Roboto,Arial,sans-serif;color:#1F1F1F;background:transparent;min-width:0;padding:0}
+.inp .ms{color:#5F6368}
+.seg{display:inline-flex;border:1px solid #E2E6EA;border-radius:10px;overflow:hidden}
+.seg button{height:40px;padding:0 14px;border:0;background:#fff;font:500 13px "Google Sans",Roboto,Arial,sans-serif;color:#5F6368;cursor:pointer}
+.seg button+button{border-left:1px solid #E2E6EA}.seg .on{background:#EAF1FB;color:#0B4FA8}
+.kpi{display:flex;flex-direction:column;gap:6px;padding:18px 22px;border-right:1px solid #EEF1F4;cursor:pointer}
+.kpi:last-child{border-right:0}
+.kpi.on{background:#EAF1FB}
+.kpi b{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:30px;font-weight:500;letter-spacing:-.5px}
+.col{transform-origin:bottom;animation:col .8s cubic-bezier(.2,.8,.2,1) .2s both}
+@keyframes col{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.grow{transform-origin:left;animation:grow .8s cubic-bezier(.2,.8,.2,1) .2s both}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.act{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #EEF1F4;font-size:14px}
+.act .ic{width:32px;height:32px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.up{animation:up .4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.d1{animation-delay:.06s}.d2{animation-delay:.12s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1400px; box-sizing: border-box; background: #F7F9FC; display: flex; overflow: hidden">
+  <dc-import name="SidebarCliente" active="performance" hint-size="264px,1400px"></dc-import>
+
+  <main style="flex: 1; min-width: 0; padding: 32px 40px; display: flex; flex-direction: column; gap: 22px">
+    <div class="up" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <div style="display: flex; align-items: center; gap: 10px"><h1 class="h1">Relatório de performance</h1><span class="badge b-yellow">Proposta · rota hoje "em desenvolvimento"</span></div>
+        <span class="hint" style="font-size: 14px">Como as pessoas encontram e interagem com a sua ficha no Google. Fonte: Google Business Profile Performance API.</span>
+      </div>
+      <div style="display: flex; gap: 8px; align-items: center">
+        <label class="inp" for="perfil" style="width: 250px"><span class="ms">storefront</span><select id="perfil"><option>Náutica Caça e Pesca</option></select></label>
+        <div class="seg"><button>7 d</button><button class="on">30 d</button><button>90 d</button><button>12 m</button></div>
+        <button class="btn btn-tonal"><span class="ms">download</span>PDF</button>
+      </div>
+    </div>
+
+    <div class="card up d1" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); overflow: hidden">
+      <div class="kpi on"><span class="hint">Visualizações no Maps e na Busca</span><b>1.284</b><span class="badge b-green" style="align-self: flex-start"><span class="ms" style="font-size: 14px">arrow_upward</span>12% vs. 30 d anteriores</span></div>
+      <div class="kpi"><span class="hint">Cliques no site</span><b>312</b><span class="badge b-green" style="align-self: flex-start"><span class="ms" style="font-size: 14px">arrow_upward</span>8%</span></div>
+      <div class="kpi"><span class="hint">Ligações</span><b>96</b><span class="badge b-green" style="align-self: flex-start"><span class="ms" style="font-size: 14px">arrow_upward</span>5%</span></div>
+      <div class="kpi"><span class="hint">Rotas solicitadas</span><b>148</b><span class="badge b-green" style="align-self: flex-start"><span class="ms" style="font-size: 14px">arrow_upward</span>17%</span></div>
+      <div class="kpi"><span class="hint">Conversas no WhatsApp</span><b>73</b><span class="badge b-grey" style="align-self: flex-start">novo no período</span></div>
+    </div>
+
+    <div class="up d2" style="display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <section class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 16px">
+          <div style="display: flex; align-items: center; justify-content: space-between">
+            <div style="display: flex; flex-direction: column; gap: 2px"><span class="h3">Visualizações por dia</span><span class="hint">Últimos 30 dias · marcadores mostram ações da GeoRanking</span></div>
+            <div style="display: flex; gap: 14px; font-size: 12px; color: #5F6368"><span><span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: #1264C7; vertical-align: middle"></span> Maps</span><span><span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: #D6E4F7; vertical-align: middle"></span> Busca</span></div>
+          </div>
+          <div style="display: flex; align-items: flex-end; gap: 6px; height: 180px">
+            <sc-for list="{{dias}}" as="d" hint-placeholder-count="30">
+              <div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; gap: 2px; position: relative">
+                <sc-if value="{{d.mark}}" hint-placeholder-val="{{ false }}"><span class="ms" style="position: absolute; top: -4px; left: 50%; transform: translateX(-50%); font-size: 14px; color: #137333; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">{{d.mark}}</span></sc-if>
+                <div class="col" style="border-radius: 3px 3px 0 0; background: #D6E4F7; height: {{d.b}}"></div>
+                <div class="col" style="border-radius: 0 0 3px 3px; background: #1264C7; height: {{d.m}}"></div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 12px; color: #5F6368"><span>30/08</span><span>06/09</span><span>13/09</span><span>20/09</span><span>27/09</span></div>
+        </section>
+
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+          <section class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 12px">
+            <span class="h3" style="font-size: 15px">Como encontraram você</span>
+            <div style="display: flex; flex-direction: column; gap: 8px">
+              <div style="display: flex; align-items: center; gap: 10px; font-size: 13px"><span style="width: 130px">Busca direta (nome)</span><div style="flex: 1; height: 10px; border-radius: 999px; background: #F3F6FA; overflow: hidden"><div class="grow" style="width: 38%; height: 100%; background: #1264C7"></div></div><span style="width: 40px; text-align: right; font-weight: 500">38%</span></div>
+              <div style="display: flex; align-items: center; gap: 10px; font-size: 13px"><span style="width: 130px">Descoberta (categoria)</span><div style="flex: 1; height: 10px; border-radius: 999px; background: #F3F6FA; overflow: hidden"><div class="grow" style="width: 54%; height: 100%; background: #1E8E3E"></div></div><span style="width: 40px; text-align: right; font-weight: 500">54%</span></div>
+              <div style="display: flex; align-items: center; gap: 10px; font-size: 13px"><span style="width: 130px">Marca (concorrente)</span><div style="flex: 1; height: 10px; border-radius: 999px; background: #F3F6FA; overflow: hidden"><div class="grow" style="width: 8%; height: 100%; background: #F9AB00"></div></div><span style="width: 40px; text-align: right; font-weight: 500">8%</span></div>
+            </div>
+            <span class="hint">54% chegaram sem saber seu nome: é o resultado direto das palavras-chave.</span>
+          </section>
+          <section class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 12px">
+            <span class="h3" style="font-size: 15px">Buscas que mais mostraram a ficha</span>
+            <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13px">
+              <div style="display: flex; justify-content: space-between"><span>loja de pesca</span><span style="font-weight: 500">412</span></div>
+              <div style="display: flex; justify-content: space-between"><span>náutica barreiras</span><span style="font-weight: 500">298</span></div>
+              <div style="display: flex; justify-content: space-between"><span>artigos de pesca</span><span style="font-weight: 500">221</span></div>
+              <div style="display: flex; justify-content: space-between"><span>camping</span><span style="font-weight: 500">140</span></div>
+              <div style="display: flex; justify-content: space-between"><span>isca artificial</span><span style="font-weight: 500">97</span></div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <aside style="display: flex; flex-direction: column; gap: 16px">
+        <section class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span class="h3" style="font-size: 15px">O que a GeoRanking fez no período</span>
+          <div class="act"><span class="ic" style="background: #EAF7EE; color: #137333"><span class="ms" style="font-size: 18px">feed</span></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 500">3 postagens publicadas</span><span class="hint">27/09, 20/09, 12/09 · 592 visualizações</span></div></div>
+          <div class="act"><span class="ic" style="background: #EAF7EE; color: #137333"><span class="ms" style="font-size: 18px">reviews</span></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 500">11 avaliações respondidas</span><span class="hint">tempo médio 6 h · nota média 4,8</span></div></div>
+          <div class="act"><span class="ic" style="background: #EAF7EE; color: #137333"><span class="ms" style="font-size: 18px">category</span></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 500">Categoria adicional incluída</span><span class="hint">23/09 · "Loja de equipamentos náuticos"</span></div></div>
+          <div class="act" style="border-bottom: 0"><span class="ic" style="background: #EAF7EE; color: #137333"><span class="ms" style="font-size: 18px">query_stats</span></span><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 500">30 medições de ranking</span><span class="hint">média subiu de 5,0º para 3,8º</span></div></div>
+        </section>
+        <section class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 10px">
+          <span class="h3" style="font-size: 15px">Resultado em 30 dias</span>
+          <div style="display: flex; justify-content: space-between; font-size: 14px"><span>Contatos gerados (ligações + WhatsApp + rotas)</span><span style="font-weight: 500">317</span></div>
+          <div style="display: flex; justify-content: space-between; font-size: 14px"><span>vs. 30 dias anteriores</span><span class="badge b-green">+14%</span></div>
+          <span class="hint">Contagens vêm da API do Google; a GeoRanking não estima valores.</span>
+        </section>
+      </aside>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const base = [22, 25, 24, 28, 30, 26, 21, 27, 31, 33, 35, 30, 28, 36, 40, 38, 34, 30, 41, 44, 46, 43, 39, 37, 48, 52, 50, 47, 55, 58];
+    const marks = { 12: 'feed', 20: 'feed', 23: 'category', 27: 'feed' };
+    const dias = base.map((v, i) => ({ m: Math.round(v * 2.2) + 'px', b: Math.round(v * 0.9) + 'px', mark: marks[i] || '' }));
+    return { dias };
+  }
+}
+</script>
+</body>
+</html>

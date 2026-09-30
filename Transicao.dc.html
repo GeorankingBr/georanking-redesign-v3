@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Transição GeoRanking · encontrando sua posição</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap}
+.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}
+.card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
+.hint{font-size:13px;line-height:18px;color:#5F6368}
+.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:16px;font-weight:600;margin:0}
+.lab{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:11px;font-weight:600;letter-spacing:.6px;color:#80868B;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:999px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500}
+.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}
+/* coreografia única: 0–650ms, sem loops */
+.old{animation:dim .1s cubic-bezier(.2,0,0,1) forwards}
+@keyframes dim{to{opacity:.72}}
+.route{stroke-dasharray:260;stroke-dashoffset:260;animation:draw .14s cubic-bezier(.2,0,0,1) .08s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.pin{transform-box:fill-box;transform-origin:center;opacity:0;animation:pin .14s cubic-bezier(.2,.8,.2,1) .18s forwards}
+@keyframes pin{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
+.ring{transform-box:fill-box;transform-origin:center;opacity:0;animation:ring .22s cubic-bezier(.2,0,0,1) .26s forwards}
+@keyframes ring{0%{opacity:.6;transform:scale(.6)}100%{opacity:0;transform:scale(1.8)}}
+.bar{transform-box:fill-box;transform-origin:center;opacity:0;animation:bar .2s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes bar{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.base{opacity:0;animation:bar .2s cubic-bezier(.2,.8,.2,1) .32s forwards}
+.pinout{animation:pinout .2s cubic-bezier(.2,0,0,1) .44s forwards}
+@keyframes pinout{to{opacity:0;transform:translateY(-6px)}}
+.next{opacity:0;animation:next .21s cubic-bezier(.2,0,0,1) .44s forwards}
+@keyframes next{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.ph{display:grid;grid-template-columns:110px minmax(0,1fr) 190px;align-items:center;gap:12px;font-size:13px}
+.ph .t{height:8px;border-radius:4px;background:#E2E6EA;position:relative}
+.ph .t span{position:absolute;top:0;bottom:0;border-radius:4px;background:#1264C7}
+@media (prefers-reduced-motion:reduce){.old,.route,.pin,.ring,.bar,.base,.pinout,.next{animation:none!important;opacity:1}.route{stroke-dashoffset:0}.pinout{opacity:0}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 900px; box-sizing: border-box; background: #F7F9FC; display: grid; grid-template-columns: minmax(0, 1fr) 440px; gap: 24px; padding: 32px; overflow: hidden">
+
+  <section class="card" style="position: relative; overflow: hidden; display: flex; flex-direction: column">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid #EEF1F4">
+      <div style="display: flex; flex-direction: column; gap: 2px"><span class="h3">Encontrando sua posição</span><span class="hint">Login → home · 650 ms · uma única narrativa: rota, pin, símbolo, tela.</span></div>
+      <div style="display: flex; gap: 8px"><button class="btn btn-tonal" onClick="{{replay}}"><span class="ms">replay</span>Reproduzir</button><a href="PainelControle.dc.html" class="btn btn-outlined">Ir para o painel</a></div>
+    </div>
+    <div style="flex: 1; position: relative; background: #F7F9FC; overflow: hidden">
+      <sc-if value="{{show}}" hint-placeholder-val="{{ true }}">
+        <div class="old" style="position: absolute; inset: 0; padding: 36px 48px; display: flex; flex-direction: column; gap: 14px; background: #fff">
+          <div style="width: 200px; height: 20px; border-radius: 6px; background: #EEF1F4"></div>
+          <div style="width: 360px; height: 14px; border-radius: 6px; background: #F3F6FA"></div>
+          <div style="display: flex; gap: 12px; margin-top: 10px"><div style="width: 200px; height: 52px; border-radius: 12px; background: #EEF1F4"></div><div style="width: 200px; height: 52px; border-radius: 12px; background: #EEF1F4"></div></div>
+          <div style="width: 200px; height: 52px; border-radius: 12px; background: #1264C7; opacity: .25; margin-top: 8px"></div>
+        </div>
+        <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center">
+          <svg viewBox="0 0 320 200" width="480" height="300" aria-hidden="true">
+            <path class="route" d="M40 150 C 90 140, 120 118, 160 96" fill="none" stroke="#1264C7" stroke-width="3" stroke-linecap="round"></path>
+            <circle cx="40" cy="150" r="4" fill="#fff" stroke="#1264C7" stroke-width="3"></circle>
+            <circle class="ring" cx="160" cy="96" r="14" fill="none" stroke="#1264C7" stroke-width="2"></circle>
+            <g class="pin pinout"><path d="M160 60c-10 0-18 8-18 18 0 13 18 30 18 30s18-17 18-30c0-10-8-18-18-18z" fill="#1264C7"></path><circle cx="160" cy="78" r="6.5" fill="#fff"></circle></g>
+            <g transform="translate(120 104) scale(.8)">
+              <rect class="bar" x="8" y="22" width="26" height="40" rx="7" fill="#FBBC04" style="animation-delay: .32s"></rect>
+              <rect class="bar" x="37" y="10" width="26" height="52" rx="7" fill="#34A853" style="animation-delay: .36s"></rect>
+              <rect class="bar" x="66" y="30" width="26" height="32" rx="6" fill="#EA4335" style="animation-delay: .40s"></rect>
+              <path class="base" d="M8 66h84v10a14 14 0 0 1-14 14H22A14 14 0 0 1 8 76z" fill="#1264C7"></path>
+            </g>
+          </svg>
+        </div>
+        <div class="next" style="position: absolute; left: 0; right: 0; bottom: 0; height: 46%; padding: 24px 48px; box-sizing: border-box; background: #F7F9FC; border-top: 1px solid #E2E6EA; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; align-items: center; gap: 8px"><span class="badge b-blue">Nova tela entra em 440–650 ms</span><span class="hint">sem bloquear a navegação real</span></div>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px"><div class="card" style="height: 72px"></div><div class="card" style="height: 72px"></div><div class="card" style="height: 72px"></div><div class="card" style="height: 72px"></div></div>
+          <div class="card" style="flex: 1"></div>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <aside style="display: flex; flex-direction: column; gap: 16px">
+    <div class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 10px">
+      <span class="lab">Coreografia · 650 ms total</span>
+      <div class="ph"><span>0–100 ms</span><div class="t"><span style="left: 0; width: 15%"></span></div><span class="hint">tela atual perde 28% de contraste</span></div>
+      <div class="ph"><span>80–220 ms</span><div class="t"><span style="left: 12%; width: 22%"></span></div><span class="hint">rota curta desenha até o destino</span></div>
+      <div class="ph"><span>180–320 ms</span><div class="t"><span style="left: 28%; width: 21%"></span></div><span class="hint">pin entra: 10 px, opacity, scale .96→1</span></div>
+      <div class="ph"><span>260–420 ms</span><div class="t"><span style="left: 40%; width: 24%"></span></div><span class="hint">um pulso de confirmação, 220 ms</span></div>
+      <div class="ph"><span>320–520 ms</span><div class="t"><span style="left: 49%; width: 31%"></span></div><span class="hint">barras do símbolo entram, 40 ms entre elas</span></div>
+      <div class="ph"><span>440–650 ms</span><div class="t"><span style="left: 68%; width: 32%"></span></div><span class="hint">pin sai, nova tela entra</span></div>
+      <span class="hint">Curvas: base cubic-bezier(.2,0,0,1) · ênfase cubic-bezier(.2,.8,.2,1). Sem bounce, sem loop, sem sombra pulsando.</span>
+    </div>
+    <div class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 12px">
+      <span class="lab">Regras de marca</span>
+      <div style="display: flex; align-items: center; gap: 16px">
+        <svg viewBox="0 0 100 100" width="56" height="56" aria-hidden="true"><rect x="8" y="22" width="26" height="40" rx="7" fill="#FBBC04"></rect><rect x="37" y="10" width="26" height="52" rx="7" fill="#34A853"></rect><rect x="66" y="30" width="26" height="32" rx="6" fill="#EA4335"></rect><path d="M8 66h84v10a14 14 0 0 1-14 14H22A14 14 0 0 1 8 76z" fill="#1264C7"></path></svg>
+        <span style="font-size: 13px; line-height: 19px; color: #2B2D31">O símbolo termina como no logotipo: três barras e base azul, sem pin dentro. O pin é um elemento temporário que se aproxima, confirma e some.</span>
+      </div>
+    </div>
+    <div class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 10px">
+      <span class="lab">Versões e loading real</span>
+      <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #2B2D31">
+        <span><b style="font-weight: 500">Full</b> · login → home, 650 ms</span>
+        <span><b style="font-weight: 500">Route</b> · entre grandes áreas, 320 ms (só rota + pin)</span>
+        <span><b style="font-weight: 500">Inline</b> · linha de tabela sincronizando, ícone 20 px girando 1x</span>
+        <span><b style="font-weight: 500">Save</b> · "Salvando…" → "Salvo às 19:42", 200 ms</span>
+        <span><b style="font-weight: 500">Compact mark</b> · até 32 px, estático</span>
+      </div>
+      <div style="height: 1px; background: #EEF1F4"></div>
+      <span class="hint">Acima de 700 ms: texto "Sincronizando com o Google…". Acima de 4 s: "Ainda estamos sincronizando. Você pode continuar usando o painel." Reduced motion: crossfade de 150 ms.</span>
+    </div>
+  </aside>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { show: true };
+  }
+  renderVals() {
+    return { show: this.state.show, replay: () => { this.setState({ show: false }); setTimeout(() => this.setState({ show: true }), 60); } };
+  }
+}
+</script>
+</body>
+</html>

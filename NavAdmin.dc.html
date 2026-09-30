@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Navegação do admin</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&amp;family=Google+Sans+Text:wght@400;500;700&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;color:#202124;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.tab{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;letter-spacing:.1px;color:#3C4043;position:relative;transition:background .15s,color .15s}
+.tab:hover{background:#F1F3F4;color:#202124}
+.tab.on{background:#EAF1FB;color:#0B4FA8}
+.tab.on .ms{font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24}
+.tab.on::after{content:"";position:absolute;left:16px;right:16px;bottom:-8px;height:3px;border-radius:3px 3px 0 0;background:#1264C7}
+.iconbtn{width:40px;height:40px;border-radius:10px;border:0;background:transparent;color:#3C4043;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s}
+.iconbtn:hover{background:#F1F3F4}
+.userchip{display:flex;align-items:center;gap:12px;height:48px;padding:0 16px 0 6px;border-radius:999px;border:1px solid #DADCE0;background:#fff;cursor:pointer;transition:background .15s,box-shadow .15s}
+.userchip:hover{background:#F8FAFD;box-shadow:0 1px 2px rgba(60,64,67,.3),0 1px 3px 1px rgba(60,64,67,.15)}
+</style>
+</helmet>
+<div style="width: 1440px; height: 120px; box-sizing: border-box; background: #ffffff; border-bottom: 1px solid #E2E6EA; display: flex; flex-direction: column">
+  <div style="height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 32px">
+    <a href="PainelControle.dc.html" aria-label="GeoRanking — início" style="display: flex; align-items: center">
+      <img src="./assets/d7deb3dbeca88c52d3f7d166aae7502c.png" alt="GeoRanking" style="height: 44px; width: auto">
+    </a>
+    <div style="display: flex; align-items: center; gap: 8px">
+      <button class="iconbtn" aria-label="Ajuda"><span class="ms">help</span></button>
+      <button class="iconbtn" aria-label="Notificações"><span class="ms">notifications</span></button>
+      <button class="userchip" aria-label="Conta: Administrador de Georanking">
+        <span style="width: 36px; height: 36px; border-radius: 999px; background: #EAF1FB; color: #0B4FA8; display: inline-flex; align-items: center; justify-content: center; font-family: 'Google Sans', Roboto, Arial, sans-serif; font-size: 14px; font-weight: 500">AG</span>
+        <span style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2">
+          <span style="font-family: 'Google Sans', Roboto, Arial, sans-serif; font-size: 14px; font-weight: 500; color: #202124">Administrador de Georanking</span>
+          <span style="font-size: 12px; color: #5F6368">Administrador</span>
+        </span>
+        <span class="ms" style="color: #5F6368">expand_more</span>
+      </button>
+      <button class="iconbtn" aria-label="Sair"><span class="ms">logout</span></button>
+    </div>
+  </div>
+  <nav aria-label="Seções do admin" style="height: 56px; display: flex; align-items: center; gap: 4px; padding: 0 24px">
+    <sc-for list="{{tabs}}" as="tab" hint-placeholder-count="7">
+      <a href="{{tab.href}}" class="tab {{tab.cls}}"><span class="ms">{{tab.icon}}</span><span>{{tab.label}}</span></a>
+    </sc-for>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"active":{"editor":"enum","options":["painel","qualidade","acompanhamento","ativos","usuarios","cases","email"],"default":"painel"},"$preview":{"width":1440,"height":120}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const active = this.props.active ?? 'painel';
+    const list = [
+      { key: 'painel', label: 'Painel de controle', icon: 'space_dashboard', href: 'PainelControle.dc.html' },
+      { key: 'qualidade', label: 'Qualidade dos perfis', icon: 'verified_user', href: 'QualidadePerfis.dc.html' },
+      { key: 'acompanhamento', label: 'Perfis em acompanhamento', icon: 'visibility', href: 'PerfisAcompanhamento.dc.html' },
+      { key: 'ativos', label: 'Perfis ativos', icon: 'list_alt', href: 'PerfisAtivos.dc.html' },
+      { key: 'usuarios', label: 'Usuários', icon: 'group', href: 'Usuarios.dc.html' },
+      { key: 'cases', label: 'Cases de sucesso', icon: 'trending_up', href: 'Cases.dc.html' },
+      { key: 'email', label: 'Conectar e-mail', icon: 'mail', href: 'ConectarEmail.dc.html' }
+    ];
+    return { tabs: list.map((t) => ({ ...t, cls: t.key === active ? 'on' : '' })) };
+  }
+}
+</script>
+</body>
+</html>

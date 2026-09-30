@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Qualidade dos perfis</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&amp;family=Google+Sans+Text:wght@400;500;700&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;letter-spacing:.1px;border:0;cursor:pointer;white-space:nowrap;transition:box-shadow .2s,background .2s}
+.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#1264C7;box-shadow:0 1px 3px rgba(18,100,199,.4),0 4px 12px rgba(18,100,199,.25)}
+.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
+.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #DADCE0}.btn-outlined:hover{background:#F8FAFD;border-color:#C2D7F5}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.iconbtn{width:36px;height:36px;border-radius:10px;border:0;background:transparent;color:#5F6368;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s}
+.iconbtn:hover{background:#F1F3F4;color:#202124}
+.chip{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border-radius:999px;border:1px solid #DADCE0;background:#fff;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;color:#3C4043;cursor:pointer;white-space:nowrap;transition:background .15s}
+.chip:hover{background:#F1F3F4}.chip.on{background:#202124;border-color:#202124;color:#fff}
+.card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
+.kpi{transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s}
+.kpi:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(60,64,67,.10)}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#E6F4EA;color:#137333}.b-red{background:#FCE8E6;color:#C5221F}.b-yellow{background:#FEF7E0;color:#B06000}.b-blue{background:#EAF1FB;color:#1264C7}.b-grey{background:#F1F3F4;color:#5F6368}
+.mini{display:inline-flex;align-items:center;gap:4px;height:26px;padding:0 10px;border-radius:999px;border:1px solid #DADCE0;background:#fff;font-size:12px;font-weight:500;color:#3C4043;cursor:pointer}
+.mini:hover{background:#F1F3F4}
+.search{display:flex;align-items:center;gap:10px;height:44px;padding:0 16px;border:1px solid #DADCE0;border-radius:999px;background:#fff;transition:border-color .15s,box-shadow .15s}
+.search:focus-within{border-color:#1264C7;box-shadow:0 0 0 1px #1264C7}
+.search input{border:0;outline:0;flex:1;font:14px "Google Sans Text",Roboto,Arial,sans-serif;color:#202124;background:transparent;min-width:0}
+.acc{transition:background .15s,box-shadow .2s}
+.acc:hover{background:#F8FAFD}
+.up{animation:up .5s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.d1{animation-delay:.06s}.d2{animation-delay:.12s}.d3{animation-delay:.18s}.d4{animation-delay:.24s}.d5{animation-delay:.3s}.d6{animation-delay:.36s}
+.grow{transform-origin:left;animation:grow .9s cubic-bezier(.2,.8,.2,1) .25s both}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1500px; box-sizing: border-box; background: #F7F9FC; display: flex; overflow: hidden">
+  <dc-import name="AdminRail" active="qualidade" hint-size="240px,1720px"></dc-import>
+  <div style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+  <dc-import name="TopBar" contexto="Admin" titulo="Qualidade dos perfis" hint-size="1200px,60px"></dc-import>
+
+  <main style="padding: 28px 32px 40px; display: flex; flex-direction: column; gap: 24px">
+    <div class="up" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 6px; max-width: 760px">
+        <h1 class="gs" style="margin: 0; font-size: 32px; line-height: 40px; font-weight: 400">Contas conectadas ao Google</h1>
+        <p style="margin: 0; font-size: 14px; line-height: 20px; color: #5F6368">Cada e-mail que administra perfis: se a conexão está de pé, quais perfis dependem dele e se há convites aguardando aceite.</p>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px">
+        <button class="btn btn-outlined"><span class="ms">fact_check</span>Verificar convites em todas</button>
+        <button class="btn btn-filled"><span class="ms">person_add</span>Pegar acesso de cliente novo</button>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px">
+      <div class="card kpi up d1" style="padding: 24px; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="gs" style="font-size: 14px; font-weight: 500; color: #137333">Contas conectadas</span><span class="ms" style="color: #137333; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">link</span></div>
+        <div class="gs" style="font-size: 44px; line-height: 48px; font-weight: 500; color: #137333; letter-spacing: -1px">123</div>
+        <div style="font-size: 13px; color: #3C4043">de 126 contas que já conectaram</div>
+      </div>
+      <div class="card kpi up d2" style="padding: 24px; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="gs" style="font-size: 14px; font-weight: 500; color: #C5221F">Precisam reconectar</span><span class="ms" style="color: #C5221F; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">link_off</span></div>
+        <div class="gs" style="font-size: 44px; line-height: 48px; font-weight: 500; color: #C5221F; letter-spacing: -1px">2</div>
+        <div style="font-size: 13px; color: #3C4043">token recusado pelo Google · 6 nunca conectaram</div>
+      </div>
+      <div class="card kpi up d3" style="padding: 24px; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="gs" style="font-size: 14px; font-weight: 500; color: #B06000">Convites pendentes</span><span class="ms" style="color: #B06000; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">mark_email_unread</span></div>
+        <div class="gs" style="font-size: 44px; line-height: 48px; font-weight: 500; color: #B06000; letter-spacing: -1px">11</div>
+        <div style="font-size: 13px; color: #3C4043">alguém nos chamou para gerenciar uma ficha</div>
+      </div>
+      <div class="card kpi up d4" style="padding: 24px; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="gs" style="font-size: 14px; font-weight: 500; color: #0B4FA8">Perfis administrados</span><span class="ms" style="color: #0B4FA8; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">storefront</span></div>
+        <div class="gs" style="font-size: 44px; line-height: 48px; font-weight: 500; color: #0B4FA8; letter-spacing: -1px">12.763</div>
+        <div style="font-size: 13px; color: #3C4043">4.049 com problema de acesso</div>
+      </div>
+    </div>
+
+    <div class="up d3" style="display: flex; align-items: center; gap: 12px">
+      <label class="search" style="width: 420px">
+        <span class="ms" style="color: #5F6368">search</span>
+        <input type="search" placeholder="Buscar contato por e-mail ou nome">
+      </label>
+      <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+        <button class="chip on">Todas</button>
+        <button class="chip"><span style="width: 8px; height: 8px; border-radius: 999px; background: #D93025"></span>Precisam reconectar</button>
+        <button class="chip"><span style="width: 8px; height: 8px; border-radius: 999px; background: #F9AB00"></span>Com convites pendentes</button>
+        <button class="chip">Com perfis sem acesso</button>
+        <button class="chip">Nunca conectados</button>
+      </div>
+    </div>
+
+    <section class="card up d4" style="display: flex; flex-direction: column; overflow: hidden">
+      <div style="display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) 300px; gap: 24px; padding: 14px 28px; border-bottom: 1px solid #E2E6EA; font-family: 'Google Sans', Roboto, Arial, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: .3px; color: #5F6368; text-transform: uppercase">
+        <span>Conta gestora</span><span>Perfis e acesso</span><span style="text-align: right">Ações</span>
+      </div>
+
+      <sc-for list="{{contas}}" as="c" hint-placeholder-count="5">
+        <div class="acc" style="display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) 300px; gap: 24px; align-items: center; padding: 20px 28px; border-bottom: 1px solid #F1F3F4">
+          <div style="display: flex; align-items: flex-start; gap: 14px; min-width: 0">
+            <span class="gs" style="width: 44px; height: 44px; border-radius: 999px; background: {{c.avBg}}; color: {{c.avFg}}; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 500; flex-shrink: 0">{{c.ini}}</span>
+            <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+                <span class="gs" style="font-size: 15px; font-weight: 500; color: #202124">{{c.email}}</span>
+                <span class="badge {{c.stCls}}">{{c.st}}</span>
+                <sc-if value="{{c.conv}}" hint-placeholder-val="{{ true }}"><span class="badge b-yellow">{{c.conv}}</span></sc-if>
+              </div>
+              <span style="font-size: 13px; color: #5F6368">{{c.sub}}</span>
+              <sc-if value="{{c.erro}}" hint-placeholder-val="{{ false }}">
+                <span style="font-size: 13px; color: #C5221F; display: inline-flex; align-items: center; gap: 6px"><span class="ms" style="font-size: 16px">error</span>{{c.erro}}</span>
+              </sc-if>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <div style="display: flex; align-items: center; justify-content: space-between; font-size: 13px">
+              <span style="color: #3C4043">{{c.perfis}}</span>
+              <span class="gs" style="font-weight: 500; color: {{c.probColor}}">{{c.prob}}</span>
+            </div>
+            <div style="height: 8px; border-radius: 999px; background: #F1F3F4; overflow: hidden">
+              <div class="grow" style="height: 100%; border-radius: 999px; background: #1E8E3E; width: {{c.pct}}"></div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #5F6368">
+              <span>{{c.acesso}}</span>
+              <sc-if value="{{c.semAcesso}}" hint-placeholder-val="{{ false }}"><button class="mini" style="color: #C5221F; border-color: #F6AEA9">{{c.semAcesso}}<span class="ms" style="font-size: 14px">chevron_right</span></button></sc-if>
+              <sc-if value="{{c.copias}}" hint-placeholder-val="{{ false }}"><button class="mini" style="color: #B06000; border-color: #FDD663">{{c.copias}}<span class="ms" style="font-size: 14px">chevron_right</span></button></sc-if>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: flex-end; gap: 8px">
+            <sc-if value="{{c.conv}}" hint-placeholder-val="{{ true }}"><button class="btn btn-tonal btn-sm">Ver convites</button></sc-if>
+            <button class="btn btn-outlined btn-sm">Verificar convites</button>
+            <button class="iconbtn" aria-label="Mais ações"><span class="ms">more_vert</span></button>
+          </div>
+        </div>
+      </sc-for>
+
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; font-size: 13px; color: #5F6368">
+        <span>Mostrando 1–5 de 126 contas</span>
+        <div style="display: flex; align-items: center; gap: 4px">
+          <button class="iconbtn" aria-label="Página anterior"><span class="ms">chevron_left</span></button>
+          <span class="gs" style="width: 32px; height: 32px; border-radius: 999px; background: #EAF1FB; color: #0B4FA8; display: inline-flex; align-items: center; justify-content: center; font-weight: 500">1</span>
+          <span style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center">2</span>
+          <span style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center">3</span>
+          <span style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center">…</span>
+          <span style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center">26</span>
+          <button class="iconbtn" aria-label="Próxima página"><span class="ms">chevron_right</span></button>
+        </div>
+      </div>
+    </section>
+  </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const contas = [
+      { ini: 'AS', avBg: '#FCE8E6', avFg: '#C5221F', email: 'gestora.norte@exemplo.com', st: 'Precisa reconectar', stCls: 'b-red', conv: '1 convite pendente', sub: 'ADS Software · conectada hoje', erro: '', perfis: '6 perfis', prob: '0 com acesso', probColor: '#3C4043', pct: '2%', acesso: '0 com acesso', semAcesso: '', copias: '' },
+      { ini: 'OA', avBg: '#FCE8E6', avFg: '#C5221F', email: 'onboarding.perfis@exemplo.com', st: 'Precisa reconectar', stCls: 'b-red', conv: '', sub: 'Onboarding Acesso Perfil · conectada há 21 dias', erro: 'O Google recusou o token desta conta. Reconecte pelo menu Conectar e-mail.', perfis: '15 perfis', prob: '2 com problema', probColor: '#C5221F', pct: '87%', acesso: '13 com acesso', semAcesso: '1 sem acesso', copias: '1 cópia' },
+      { ini: 'PA', avBg: '#F1F3F4', avFg: '#5F6368', email: 'pedro.a@exemplo.com', st: 'Nunca conectada', stCls: 'b-grey', conv: '', sub: 'Pedro A. · nunca conectada', erro: '', perfis: '1 perfil', prob: '0 com acesso', probColor: '#3C4043', pct: '2%', acesso: '0 com acesso', semAcesso: '', copias: '' },
+      { ini: 'MC', avBg: '#E6F4EA', avFg: '#137333', email: 'gestora.para@exemplo.com', st: 'Conectada', stCls: 'b-green', conv: '4 convites pendentes', sub: 'MCC Pará · conectada há 2 dias', erro: '', perfis: '122 perfis', prob: '3 com problema', probColor: '#C5221F', pct: '97%', acesso: '119 com acesso', semAcesso: '2 sem acesso', copias: '1 cópia' },
+      { ini: 'GG', avBg: '#E6F4EA', avFg: '#137333', email: 'gestor.georanking.go@gmail.com', st: 'Conectada', stCls: 'b-green', conv: '', sub: 'Gestão Goiás · conectada há 5 horas', erro: '', perfis: '318 perfis', prob: 'Tudo certo', probColor: '#137333', pct: '100%', acesso: '318 com acesso', semAcesso: '', copias: '' }
+    ];
+    return { contas };
+  }
+}
+</script>
+</body>
+</html>

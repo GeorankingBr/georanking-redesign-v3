@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Painel de controle</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&amp;family=Google+Sans+Text:wght@400;500;700&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;letter-spacing:.1px;border:0;cursor:pointer;white-space:nowrap;transition:box-shadow .2s,background .2s}
+.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#1264C7;box-shadow:0 1px 3px rgba(18,100,199,.4),0 4px 12px rgba(18,100,199,.25)}
+.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
+.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #DADCE0}.btn-outlined:hover{background:#F8FAFD;border-color:#C2D7F5}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.chip{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border-radius:999px;border:1px solid #DADCE0;background:#fff;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;color:#3C4043;cursor:pointer;white-space:nowrap;transition:background .15s,border-color .15s}
+.chip:hover{background:#F1F3F4}.chip.on{background:#202124;border-color:#202124;color:#fff}
+.card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
+.kpi{transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s}
+.kpi:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(60,64,67,.10)}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#E6F4EA;color:#137333}.b-red{background:#FCE8E6;color:#C5221F}.b-yellow{background:#FEF7E0;color:#B06000}.b-blue{background:#EAF1FB;color:#1264C7}.b-grey{background:#F1F3F4;color:#5F6368}
+.up{animation:up .5s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.d1{animation-delay:.06s}.d2{animation-delay:.12s}.d3{animation-delay:.18s}.d4{animation-delay:.24s}.d5{animation-delay:.3s}.d6{animation-delay:.36s}
+.grow{transform-origin:left;animation:grow .9s cubic-bezier(.2,.8,.2,1) .25s both}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.col{transform-origin:bottom;animation:col .8s cubic-bezier(.2,.8,.2,1) .3s both}
+@keyframes col{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.row:hover .track{background:#F1F3F4}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1720px; box-sizing: border-box; background: #F7F9FC; display: flex; overflow: hidden">
+  <dc-import name="AdminRail" active="painel" hint-size="240px,1720px"></dc-import>
+  <div style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+  <dc-import name="TopBar" contexto="Admin" titulo="Painel de controle" hint-size="1200px,60px"></dc-import>
+
+  <main style="padding: 28px 32px 40px; display: flex; flex-direction: column; gap: 24px">
+
+    <div class="up" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h1 class="gs" style="margin: 0; font-size: 32px; line-height: 40px; font-weight: 400; color: #202124">Panorama da base</h1>
+        <p style="margin: 0; font-size: 14px; line-height: 20px; color: #5F6368">Contagens reais do banco: perfis de clientes ativos, por região, categoria e situação de acesso.</p>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px">
+        <span class="badge b-grey"><span class="ms" style="font-size: 16px">schedule</span>Atualizado em 29/09/2026, 18:38</span>
+        <button class="btn btn-tonal"><span class="ms">refresh</span>Atualizar</button>
+      </div>
+    </div>
+
+    <div class="up d1" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <sc-for list="{{ufs}}" as="uf" hint-placeholder-count="11">
+        <button class="chip {{uf.cls}}">{{uf.label}}</button>
+      </sc-for>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px">
+      <div class="card kpi up d1" style="padding: 24px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <span class="gs" style="font-size: 14px; font-weight: 500; color: #0B4FA8">Perfis ativos</span>
+          <span class="ms" style="color: #0B4FA8; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">storefront</span>
+        </div>
+        <div class="gs" style="font-size: 44px; line-height: 48px; font-weight: 500; color: #0B4FA8; letter-spacing: -1px">8.636</div>
+        <div style="font-size: 13px; color: #3C4043">de 12.906 clientes cadastrados</div>
+      </div>
+      <div class="card kpi up d2" style="padding: 24px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <span class="gs" style="font-size: 14px; font-weight: 500; color: #137333">Em acompanhamento</span>
+          <span class="ms" style="color: #137333; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">visibility</span>
+        </div>
+        <div class="gs" style="font-size: 44px; line-height: 48px; font-weight: 500; color: #137333; letter-spacing: -1px">8.626</div>
+        <div style="font-size: 13px; color: #3C4043">100% dos perfis ativos</div>
+      </div>
+      <div class="card kpi up d3" style="padding: 24px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <span class="gs" style="font-size: 14px; font-weight: 500; color: #B06000">Contas gestoras conectadas</span>
+          <span class="ms" style="color: #B06000; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">manage_accounts</span>
+        </div>
+        <div class="gs" style="font-size: 44px; line-height: 48px; font-weight: 500; color: #B06000; letter-spacing: -1px">110</div>
+        <div style="font-size: 13px; color: #3C4043">de 116 contas · 11 convites pendentes</div>
+      </div>
+      <div class="card kpi up d4" style="padding: 24px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <span class="gs" style="font-size: 14px; font-weight: 500; color: #C5221F">Precisam reconectar</span>
+          <span class="ms" style="color: #C5221F; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">sync_problem</span>
+        </div>
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 12px">
+          <div class="gs" style="font-size: 44px; line-height: 48px; font-weight: 500; color: #C5221F; letter-spacing: -1px">2</div>
+          <a href="QualidadePerfis.dc.html" class="btn btn-sm" style="background: #fff; color: #C5221F">Ver contas<span class="ms" style="font-size: 18px">arrow_forward</span></a>
+        </div>
+        <div style="font-size: 13px; color: #3C4043">contas com token vencido ou revogado</div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px">
+      <section class="card up d3" style="padding: 28px; display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 class="gs" style="margin: 0; font-size: 20px; font-weight: 500">Perfis por estado</h2>
+            <span style="font-size: 13px; color: #5F6368">Perfis de clientes ativos, pelo endereço da ficha.</span>
+          </div>
+          <button class="btn btn-outlined btn-sm"><span class="ms" style="font-size: 18px">download</span>Exportar</button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <sc-for list="{{estados}}" as="e" hint-placeholder-count="11">
+            <div class="row" style="display: flex; align-items: center; gap: 12px">
+              <span style="width: 52px; text-align: right; font-size: 13px; color: #5F6368">{{e.label}}</span>
+              <div class="track" style="flex: 1; height: 22px; border-radius: 6px; background: #F8F9FA; overflow: hidden; transition: background .15s">
+                <div class="grow" style="height: 100%; border-radius: 6px; background: {{e.color}}; width: {{e.pct}}"></div>
+              </div>
+              <span class="gs" style="width: 56px; font-size: 13px; font-weight: 500; color: #202124">{{e.value}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section class="card up d4" style="padding: 28px; display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 class="gs" style="margin: 0; font-size: 20px; font-weight: 500">Categorias mais comuns</h2>
+            <span style="font-size: 13px; color: #5F6368">Categoria principal cadastrada no Google.</span>
+          </div>
+          <button class="btn btn-outlined btn-sm"><span class="ms" style="font-size: 18px">download</span>Exportar</button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <sc-for list="{{categorias}}" as="c" hint-placeholder-count="11">
+            <div class="row" style="display: flex; align-items: center; gap: 12px">
+              <span style="width: 220px; text-align: right; font-size: 13px; color: #5F6368; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{c.label}}</span>
+              <div class="track" style="flex: 1; height: 22px; border-radius: 6px; background: #F8F9FA; overflow: hidden; transition: background .15s">
+                <div class="grow" style="height: 100%; border-radius: 6px; background: #1E8E3E; width: {{c.pct}}"></div>
+              </div>
+              <span class="gs" style="width: 40px; font-size: 13px; font-weight: 500; color: #202124">{{c.value}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px">
+      <section class="card up d4" style="padding: 28px; display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 class="gs" style="margin: 0; font-size: 20px; font-weight: 500">Clientes por status</h2>
+          <span style="font-size: 13px; color: #5F6368">Todos os clientes cadastrados, pelo status da conta.</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 36px">
+          <div style="width: 180px; height: 180px; border-radius: 999px; background: conic-gradient(#1E8E3E 0 75%, #F9AB00 75% 99.8%, #1264C7 99.8% 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0">
+            <div style="width: 124px; height: 124px; border-radius: 999px; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center">
+              <span class="gs" style="font-size: 28px; font-weight: 500; letter-spacing: -.5px">12.906</span>
+              <span style="font-size: 12px; color: #5F6368">total</span>
+            </div>
+          </div>
+          <div style="flex: 1; display: flex; flex-direction: column; gap: 14px">
+            <div style="display: flex; align-items: center; gap: 12px"><span style="width: 10px; height: 10px; border-radius: 999px; background: #1E8E3E"></span><span style="flex: 1; font-size: 14px">Ativos</span><span class="gs" style="font-size: 14px; font-weight: 500">9.665</span><span class="badge b-green">75%</span></div>
+            <div style="display: flex; align-items: center; gap: 12px"><span style="width: 10px; height: 10px; border-radius: 999px; background: #F9AB00"></span><span style="flex: 1; font-size: 14px">Aguardando sincronizar palavras</span><span class="gs" style="font-size: 14px; font-weight: 500">3.222</span><span class="badge b-yellow">25%</span></div>
+            <div style="display: flex; align-items: center; gap: 12px"><span style="width: 10px; height: 10px; border-radius: 999px; background: #1264C7"></span><span style="flex: 1; font-size: 14px">Aguardando 1º pagamento</span><span class="gs" style="font-size: 14px; font-weight: 500">19</span><span class="badge b-blue">0%</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card up d5" style="padding: 28px; display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 class="gs" style="margin: 0; font-size: 20px; font-weight: 500">Situação de acesso dos perfis</h2>
+          <span style="font-size: 13px; color: #5F6368">Última verificação com o Google: acesso, suspensão e cópia.</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 36px">
+          <div style="width: 180px; height: 180px; border-radius: 999px; background: conic-gradient(#1E8E3E 0 90%, #D93025 90% 99%, #9AA0A6 99% 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0">
+            <div style="width: 124px; height: 124px; border-radius: 999px; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center">
+              <span class="gs" style="font-size: 28px; font-weight: 500; letter-spacing: -.5px">8.636</span>
+              <span style="font-size: 12px; color: #5F6368">total</span>
+            </div>
+          </div>
+          <div style="flex: 1; display: flex; flex-direction: column; gap: 14px">
+            <div style="display: flex; align-items: center; gap: 12px"><span style="width: 10px; height: 10px; border-radius: 999px; background: #1E8E3E"></span><span style="flex: 1; font-size: 14px">Com acesso</span><span class="gs" style="font-size: 14px; font-weight: 500">7.792</span><span class="badge b-green">90%</span></div>
+            <div style="display: flex; align-items: center; gap: 12px"><span style="width: 10px; height: 10px; border-radius: 999px; background: #D93025"></span><span style="flex: 1; font-size: 14px">Perdemos o acesso</span><span class="gs" style="font-size: 14px; font-weight: 500">780</span><span class="badge b-red">9%</span></div>
+            <div style="display: flex; align-items: center; gap: 12px"><span style="width: 10px; height: 10px; border-radius: 999px; background: #9AA0A6"></span><span style="flex: 1; font-size: 14px">Ainda não verificado</span><span class="gs" style="font-size: 14px; font-weight: 500">64</span><span class="badge b-grey">1%</span></div>
+            <a href="QualidadePerfis.dc.html" class="btn btn-tonal btn-sm" style="align-self: flex-start; margin-top: 6px">Ver contas com problema<span class="ms" style="font-size: 18px">arrow_forward</span></a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 20px">
+      <section class="card up d5" style="padding: 28px; display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 class="gs" style="margin: 0; font-size: 20px; font-weight: 500">Novos perfis por mês</h2>
+            <span style="font-size: 13px; color: #5F6368">Perfis de clientes ativos cadastrados nos últimos 12 meses. Valores ilustrativos até ligar ao banco.</span>
+          </div>
+          <span class="badge b-grey">12 meses</span>
+        </div>
+        <div style="display: flex; align-items: flex-end; gap: 14px; height: 160px; padding: 0 4px">
+          <sc-for list="{{meses}}" as="m" hint-placeholder-count="12">
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; justify-content: flex-end">
+              <span class="gs" style="font-size: 12px; font-weight: 500; color: #3C4043">{{m.value}}</span>
+              <div class="col" style="width: 100%; border-radius: 8px 8px 4px 4px; background: {{m.color}}; height: {{m.pct}}"></div>
+              <span style="font-size: 12px; color: #5F6368">{{m.label}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section class="card up d6" style="padding: 28px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 class="gs" style="margin: 0; font-size: 20px; font-weight: 500">Maiores cidades</h2>
+          <span style="font-size: 13px; color: #5F6368">As oito maiores concentrações da base.</span>
+        </div>
+        <div style="display: flex; flex-direction: column">
+          <sc-for list="{{cidades}}" as="c" hint-placeholder-count="8">
+            <div style="display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #F1F3F4">
+              <span class="gs" style="width: 24px; height: 24px; border-radius: 999px; background: #F1F3F4; color: #5F6368; font-size: 12px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center">{{c.n}}</span>
+              <span style="flex: 1; font-size: 14px">{{c.label}}</span>
+              <span style="font-size: 12px; color: #5F6368">{{c.uf}}</span>
+              <span class="gs" style="font-size: 14px; font-weight: 500; width: 44px; text-align: right">{{c.value}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </div>
+  </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const ufs = ['Brasil','GO','MT','MG','SP','PA','DF','SC','TO','BA','MA'].map((label, i) => ({ label, cls: i === 0 ? 'on' : '' }));
+    const est = [['GO',1735],['MT',850],['MG',670],['SP',560],['PA',410],['DF',370],['SC',340],['TO',330],['BA',290],['MA',240],['Outros',2840]];
+    const max = 2840;
+    const fmt = (n) => n.toLocaleString('pt-BR');
+    const estados = est.map(([label, v]) => ({ label, value: fmt(v), pct: Math.round(v / max * 100) + '%', color: label === 'Outros' ? '#8AB4F8' : '#1264C7' }));
+    const cat = [['Oficina de reparação de automóveis',218],['Loja de materiais de construção',162],['Auto parts store',148],['Imobiliária',110],['Farmácia',93],['Used car dealer',90],['Hotel',90],['Escritório de contabilidade',90],['Loja',88],['Restaurante',88],['Outros',163]];
+    const categorias = cat.map(([label, v]) => ({ label, value: fmt(v), pct: Math.round(v / 218 * 100) + '%' }));
+    const ms = [['Out',52],['Nov',61],['Dez',48],['Jan',70],['Fev',66],['Mar',84],['Abr',78],['Mai',91],['Jun',88],['Jul',97],['Ago',104],['Set',112]];
+    const meses = ms.map(([label, v], i) => ({ label, value: v, pct: Math.round(v / 112 * 100) + '%', color: i === ms.length - 1 ? '#1264C7' : '#D6E4F7' }));
+    const cid = [['Goiânia','GO',612],['Cuiabá','MT',388],['Rio Verde','GO',241],['Uberlândia','MG',214],['Palmas','TO',203],['Brasília','DF',196],['Belém','PA',178],['Anápolis','GO',151]];
+    const cidades = cid.map(([label, uf, v], i) => ({ n: i + 1, label, uf, value: fmt(v) }));
+    return { ufs, estados, categorias, meses, cidades };
+  }
+}
+</script>
+</body>
+</html>

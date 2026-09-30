@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Perfil · Serviços</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap;transition:box-shadow .15s,background .15s}
+.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#0B4FA8}
+.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
+.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-outlined:hover{background:#F3F6FA}
+.btn-text{background:transparent;color:#5F6368}.btn-text:hover{background:#F3F6FA;color:#1F1F1F}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.iconbtn{width:36px;height:36px;border-radius:10px;border:0;background:transparent;color:#5F6368;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s}
+.iconbtn:hover{background:#F3F6FA;color:#1F1F1F}
+.card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#EAF7EE;color:#137333}.b-yellow{background:#FFF7E0;color:#B06000}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}
+.lab{display:flex;align-items:center;gap:8px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;color:#2B2D31}
+.src{display:inline-flex;align-items:center;gap:4px;height:20px;padding:0 8px;border-radius:999px;background:#EAF7EE;color:#137333;font-size:11px;font-weight:500}
+.src .ms{font-size:13px;color:#137333}
+.inp{display:flex;align-items:center;gap:10px;height:44px;padding:0 14px;border:1px solid #E2E6EA;border-radius:12px;background:#fff}
+.inp:focus-within{border-color:#1264C7;box-shadow:0 0 0 2px rgba(18,100,199,.25)}
+.inp input{border:0;outline:0;flex:1;font:14px "Google Sans Text",Roboto,Arial,sans-serif;color:#1F1F1F;background:transparent;min-width:0}
+.inp .ms{color:#5F6368}
+.hint{font-size:13px;line-height:18px;color:#5F6368}
+.h2{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:22px;line-height:28px;font-weight:500;color:#1F1F1F;margin:0}
+.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:15px;font-weight:600;color:#1F1F1F;margin:0}
+.qf{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 12px;border-radius:10px;border:1px solid #E2E6EA;background:#fff;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;color:#2B2D31;cursor:pointer}
+.qf.on{background:#EAF1FB;border-color:#EAF1FB;color:#0B4FA8}
+.grp{display:flex;align-items:center;gap:12px;height:52px;padding:0 16px;background:#F8FAFC;border-bottom:1px solid #EEF1F4;cursor:pointer}
+.row{display:grid;grid-template-columns:minmax(0,1fr) 120px 110px 100px;align-items:center;gap:16px;padding:12px 16px 12px 44px;border-bottom:1px solid #EEF1F4;transition:background .15s}
+.row:hover{background:#EAF1FB}
+.sw{width:36px;height:20px;border-radius:999px;background:#1264C7;position:relative;display:inline-block;border:0;cursor:pointer;padding:0;flex-shrink:0}
+.sw::after{content:"";position:absolute;top:2px;left:18px;width:16px;height:16px;border-radius:999px;background:#fff}
+.sw.off{background:#BDC1C6}.sw.off::after{left:2px}
+.tip{display:flex;gap:12px;padding:14px 16px;border-radius:12px;background:#F3F6FA;font-size:13px;line-height:19px;color:#2B2D31}
+.tip .ms{flex-shrink:0;color:#1264C7}
+.up{animation:up .4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.d1{animation-delay:.06s}.d2{animation-delay:.12s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1100px; box-sizing: border-box; background: #F7F9FC; display: flex; flex-direction: column; position: relative; overflow: hidden">
+  <dc-import name="ProfileHeader" hint-size="1440px,72px"></dc-import>
+  <div style="display: flex; flex: 1; min-height: 0">
+  <dc-import name="SectionRail" active="servicos" hint-size="240px,1028px"></dc-import>
+  <div style="flex: 1; min-width: 0; overflow: hidden">
+
+  <div style="margin: 0; display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 32px; padding: 24px 32px 100px">
+    <div class="up" style="display: flex; flex-direction: column; gap: 20px">
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 class="h2">Serviços</h2>
+          <span class="hint">Lista que aparece na aba "Serviços" da ficha, agrupada por categoria. 14 ativos · 2 desativados.</span>
+        </div>
+        <div style="display: flex; gap: 8px">
+          <button class="btn btn-outlined"><span class="ms">swap_vert</span>Reordenar</button>
+          <button class="btn btn-filled"><span class="ms">add</span>Adicionar serviço</button>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 10px">
+        <label class="inp" for="busca" style="width: 320px"><span class="ms">search</span><input id="busca" placeholder="Buscar serviço"></label>
+        <button class="qf on">Todos · 16</button>
+        <button class="qf">Predefinidos · 11</button>
+        <button class="qf">Personalizados · 5</button>
+        <button class="qf">Desativados · 2</button>
+      </div>
+
+      <div class="card" style="overflow: hidden">
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr) 120px 110px 100px; gap: 16px; padding: 12px 16px 12px 44px; background: #F8FAFC; border-bottom: 1px solid #E2E6EA; font-family: 'Google Sans', Roboto, Arial, sans-serif; font-size: 12px; font-weight: 600; color: #5F6368">
+          <span>Serviço</span><span>Origem</span><span>Preço</span><span>Ativo</span>
+        </div>
+        <sc-for list="{{grupos}}" as="g" hint-placeholder-count="3">
+          <div class="grp">
+            <span class="ms" style="color: #5F6368">{{g.chev}}</span>
+            <span class="h3">{{g.nome}}</span>
+            <span class="badge b-grey">{{g.qtd}} serviços</span>
+            <span style="flex: 1"></span>
+            <button class="btn btn-text btn-sm"><span class="ms" style="font-size: 18px">add</span>Adicionar nesta categoria</button>
+          </div>
+          <sc-for list="{{g.itens}}" as="s" hint-placeholder-count="3">
+            <div class="row">
+              <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
+                <span style="font-size: 14px; font-weight: 500; color: #1F1F1F">{{s.nome}}</span>
+                <span class="hint" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{s.desc}}</span>
+              </div>
+              <span class="badge {{s.origCls}}">{{s.orig}}</span>
+              <span style="font-size: 13px; color: #2B2D31">{{s.preco}}</span>
+              <div style="display: flex; align-items: center; gap: 4px">
+                <button class="sw {{s.sw}}" aria-label="Ativar serviço"></button>
+                <button class="iconbtn" aria-label="Mais ações"><span class="ms">more_vert</span></button>
+              </div>
+            </div>
+          </sc-for>
+        </sc-for>
+      </div>
+    </div>
+
+    <aside style="display: flex; flex-direction: column; gap: 16px">
+      <div class="card up d1" style="padding: 20px; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="lab"><span class="ms" style="color: #1264C7">auto_awesome</span>Sugestões do Google</span><span class="badge b-blue">6</span></div>
+        <span class="hint">Serviços que o Google associa à categoria "Loja de artigos para caça e pesca" e ainda não estão na ficha.</span>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <sc-for list="{{sugestoes}}" as="x" hint-placeholder-count="4">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 10px; border-radius: 10px; background: #F7F9FC"><span style="font-size: 13px">{{x}}</span><button class="btn btn-tonal btn-sm" style="height: 30px">Adicionar</button></div>
+          </sc-for>
+        </div>
+        <a href="#todas" style="font-size: 13px; font-family: 'Google Sans', Roboto, Arial, sans-serif; font-weight: 500">Ver todas as 6</a>
+      </div>
+      <div class="card up d2" style="padding: 20px; display: flex; flex-direction: column; gap: 10px">
+        <span class="lab">Impacto</span>
+        <span style="font-size: 13px; line-height: 19px; color: #2B2D31">Serviços cadastrados aparecem como termos pesquisáveis. Hoje <b style="font-weight: 500">3 palavras-chave</b> monitoradas não têm serviço correspondente: "conserto de molinete", "isca artificial", "motor de popa".</span>
+        <button class="btn btn-outlined btn-sm" style="align-self: flex-start">Criar serviços a partir das palavras</button>
+      </div>
+      <div class="tip"><span class="ms">info</span>Ao remover uma categoria na aba Informações básicas, os serviços dela são apagados pelo Google e não voltam sozinhos.</div>
+    </aside>
+  </div>
+
+  </div>
+  </div>
+  <footer style="position: absolute; left: 240px; right: 0; bottom: 0; height: 72px; background: #fff; border-top: 1px solid #E2E6EA; box-shadow: 0 -4px 14px rgba(31,35,41,.04)">
+    <div style="padding: 0 32px; height: 100%; display: flex; align-items: center; justify-content: space-between">
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #137333"><span class="ms" style="font-size: 18px">check_circle</span>Alterações salvas às 19:42</div>
+      <div style="display: flex; gap: 8px"><button class="btn btn-text">Descartar</button><button class="btn btn-filled" style="opacity: .5">Salvar alterações</button></div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const it = (nome, desc, orig, preco, on) => ({ nome, desc, orig, origCls: orig === 'Predefinido' ? 'b-grey' : 'b-blue', preco, sw: on ? '' : 'off' });
+    const grupos = [
+      { nome: 'Pesca', qtd: 6, chev: 'expand_more', itens: [
+        it('Venda de varas e molinetes', 'Varas telescópicas, carretilhas e molinetes das principais marcas', 'Predefinido', 'Sob consulta', true),
+        it('Conserto de molinetes e carretilhas', 'Revisão, troca de rolamentos e lubrificação', 'Personalizado', 'a partir de R$ 60', true),
+        it('Iscas artificiais e naturais', 'Iscas para água doce e salgada', 'Predefinido', '—', true)
+      ] },
+      { nome: 'Camping e náutica', qtd: 5, chev: 'expand_more', itens: [
+        it('Barracas e equipamentos de camping', 'Barracas, sacos de dormir, lampiões', 'Predefinido', '—', true),
+        it('Motores de popa e acessórios', 'Venda e assistência autorizada', 'Personalizado', 'Sob consulta', true),
+        it('Coletes e itens de segurança', 'Coletes salva-vidas homologados', 'Predefinido', '—', false)
+      ] },
+      { nome: 'Caça esportiva', qtd: 5, chev: 'chevron_right', itens: [] }
+    ];
+    const sugestoes = ['Aluguel de equipamentos de pesca', 'Licença de pesca amadora', 'Vestuário técnico', 'Kits para iniciantes'];
+    return { grupos, sugestoes };
+  }
+}
+</script>
+</body>
+</html>

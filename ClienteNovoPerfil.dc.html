@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Cliente · Novo perfil</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap}
+.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#0B4FA8}
+.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
+.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-outlined:hover{background:#F3F6FA}
+.btn-text{background:transparent;color:#5F6368}.btn-text:hover{background:#F3F6FA;color:#1F1F1F}
+.card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#EAF7EE;color:#137333}.b-yellow{background:#FFF7E0;color:#B06000}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}.b-dark{background:#1F1F1F;color:#fff}
+.hint{font-size:13px;line-height:18px;color:#5F6368}
+.h1{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:32px;line-height:40px;font-weight:500;margin:0}
+.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:17px;font-weight:600;margin:0}
+.step{display:flex;align-items:center;gap:8px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;color:#5F6368;white-space:nowrap}
+.step .n{width:26px;height:26px;border-radius:999px;border:1px solid #E2E6EA;display:inline-flex;align-items:center;justify-content:center;font-size:12px;background:#fff}
+.step.done{color:#137333}.step.done .n{background:#EAF7EE;border-color:#EAF7EE;color:#137333}
+.step.on{color:#0B4FA8}.step.on .n{background:#1264C7;border-color:#1264C7;color:#fff}
+.line{flex:1;height:2px;background:#E2E6EA;border-radius:2px}
+.line.done{background:#1E8E3E}
+.plan{display:flex;flex-direction:column;gap:14px;padding:22px;border:1px solid #E2E6EA;border-radius:16px;background:#fff;position:relative;transition:transform .2s,box-shadow .2s;cursor:pointer}
+.plan:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(31,35,41,.10)}
+.plan.on{border:2px solid #1264C7;box-shadow:0 4px 14px rgba(18,100,199,.15)}
+.plan .price{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:30px;font-weight:500;letter-spacing:-.5px}
+.feat{display:flex;align-items:center;gap:8px;font-size:13px;color:#2B2D31}
+.feat .ms{font-size:18px;color:#137333}
+.feat.off{color:#9AA0A6}.feat.off .ms{color:#BDC1C6}
+.up{animation:up .4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.d1{animation-delay:.06s}.d2{animation-delay:.12s}.d3{animation-delay:.18s}.d4{animation-delay:.24s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1400px; box-sizing: border-box; background: #F7F9FC; display: flex; overflow: hidden">
+  <dc-import name="SidebarCliente" active="novo" hint-size="264px,1400px"></dc-import>
+
+  <main style="flex: 1; min-width: 0; padding: 32px 40px; display: flex; flex-direction: column; gap: 28px">
+    <div class="up" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span class="badge b-blue">Passo 7 de 8</span>
+        <h1 class="h1">Escolha o plano para o novo perfil</h1>
+        <span class="hint" style="font-size: 14px">Perfil: <b style="color: #1F1F1F; font-weight: 500">Náutica Caça e Pesca · Unidade Centro</b> · Barreiras, BA. Você pode trocar de plano depois.</span>
+      </div>
+      <button class="btn btn-text"><span class="ms">save</span>Salvar e continuar depois</button>
+    </div>
+
+    <div class="up d1" style="display: flex; align-items: center; gap: 10px">
+      <sc-for list="{{steps}}" as="s" hint-placeholder-count="8">
+        <span class="step {{s.cls}}"><span class="n">{{s.n}}</span>{{s.label}}</span>
+        <sc-if value="{{s.line}}" hint-placeholder-val="{{ true }}"><span class="line {{s.lineCls}}"></span></sc-if>
+      </sc-for>
+    </div>
+
+    <div class="up d2" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+      <div class="plan">
+        <div style="display: flex; flex-direction: column; gap: 4px"><span class="h3">Bronze</span><span class="hint">Entrada inicial para pequenos negócios.</span></div>
+        <div><span class="price">[R$ BRONZE]</span><span class="hint">/mês</span></div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span class="feat"><span class="ms">check</span>Painel do cliente</span>
+          <span class="feat"><span class="ms">check</span>Raio: até 2 km</span>
+          <span class="feat"><span class="ms">check</span>2 palavras-chave</span>
+          <span class="feat"><span class="ms">check</span>2 impulsionamentos</span>
+          <span class="feat"><span class="ms">check</span>IA responde avaliações</span>
+          <span class="feat"><span class="ms">check</span>Suporte 0800</span>
+          <span class="feat off"><span class="ms">remove</span>Consultor dedicado</span>
+          <span class="feat off"><span class="ms">remove</span>Site landing page</span>
+        </div>
+        <button class="btn btn-outlined" style="margin-top: auto">Escolher Bronze</button>
+      </div>
+      <div class="plan">
+        <div style="display: flex; flex-direction: column; gap: 4px"><span class="h3">Prata</span><span class="hint">Expansão para bairros vizinhos.</span></div>
+        <div><span class="price">[R$ PRATA]</span><span class="hint">/mês</span></div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span class="feat"><span class="ms">check</span>Painel do cliente</span>
+          <span class="feat"><span class="ms">check</span>Raio: até 5 km</span>
+          <span class="feat"><span class="ms">check</span>4 palavras-chave</span>
+          <span class="feat"><span class="ms">check</span>4 impulsionamentos</span>
+          <span class="feat"><span class="ms">check</span>IA responde avaliações</span>
+          <span class="feat"><span class="ms">check</span>Suporte 0800</span>
+          <span class="feat off"><span class="ms">remove</span>Consultor dedicado</span>
+          <span class="feat off"><span class="ms">remove</span>Site landing page</span>
+        </div>
+        <button class="btn btn-outlined" style="margin-top: auto">Escolher Prata</button>
+      </div>
+      <div class="plan on">
+        <span class="badge b-dark" style="position: absolute; top: -12px; left: 20px">Mais escolhido</span>
+        <div style="display: flex; flex-direction: column; gap: 4px"><span class="h3">Ouro</span><span class="hint">Alto desempenho e inteligência.</span></div>
+        <div><span class="price">[R$ OURO]</span><span class="hint">/mês</span></div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span class="feat"><span class="ms">check</span>Painel inteligente</span>
+          <span class="feat"><span class="ms">check</span>Raio: até 10 km</span>
+          <span class="feat"><span class="ms">check</span>6 palavras-chave</span>
+          <span class="feat"><span class="ms">check</span>12 impulsionamentos</span>
+          <span class="feat"><span class="ms">check</span>IA responde avaliações</span>
+          <span class="feat"><span class="ms">check</span>Suporte 0800</span>
+          <span class="feat"><span class="ms">check</span>Consultor dedicado</span>
+          <span class="feat off"><span class="ms">remove</span>Site landing page</span>
+        </div>
+        <button class="btn btn-filled" style="margin-top: auto"><span class="ms">check</span>Ouro selecionado</button>
+      </div>
+      <div class="plan">
+        <div style="display: flex; flex-direction: column; gap: 4px"><span class="h3">Diamante</span><span class="hint">Solução completa: tráfego + site.</span></div>
+        <div><span class="price">[R$ DIAMANTE]</span><span class="hint">/mês</span></div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span class="feat"><span class="ms">check</span>Painel VIP completo</span>
+          <span class="feat"><span class="ms">check</span>Raio: até 15 km</span>
+          <span class="feat"><span class="ms">check</span>8 palavras-chave</span>
+          <span class="feat"><span class="ms">check</span>20 impulsionamentos</span>
+          <span class="feat"><span class="ms">check</span>IA responde avaliações</span>
+          <span class="feat"><span class="ms">check</span>Suporte 0800</span>
+          <span class="feat"><span class="ms">check</span>Consultor dedicado</span>
+          <span class="feat"><span class="ms">check</span>Site landing page</span>
+        </div>
+        <button class="btn btn-outlined" style="margin-top: auto">Escolher Diamante</button>
+      </div>
+    </div>
+
+    <div class="up d3" style="display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 20px">
+      <section class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 12px">
+        <span class="h3">Todos os planos incluem</span>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 20px">
+          <span class="feat"><span class="ms">check</span>Palavras-chave otimizadas</span>
+          <span class="feat"><span class="ms">check</span>Cartão de visita digital</span>
+          <span class="feat"><span class="ms">check</span>QR Code para avaliações</span>
+          <span class="feat"><span class="ms">check</span>Sincronização diária com o Google</span>
+          <span class="feat"><span class="ms">check</span>Relatório de palavras-chave</span>
+          <span class="feat"><span class="ms">check</span>Postagens agendadas</span>
+        </div>
+      </section>
+      <section class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 10px; background: #EAF1FB; border-color: #EAF1FB">
+        <span class="h3" style="color: #0B4FA8">Resumo</span>
+        <div style="display: flex; justify-content: space-between; font-size: 14px"><span>Plano Ouro</span><span style="font-weight: 500">[R$ OURO]/mês</span></div>
+        <div style="display: flex; justify-content: space-between; font-size: 14px"><span>Raio de cobertura</span><span>10 km</span></div>
+        <div style="display: flex; justify-content: space-between; font-size: 14px"><span>Palavras-chave</span><span>6 escolhidas no passo 5</span></div>
+        <span class="hint">Cobrança mensal, sem fidelidade. Próximo passo: pagamento.</span>
+      </section>
+    </div>
+
+    <div class="up d4" style="display: flex; align-items: center; justify-content: space-between; padding-top: 8px; border-top: 1px solid #E2E6EA">
+      <button class="btn btn-text"><span class="ms">arrow_back</span>Voltar: Descrição</button>
+      <button class="btn btn-filled">Continuar para pagamento<span class="ms">arrow_forward</span></button>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const names = ['Validação', 'Dados', 'Perfil', 'Categoria', 'Palavras-chave', 'Descrição', 'Plano', 'Pagamento'];
+    const cur = 6;
+    const steps = names.map((label, i) => ({ n: i < cur ? '✓' : String(i + 1), label, cls: i < cur ? 'done' : i === cur ? 'on' : '', line: i < names.length - 1, lineCls: i < cur ? 'done' : '' }));
+    return { steps };
+  }
+}
+</script>
+</body>
+</html>

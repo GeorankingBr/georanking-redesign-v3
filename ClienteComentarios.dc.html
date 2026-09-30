@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Cliente · Comentários</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap}
+.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#0B4FA8}
+.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
+.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-outlined:hover{background:#F3F6FA}
+.btn-text{background:transparent;color:#5F6368}.btn-text:hover{background:#F3F6FA;color:#1F1F1F}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#EAF7EE;color:#137333}.b-yellow{background:#FFF7E0;color:#B06000}.b-red{background:#FCE8E6;color:#B3261E}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}
+.hint{font-size:13px;line-height:18px;color:#5F6368}
+.h1{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:32px;line-height:40px;font-weight:500;margin:0}
+.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:17px;font-weight:600;margin:0}
+.inp{display:flex;align-items:center;gap:10px;height:44px;padding:0 14px;border:1px solid #E2E6EA;border-radius:12px;background:#fff}
+.inp input,.inp select,.inp textarea{border:0;outline:0;flex:1;font:14px "Google Sans Text",Roboto,Arial,sans-serif;color:#1F1F1F;background:transparent;min-width:0;padding:0}
+.inp.ta{align-items:flex-start;height:auto;padding:12px 14px}.inp textarea{resize:none;line-height:22px}
+.inp .ms{color:#5F6368}
+.qf{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 12px;border-radius:10px;border:1px solid #E2E6EA;background:#fff;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;color:#2B2D31;cursor:pointer}
+.qf.on{background:#EAF1FB;border-color:#EAF1FB;color:#0B4FA8}
+.rev{display:flex;flex-direction:column;gap:12px;padding:20px 22px;border-bottom:1px solid #EEF1F4}
+.star{color:#F9AB00;font-size:16px;font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24}
+.star.off{color:#E2E6EA}
+.reply{display:flex;gap:12px;padding:14px 16px;border-radius:12px;background:#F7F9FC;font-size:14px;line-height:21px}
+.kpi{display:flex;flex-direction:column;gap:4px;padding:16px 20px;border-right:1px solid #EEF1F4}
+.kpi:last-child{border-right:0}
+.kpi b{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:28px;font-weight:500;letter-spacing:-.5px}
+.bar{display:flex;align-items:center;gap:8px;font-size:12px;color:#5F6368}
+.bar .t{flex:1;height:6px;border-radius:999px;background:#EEF1F4;overflow:hidden}
+.up{animation:up .4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.d1{animation-delay:.06s}.d2{animation-delay:.12s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1400px; box-sizing: border-box; background: #F7F9FC; display: flex; overflow: hidden">
+  <dc-import name="SidebarCliente" active="comentarios" hint-size="264px,1400px"></dc-import>
+
+  <main style="flex: 1; min-width: 0; padding: 32px 40px; display: flex; flex-direction: column; gap: 22px">
+    <div class="up" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h1 class="h1">Comentários e avaliações</h1>
+        <span class="hint" style="font-size: 14px">Avaliações recebidas na ficha do Google. Responda aqui e a resposta é publicada na ficha.</span>
+      </div>
+      <div style="display: flex; gap: 8px">
+        <label class="inp" for="perfil" style="width: 260px"><span class="ms">storefront</span><select id="perfil"><option>Náutica Caça e Pesca</option><option>Todos os perfis</option></select></label>
+        <button class="btn btn-tonal"><span class="ms">auto_awesome</span>Responder 3 pendentes com IA</button>
+      </div>
+    </div>
+
+    <div class="up d1" style="display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+          <button class="qf on">Todas · 132</button>
+          <button class="qf"><span style="width: 8px; height: 8px; border-radius: 999px; background: #D93025"></span>Sem resposta · 3</button>
+          <button class="qf"><span class="ms" style="font-size: 16px">star</span>4–5 estrelas</button>
+          <button class="qf"><span class="ms" style="font-size: 16px">star_half</span>1–3 estrelas</button>
+          <span style="flex: 1"></span>
+          <label class="inp" for="ord" style="height: 36px; width: 200px"><span class="ms" style="font-size: 18px">sort</span><select id="ord"><option>Mais recentes</option><option>Mais antigas</option><option>Maior classificação</option><option>Menor classificação</option></select></label>
+          <button class="qf"><span class="ms" style="font-size: 16px">tune</span>Período</button>
+        </div>
+
+        <section class="card" style="overflow: hidden">
+          <sc-for list="{{reviews}}" as="r" hint-placeholder-count="4">
+            <article class="rev">
+              <div style="display: flex; align-items: flex-start; gap: 12px">
+                <span class="gs" style="width: 40px; height: 40px; border-radius: 999px; background: {{r.avBg}}; color: {{r.avFg}}; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 500; flex-shrink: 0">{{r.ini}}</span>
+                <div style="display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0">
+                  <div style="display: flex; align-items: center; gap: 8px"><span style="font-size: 14px; font-weight: 500">{{r.nome}}</span><span class="hint">{{r.data}}</span><span class="badge {{r.stCls}}" style="margin-left: auto"><span class="ms" style="font-size: 14px">{{r.stIcon}}</span>{{r.st}}</span></div>
+                  <div style="display: flex; gap: 2px"><sc-for list="{{r.stars}}" as="s" hint-placeholder-count="5"><span class="ms star {{s}}">star</span></sc-for></div>
+                  <p style="margin: 4px 0 0; font-size: 14px; line-height: 21px; color: #2B2D31">{{r.texto}}</p>
+                </div>
+              </div>
+              <sc-if value="{{r.resposta}}" hint-placeholder-val="{{ true }}">
+                <div class="reply"><span class="ms" style="color: #0B4FA8; flex-shrink: 0">reply</span><div style="display: flex; flex-direction: column; gap: 4px"><span class="hint"><b style="color: #1F1F1F; font-weight: 500">Resposta do proprietário</b> · {{r.respData}} · {{r.respPor}}</span><span>{{r.resposta}}</span></div><button class="btn btn-text btn-sm" style="margin-left: auto; align-self: flex-start"><span class="ms" style="font-size: 16px">edit</span>Editar</button></div>
+              </sc-if>
+              <sc-if value="{{r.pendente}}" hint-placeholder-val="{{ false }}">
+                <div style="display: flex; flex-direction: column; gap: 8px">
+                  <label class="inp ta" for="{{r.id}}"><textarea id="{{r.id}}" rows="2" placeholder="Digite sua resposta ao comentário…">{{r.sugestao}}</textarea></label>
+                  <div style="display: flex; gap: 8px; align-items: center"><span class="badge b-blue"><span class="ms" style="font-size: 14px">auto_awesome</span>Sugestão da IA com seu gabarito</span><span style="flex: 1"></span><button class="btn btn-outlined btn-sm">Gerar outra</button><button class="btn btn-filled btn-sm"><span class="ms" style="font-size: 16px">send</span>Publicar resposta</button></div>
+                </div>
+              </sc-if>
+            </article>
+          </sc-for>
+        </section>
+      </div>
+
+      <aside style="display: flex; flex-direction: column; gap: 16px">
+        <div class="card" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr))">
+          <div class="kpi"><span class="hint">Nota média</span><b style="color: #137333">4,8</b><span class="hint">132 avaliações</span></div>
+          <div class="kpi"><span class="hint">Taxa de resposta</span><b>97%</b><span class="badge b-yellow" style="align-self: flex-start">3 pendentes</span></div>
+        </div>
+        <div class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 10px">
+          <span class="h3" style="font-size: 15px">Distribuição</span>
+          <div class="bar"><span style="width: 14px">5</span><span class="ms star" style="font-size: 14px">star</span><div class="t"><div style="width: 84%; height: 100%; background: #1E8E3E"></div></div><span style="width: 28px; text-align: right">111</span></div>
+          <div class="bar"><span style="width: 14px">4</span><span class="ms star" style="font-size: 14px">star</span><div class="t"><div style="width: 9%; height: 100%; background: #1E8E3E"></div></div><span style="width: 28px; text-align: right">12</span></div>
+          <div class="bar"><span style="width: 14px">3</span><span class="ms star" style="font-size: 14px">star</span><div class="t"><div style="width: 3%; height: 100%; background: #F9AB00"></div></div><span style="width: 28px; text-align: right">4</span></div>
+          <div class="bar"><span style="width: 14px">2</span><span class="ms star" style="font-size: 14px">star</span><div class="t"><div style="width: 2%; height: 100%; background: #D93025"></div></div><span style="width: 28px; text-align: right">2</span></div>
+          <div class="bar"><span style="width: 14px">1</span><span class="ms star" style="font-size: 14px">star</span><div class="t"><div style="width: 2%; height: 100%; background: #D93025"></div></div><span style="width: 28px; text-align: right">3</span></div>
+        </div>
+        <div class="card" style="padding: 20px; display: flex; flex-direction: column; gap: 10px">
+          <span class="h3" style="font-size: 15px">Últimos 30 dias</span>
+          <div style="display: flex; justify-content: space-between; font-size: 14px"><span>Novas avaliações</span><span style="font-weight: 500">14 <span class="badge b-green">+40%</span></span></div>
+          <div style="display: flex; justify-content: space-between; font-size: 14px"><span>Respondidas pela IA</span><span style="font-weight: 500">11</span></div>
+          <div style="display: flex; justify-content: space-between; font-size: 14px"><span>Tempo médio de resposta</span><span style="font-weight: 500">6 h</span></div>
+          <span class="hint">Cartão de avaliação: 41 leituras do QR no período.</span>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const mk = (id, ini, nome, data, n, texto, resposta, respData, respPor, sugestao) => ({ id, ini, nome, data, stars: [1, 2, 3, 4, 5].map((i) => (i <= n ? '' : 'off')), texto, resposta, respData, respPor, pendente: !resposta, sugestao, st: resposta ? 'Respondida' : 'Sem resposta', stCls: resposta ? 'b-green' : 'b-red', stIcon: resposta ? 'check' : 'schedule', avBg: n >= 4 ? '#EAF7EE' : '#FFF7E0', avFg: n >= 4 ? '#137333' : '#B06000' });
+    const reviews = [
+      mk('r1', 'MS', 'Marcos Silva', 'há 2 dias', 5, 'Comprei um motor de popa e o pessoal explicou tudo com paciência. Entregaram em Luís Eduardo no dia seguinte. Recomendo!', '', '', '', 'Obrigado, Marcos! Ficamos felizes que a entrega em Luís Eduardo tenha sido rápida. Qualquer dúvida sobre o motor, é só chamar no WhatsApp da loja. Volte sempre!'),
+      mk('r2', 'AP', 'Ana Paula R.', 'há 4 dias', 2, 'Fui no domingo e estava fechado, no Google dizia aberto.', '', '', '', 'Ana Paula, obrigado pelo aviso e desculpe o transtorno. Já corrigimos o horário de domingo na ficha. Se quiser, fale com a gente no WhatsApp que garantimos seu atendimento.'),
+      mk('r3', 'JC', 'João Carlos', 'há 6 dias', 5, 'Melhor loja de pesca da região. Variedade de iscas e preço justo.', 'Obrigado, João Carlos! Atendimento e variedade são o que mais prezamos. Boa pescaria e volte sempre!', 'há 6 dias', 'IA · aprovada por você', ''),
+      mk('r4', 'RL', 'Renata Lima', 'há 9 dias', 4, 'Bom atendimento, só achei a fila um pouco demorada no sábado.', 'Renata, obrigado pela avaliação! Sábado de manhã costuma ser o horário mais cheio; estamos reforçando a equipe. Esperamos você de novo.', 'há 8 dias', 'IA · aprovada por você', '')
+    ];
+    return { reviews };
+  }
+}
+</script>
+</body>
+</html>

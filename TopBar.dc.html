@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Barra superior do admin</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:22px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.iconbtn{width:40px;height:40px;border-radius:10px;border:0;background:transparent;color:#3C4043;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;position:relative}
+.iconbtn:hover{background:#F3F6FA}
+.dot{position:absolute;top:9px;right:9px;width:8px;height:8px;border-radius:999px;background:#D93025;border:2px solid #fff}
+.search{display:flex;align-items:center;gap:10px;height:40px;width:420px;padding:0 14px;border-radius:10px;background:#F3F6FA;color:#5F6368;font-size:14px}
+.search input{border:0;outline:0;background:transparent;flex:1;font:14px "Google Sans Text",Roboto,Arial,sans-serif;color:#1F1F1F;min-width:0}
+.kbd{font-size:11px;padding:2px 6px;border-radius:6px;border:1px solid #D4D9DE;background:#fff;color:#5F6368}
+</style>
+</helmet>
+<div style="width: 1200px; height: 60px; box-sizing: border-box; background: #ffffff; border-bottom: 1px solid #E2E6EA; display: flex; align-items: center; justify-content: space-between; padding: 0 24px 0 28px">
+  <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #5F6368">
+    <span>{{contexto}}</span>
+    <span class="ms" style="font-size: 18px; color: #BDC1C6">chevron_right</span>
+    <span style="color: #1F1F1F; font-family: 'Google Sans', Roboto, Arial, sans-serif; font-weight: 500">{{titulo}}</span>
+  </div>
+  <label class="search" for="gbusca"><span class="ms" style="font-size: 20px">search</span><input id="gbusca" placeholder="Buscar perfil, conta ou cidade"><span class="kbd">/</span></label>
+  <div style="display: flex; align-items: center; gap: 4px">
+    <span style="display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 10px; border-radius: 8px; background: #EAF7EE; color: #137333; font-size: 12px; font-weight: 500; margin-right: 8px"><span class="ms" style="font-size: 16px">sync</span>Sync do Google há 12 min</span>
+    <button class="iconbtn" aria-label="Ajuda"><span class="ms">help</span></button>
+    <button class="iconbtn" aria-label="Notificações"><span class="ms">notifications</span><span class="dot"></span></button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"contexto":{"editor":"text","default":"Admin"},"titulo":{"editor":"text","default":"Painel de controle"},"$preview":{"width":1200,"height":60}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { contexto: this.props.contexto ?? 'Admin', titulo: this.props.titulo ?? 'Painel de controle' };
+  }
+}
+</script>
+</body>
+</html>

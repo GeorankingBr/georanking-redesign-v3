@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Perfil · Postagens</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap;transition:box-shadow .15s,background .15s}
+.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#0B4FA8}
+.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
+.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-outlined:hover{background:#F3F6FA}
+.btn-text{background:transparent;color:#5F6368}.btn-text:hover{background:#F3F6FA;color:#1F1F1F}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.iconbtn{width:36px;height:36px;border-radius:10px;border:0;background:transparent;color:#5F6368;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.iconbtn:hover{background:#F3F6FA;color:#1F1F1F}
+.card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#EAF7EE;color:#137333}.b-yellow{background:#FFF7E0;color:#B06000}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}
+.lab{display:flex;align-items:center;gap:8px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;color:#2B2D31}
+.inp{display:flex;align-items:center;gap:10px;height:44px;padding:0 14px;border:1px solid #E2E6EA;border-radius:12px;background:#fff}
+.inp:focus-within{border-color:#1264C7;box-shadow:0 0 0 2px rgba(18,100,199,.25)}
+.inp input,.inp select,.inp textarea{border:0;outline:0;flex:1;font:14px "Google Sans Text",Roboto,Arial,sans-serif;color:#1F1F1F;background:transparent;min-width:0;padding:0}
+.inp.ta{align-items:flex-start;height:auto;padding:12px 14px}.inp textarea{resize:none;line-height:22px}
+.inp .ms{color:#5F6368}
+.hint{font-size:13px;line-height:18px;color:#5F6368}
+.h2{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:22px;line-height:28px;font-weight:500;color:#1F1F1F;margin:0}
+.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:15px;font-weight:600;color:#1F1F1F;margin:0}
+.tab2{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 14px;border-radius:10px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;color:#5F6368;cursor:pointer;border:0;background:transparent}
+.tab2:hover{background:#F3F6FA}.tab2.on{background:#EAF1FB;color:#0B4FA8}
+.type{display:flex;flex-direction:column;gap:6px;padding:12px;border-radius:12px;border:1px solid #E2E6EA;background:#fff;cursor:pointer;text-align:left}
+.type:hover{border-color:#D4D9DE}.type.on{border-color:#1264C7;background:#EAF1FB}
+.item{display:grid;grid-template-columns:64px minmax(0,1fr) 110px 120px 80px;align-items:center;gap:14px;padding:12px 16px;border-bottom:1px solid #EEF1F4}
+.item:hover{background:#F7F9FC}
+.thumb{width:64px;height:48px;border-radius:8px;background:linear-gradient(135deg,#D6E4F7,#EAF1FB);display:flex;align-items:center;justify-content:center;color:#0B4FA8}
+.up{animation:up .4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.d1{animation-delay:.06s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1100px; box-sizing: border-box; background: #F7F9FC; display: flex; flex-direction: column; position: relative; overflow: hidden">
+  <dc-import name="ProfileHeader" hint-size="1440px,72px"></dc-import>
+  <div style="display: flex; flex: 1; min-height: 0">
+  <dc-import name="SectionRail" active="postagens" hint-size="240px,1028px"></dc-import>
+  <div style="flex: 1; min-width: 0; overflow: hidden">
+
+  <div style="margin: 0; display: flex; flex-direction: column; gap: 20px; padding: 24px 32px 100px">
+    <div class="up" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <h2 class="h2">Postagens</h2>
+        <span class="hint">Novidades, ofertas e eventos publicados na ficha do Google. Posts somem da ficha após 6 meses.</span>
+      </div>
+      <div style="display: flex; gap: 8px">
+        <label class="inp" for="periodo" style="height: 44px"><span class="ms">calendar_today</span><select id="periodo"><option>Últimos 90 dias</option></select></label>
+        <button class="btn btn-filled"><span class="ms">add</span>Nova postagem</button>
+      </div>
+    </div>
+
+    <div class="up d1" style="display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; align-items: center; gap: 4px; border-bottom: 1px solid #E2E6EA; padding-bottom: 8px">
+          <button class="tab2 on">Publicadas · 8</button>
+          <button class="tab2">Agendadas · 2</button>
+          <button class="tab2">Rascunhos · 1</button>
+          <button class="tab2"><span class="ms" style="font-size: 18px">auto_awesome</span>Ideias da IA · 5</button>
+        </div>
+        <div class="card" style="overflow: hidden">
+          <sc-for list="{{posts}}" as="p" hint-placeholder-count="5">
+            <div class="item">
+              <div class="thumb"><span class="ms">{{p.icon}}</span></div>
+              <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
+                <span style="font-size: 14px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{p.titulo}}</span>
+                <span class="hint">{{p.tipo}} · {{p.data}}</span>
+              </div>
+              <span class="badge {{p.stCls}}"><span class="ms" style="font-size: 14px">{{p.stIcon}}</span>{{p.st}}</span>
+              <span class="hint">{{p.metrica}}</span>
+              <div style="display: flex; justify-content: flex-end; gap: 2px">
+                <button class="iconbtn" aria-label="Ver no Google"><span class="ms">open_in_new</span></button>
+                <button class="iconbtn" aria-label="Mais ações"><span class="ms">more_vert</span></button>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <section class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <span class="h3">Nova postagem</span>
+          <span class="badge b-grey">Rascunho salvo 19:40</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+          <button class="type on"><span class="ms" style="color: #0B4FA8">campaign</span><span style="font-size: 13px; font-weight: 500">Novidade</span></button>
+          <button class="type"><span class="ms" style="color: #5F6368">local_offer</span><span style="font-size: 13px; font-weight: 500">Oferta</span></button>
+          <button class="type"><span class="ms" style="color: #5F6368">event</span><span style="font-size: 13px; font-weight: 500">Evento</span></button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span class="lab">Foto</span>
+          <div style="display: flex; gap: 8px">
+            <div class="thumb" style="width: 96px; height: 72px"><span class="ms">image</span></div>
+            <div class="thumb" style="width: 96px; height: 72px; background: #fff; border: 1px dashed #C2D7F5"><span class="ms">add_photo_alternate</span></div>
+            <span class="hint" style="align-self: center">Sugestões do Gabarito: 4 fotos</span>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <div style="display: flex; justify-content: space-between"><span class="lab">Texto</span><span class="hint">312 / 1.500</span></div>
+          <label class="inp ta" for="txt"><textarea id="txt" rows="4">Chegaram os novos motores de popa 15 HP com garantia de 2 anos. Venha conhecer na loja ou chame no WhatsApp para condições especiais até o fim do mês.</textarea></label>
+          <div style="display: flex; gap: 8px"><button class="btn btn-tonal btn-sm"><span class="ms" style="font-size: 18px">auto_awesome</span>Gerar com IA</button><button class="btn btn-outlined btn-sm">Melhorar texto</button></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 8px"><span class="lab">Botão</span><label class="inp" for="cta"><select id="cta"><option>Saiba mais</option><option>Reservar</option><option>Comprar</option><option>Inscrever-se</option><option>Ver oferta</option><option>Sem botão</option></select><span class="ms">expand_more</span></label></div>
+          <div style="display: flex; flex-direction: column; gap: 8px"><span class="lab">URL do botão</span><label class="inp" for="url"><input id="url" value="https://wa.me/5577988888888"></label></div>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 4px">
+          <button class="btn btn-text"><span class="ms">visibility</span>Pré-visualizar</button>
+          <div style="display: flex; gap: 8px"><button class="btn btn-outlined"><span class="ms">schedule</span>Agendar</button><button class="btn btn-filled">Publicar agora</button></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  </div>
+  </div>
+  <footer style="position: absolute; left: 240px; right: 0; bottom: 0; height: 72px; background: #fff; border-top: 1px solid #E2E6EA; box-shadow: 0 -4px 14px rgba(31,35,41,.04)">
+    <div style="padding: 0 32px; height: 100%; display: flex; align-items: center; justify-content: space-between">
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #2B2D31"><span class="ms" style="font-size: 18px; color: #5F6368">info</span>Postagens são publicadas direto na ficha; não dependem do botão Salvar.</div>
+      <div style="display: flex; gap: 8px"><button class="btn btn-text">Fechar</button></div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const mk = (icon, titulo, tipo, data, st, metrica) => ({ icon, titulo, tipo, data, st, stCls: st === 'Publicada' ? 'b-green' : st === 'Agendada' ? 'b-blue' : 'b-grey', stIcon: st === 'Publicada' ? 'check' : st === 'Agendada' ? 'schedule' : 'edit', metrica });
+    const posts = [
+      mk('campaign', 'Novos motores de popa 15 HP com garantia de 2 anos', 'Novidade', '27/09/2026', 'Publicada', '184 visualizações'),
+      mk('local_offer', '10% de desconto em iscas artificiais até 30/09', 'Oferta', '20/09/2026', 'Publicada', '312 visualizações'),
+      mk('event', 'Torneio de pesca do Rio Grande · inscrições abertas', 'Evento', '12/09/2026', 'Publicada', '96 visualizações'),
+      mk('campaign', 'Horário especial no feriado de 7 de setembro', 'Novidade', '05/09/2026', 'Publicada', '58 visualizações'),
+      mk('campaign', 'Coletes salva-vidas homologados em estoque', 'Novidade', '29/08/2026', 'Publicada', '77 visualizações')
+    ];
+    return { posts };
+  }
+}
+</script>
+</body>
+</html>

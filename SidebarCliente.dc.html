@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Sidebar do cliente</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;color:#202124;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.nav{display:flex;align-items:center;gap:12px;height:44px;padding:0 16px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;color:#3C4043;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav:hover{background:#F1F3F4;color:#202124}
+.nav.on{background:#EAF1FB;color:#0B4FA8}
+.nav.on .ms{font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24}
+</style>
+</helmet>
+<div style="width: 264px; height: 1400px; box-sizing: border-box; background: #ffffff; border-right: 1px solid #E8EAED; padding: 24px 16px; display: flex; flex-direction: column; gap: 24px">
+  <a href="Home.dc.html" aria-label="GeoRanking — início" style="display: flex; margin-left: 8px"><img src="./assets/d7deb3dbeca88c52d3f7d166aae7502c.png" alt="GeoRanking" style="height: 40px; width: auto"></a>
+  <nav aria-label="Menu do cliente" style="display: flex; flex-direction: column; gap: 4px">
+    <sc-for list="{{itens}}" as="i" hint-placeholder-count="8">
+      <a href="{{i.href}}" class="nav {{i.cls}}"><span class="ms">{{i.icon}}</span>{{i.label}}</a>
+    </sc-for>
+  </nav>
+  <div style="flex: 1"></div>
+  <nav aria-label="Conta" style="display: flex; flex-direction: column; gap: 4px">
+    <a href="#senha" class="nav"><span class="ms">lock_reset</span>Trocar senha</a>
+    <a href="#ajuda" class="nav"><span class="ms">help</span>Ajuda</a>
+  </nav>
+  <div style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 16px; background: #F8F9FA">
+    <span style="width: 36px; height: 36px; border-radius: 999px; background: #EAF1FB; color: #0B4FA8; display: inline-flex; align-items: center; justify-content: center; font-family: 'Google Sans', Roboto, Arial, sans-serif; font-size: 13px; font-weight: 500">NC</span>
+    <div style="display: flex; flex-direction: column; min-width: 0">
+      <span style="font-family: 'Google Sans', Roboto, Arial, sans-serif; font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Náutica Caça e Pesca</span>
+      <span style="font-size: 12px; color: #5F6368">Cliente · Plano Ouro</span>
+    </div>
+    <button aria-label="Sair" style="margin-left: auto; border: 0; background: transparent; color: #5F6368; cursor: pointer; display: inline-flex"><span class="ms">logout</span></button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"active":{"editor":"enum","options":["home","editar","novo","comentarios","postagens","palavras","performance","backlinks"],"default":"home"},"$preview":{"width":264,"height":1400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const active = this.props.active ?? 'home';
+    const list = [
+      { key: 'home', label: 'Início', icon: 'home', href: 'Home.dc.html' },
+      { key: 'editar', label: 'Editar perfil', icon: 'edit_square', href: 'ClienteEditarPerfil.dc.html' },
+      { key: 'novo', label: 'Novo perfil', icon: 'add_location_alt', href: 'ClienteNovoPerfil.dc.html' },
+      { key: 'comentarios', label: 'Comentários', icon: 'reviews', href: 'ClienteComentarios.dc.html' },
+      { key: 'postagens', label: 'Postagens', icon: 'post_add', href: 'ClientePostagens.dc.html' },
+      { key: 'palavras', label: 'Relatório de palavras-chave', icon: 'query_stats', href: 'ClienteRelatorioPalavras.dc.html' },
+      { key: 'performance', label: 'Relatório de performance', icon: 'monitoring', href: 'ClienteRelatorioPerformance.dc.html' },
+      { key: 'backlinks', label: 'Backlinks', icon: 'link', href: '#backlinks' }
+    ];
+    return { itens: list.map((i) => ({ ...i, cls: i.key === active ? 'on' : '' })) };
+  }
+}
+</script>
+</body>
+</html>

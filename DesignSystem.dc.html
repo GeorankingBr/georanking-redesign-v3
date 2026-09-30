@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>GeoRanking Product System</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#ffffff;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.ms.fill{font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap}
+.btn-filled{background:#1264C7;color:#fff}.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-text{background:transparent;color:#0B4FA8}.btn-danger{background:#FCE8E6;color:#B3261E}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:999px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500}
+.b-green{background:#EAF7EE;color:#137333}.b-red{background:#FCE8E6;color:#B3261E}.b-yellow{background:#FFF7E0;color:#B06000}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}
+.lbl{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:11px;font-weight:600;letter-spacing:.6px;color:#80868B;text-transform:uppercase}
+.box{border:1px solid #E2E6EA;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.sw{display:flex;flex-direction:column;gap:6px}
+.sw span:first-child{height:44px;border-radius:10px;border:1px solid rgba(0,0,0,.06)}
+.sw b{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500}
+.sw i{font-style:normal;font-size:11px;color:#5F6368}
+.inp{display:flex;align-items:center;gap:10px;height:48px;padding:0 14px;border:1px solid #E2E6EA;border-radius:12px;background:#fff}
+.inp.focus{border-color:#1264C7;box-shadow:0 0 0 2px rgba(18,100,199,.25)}
+.inp.err{border-color:#D93025}
+.inp input{border:0;outline:0;flex:1;font:15px "Google Sans Text",Roboto,Arial,sans-serif;color:#1F1F1F;background:transparent;min-width:0}
+.hint{font-size:13px;line-height:18px;color:#5F6368}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px;padding:8px 0;border-bottom:1px solid #EEF1F4}
+.row:last-child{border-bottom:0}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1300px; box-sizing: border-box; padding: 48px 56px; display: flex; flex-direction: column; gap: 28px; background: #ffffff">
+  <div style="display: flex; align-items: flex-end; justify-content: space-between">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span class="badge b-blue">GeoRanking Product System · V3</span>
+      <h1 class="gs" style="margin: 0; font-size: 34px; line-height: 40px; font-weight: 500; letter-spacing: -.5px">Compatível com o ecossistema Google, com gramática própria</h1>
+      <p style="margin: 0; font-size: 15px; line-height: 22px; color: #5F6368; max-width: 820px">Tokens por papel, não por cópia. Cor de marca extraída do logotipo, semântica só para significado, superfícies neutras, um único primário por região e identidade vinda de mapa, rota, pin e ranking.</p>
+    </div>
+    <img src="./assets/d7deb3dbeca88c52d3f7d166aae7502c.png" alt="GeoRanking" style="height: 44px; width: auto">
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 12px">
+    <div class="sw"><span style="background: #EAF1FB"></span><b>brand-50</b><i>#EAF1FB</i></div>
+    <div class="sw"><span style="background: #D6E4F7"></span><b>brand-100</b><i>#D6E4F7</i></div>
+    <div class="sw"><span style="background: #A8C6EE"></span><b>brand-200</b><i>#A8C6EE</i></div>
+    <div class="sw"><span style="background: #1264C7"></span><b>brand-500</b><i>#1264C7</i></div>
+    <div class="sw"><span style="background: #1264C7"></span><b>brand-600 · logo</b><i>#1264C7</i></div>
+    <div class="sw"><span style="background: #0B4FA8"></span><b>brand-700</b><i>#0B4FA8</i></div>
+    <div class="sw"><span style="background: #08397A"></span><b>brand-800</b><i>#08397A</i></div>
+    <div class="sw"><span style="background: #1E8E3E"></span><b>success</b><i>#1E8E3E · #EAF7EE</i></div>
+    <div class="sw"><span style="background: #F9AB00"></span><b>warning</b><i>#F9AB00 · #FFF7E0</i></div>
+    <div class="sw"><span style="background: #D93025"></span><b>danger</b><i>#D93025 · #FCE8E6</i></div>
+    <div class="sw"><span style="background: #1F1F1F"></span><b>ink</b><i>#1F1F1F · #2B2D31 · #5F6368</i></div>
+    <div class="sw"><span style="background: #F7F9FC"></span><b>canvas / line</b><i>#F7F9FC · #E2E6EA</i></div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
+    <section class="box">
+      <span class="lbl">Tipografia · escala por papel</span>
+      <div class="gs" style="font-size: 48px; line-height: 52px; font-weight: 500; letter-spacing: -1.2px">Display 48</div>
+      <div class="gs" style="font-size: 32px; line-height: 38px; font-weight: 500">H1 32</div>
+      <div class="gs" style="font-size: 22px; line-height: 28px; font-weight: 500">H2 22</div>
+      <div class="gs" style="font-size: 17px; line-height: 24px; font-weight: 600">H3 17</div>
+      <div style="font-size: 15px; line-height: 22px">Corpo operacional 15 · tabela 14 · label 13</div>
+      <div class="gs" style="font-size: 34px; font-weight: 500; letter-spacing: -.5px">8.636 <span class="hint" style="font-size: 13px">KPI 34</span></div>
+      <span class="hint">Fonte no produto: usar a família já licenciada no app (Gilroy nos assets) ou Roboto Flex. Google Sans aqui é só para o mockup. Nada crítico abaixo de 12 px.</span>
+    </section>
+
+    <section class="box">
+      <span class="lbl">Botões · um primário por região</span>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap"><button class="btn btn-filled">Primary</button><button class="btn btn-tonal">Tonal</button><button class="btn btn-outlined">Outline</button><button class="btn btn-text">Text</button><button class="btn btn-danger">Destructive</button></div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap"><button class="btn btn-sm btn-filled">Salvar</button><button class="btn btn-sm btn-outlined">Verificar</button><button class="btn btn-sm btn-tonal">Gerenciar</button></div>
+      <span class="lbl" style="margin-top: 6px">Status · ícone + label + tint</span>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="badge b-green"><span class="ms" style="font-size: 14px">check</span>Conectada</span><span class="badge b-yellow"><span class="ms" style="font-size: 14px">warning</span>Atenção</span><span class="badge b-red"><span class="ms" style="font-size: 14px">error</span>Crítico</span><span class="badge b-blue"><span class="ms" style="font-size: 14px">info</span>Sincronizando</span><span class="badge b-grey"><span class="ms" style="font-size: 14px">remove</span>Não verificado</span></div>
+      <span class="lbl" style="margin-top: 6px">Campos</span>
+      <label class="inp focus" for="a"><span class="ms" style="color: #1264C7">search</span><input id="a" placeholder="Foco: borda brand + anel 2 px"></label>
+      <label class="inp err" for="b"><span class="ms" style="color: #D93025">error</span><input id="b" value="E-mail inválido"></label>
+    </section>
+
+    <section class="box">
+      <span class="lbl">Radius, superfícies e densidade</span>
+      <div class="row"><span>Input / controle</span><b style="font-weight: 500">10–12 px</b></div>
+      <div class="row"><span>Card</span><b style="font-weight: 500">16 px · borda #E2E6EA · sem sombra</b></div>
+      <div class="row"><span>Modal / drawer / bottom sheet</span><b style="font-weight: 500">20 px · shadow-3</b></div>
+      <div class="row"><span>Badge</span><b style="font-weight: 500">pill · só badges</b></div>
+      <div class="row"><span>Tabela header / row</span><b style="font-weight: 500">48 · 56–64 (compact 48)</b></div>
+      <div class="row"><span>Touch target</span><b style="font-weight: 500">44 px</b></div>
+      <div class="row"><span>Selected</span><b style="font-weight: 500">brand-50 + brand-700</b></div>
+      <div class="row"><span>KPI</span><b style="font-weight: 500">strip contínua, sem card pastel</b></div>
+    </section>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
+    <section class="box">
+      <span class="lbl">Breakpoints e shell</span>
+      <div class="row"><span>Compact &lt; 600</span><span class="hint">top bar + drawer · cliente: bottom nav</span></div>
+      <div class="row"><span>Medium 600–839</span><span class="hint">rail compacta 64 px</span></div>
+      <div class="row"><span>Expanded 840–1199</span><span class="hint">rail 240 px, 1–2 panes</span></div>
+      <div class="row"><span>Desktop 1200–1599</span><span class="hint">rail + editor + context panel</span></div>
+      <div class="row"><span>Wide ≥ 1600</span><span class="hint">limitar densidade, não esticar</span></div>
+      <span class="hint">Tabelas no compact viram rows (título, status, 2 metadados, ação). Filtros: busca + 2 quick filters + drawer.</span>
+    </section>
+
+    <section class="box">
+      <span class="lbl">Visual proprietário · usar com moderação</span>
+      <svg viewBox="0 0 360 120" width="100%" height="120" aria-hidden="true" style="border-radius: 12px; background: #F7F9FC">
+        <g fill="none" stroke="#E2E6EA" stroke-width="6" stroke-linecap="round"><path d="M-10 60 C 60 50, 120 80, 200 70 S 320 40, 370 60"></path><path d="M120 -10 C 130 40, 110 80, 130 130"></path></g>
+        <circle cx="230" cy="62" r="34" fill="#1264C7" opacity=".08"></circle>
+        <circle cx="230" cy="62" r="34" fill="none" stroke="#1264C7" stroke-width="1.5" stroke-dasharray="4 6" opacity=".5"></circle>
+        <path d="M60 100 C 110 92, 160 80, 230 62" fill="none" stroke="#1264C7" stroke-width="3" stroke-linecap="round"></path>
+        <path d="M230 30c-9 0-16 7-16 16 0 12 16 28 16 28s16-16 16-28c0-9-7-16-16-16z" fill="#1264C7"></path><circle cx="230" cy="46" r="5.5" fill="#fff"></circle>
+        <g transform="translate(300 20) scale(.5)"><rect x="8" y="22" width="26" height="40" rx="7" fill="#FBBC04"></rect><rect x="37" y="10" width="26" height="52" rx="7" fill="#34A853"></rect><rect x="66" y="30" width="26" height="32" rx="6" fill="#EA4335"></rect><path d="M8 66h84v10a14 14 0 0 1-14 14H22A14 14 0 0 1 8 76z" fill="#1264C7"></path></g>
+      </svg>
+      <span class="hint">Linhas de mapa, grid cartográfico, radar/raio, rota, pin e movimento "1ª medição → hoje". Só no login, na transição e em previews de local. O símbolo do logo nunca é deformado.</span>
+    </section>
+
+    <section class="box">
+      <span class="lbl">Motion</span>
+      <div class="row"><span>Hover / pressed</span><b style="font-weight: 500">120–160 ms · 80–120 ms</b></div>
+      <div class="row"><span>Dropdown / modal / drawer</span><b style="font-weight: 500">180 · 250 · 300 ms</b></div>
+      <div class="row"><span>Troca de página</span><b style="font-weight: 500">320 ms · rota + pin</b></div>
+      <div class="row"><span>Branded (login → home)</span><b style="font-weight: 500">650 ms, uma vez</b></div>
+      <div class="row"><span>Curvas</span><b style="font-weight: 500">(.2,0,0,1) · (.2,.8,.2,1)</b></div>
+      <div class="row"><span>Reduced motion</span><b style="font-weight: 500">crossfade 150 ms</b></div>
+      <span class="hint">Permitido: opacity, translate 4–12 px, scale .96–1, reveal de gráfico. Proibido: bounce, loop infinito, 3D, parallax. Conteúdo essencial nunca começa com opacity 0.</span>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

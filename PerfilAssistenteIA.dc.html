@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Perfil · Assistente IA</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap}
+.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#0B4FA8}
+.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
+.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-outlined:hover{background:#F3F6FA}
+.btn-text{background:transparent;color:#5F6368}.btn-text:hover{background:#F3F6FA;color:#1F1F1F}
+.btn-sm{height:34px;padding:0 12px;font-size:13px;border-radius:10px}
+.iconbtn{width:36px;height:36px;border-radius:10px;border:0;background:transparent;color:#5F6368;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.iconbtn:hover{background:#F3F6FA;color:#1F1F1F}
+.card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#EAF7EE;color:#137333}.b-yellow{background:#FFF7E0;color:#B06000}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}
+.lab{display:flex;align-items:center;gap:8px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;color:#2B2D31}
+.hint{font-size:13px;line-height:18px;color:#5F6368}
+.h2{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:22px;line-height:28px;font-weight:500;color:#1F1F1F;margin:0}
+.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:15px;font-weight:600;color:#1F1F1F;margin:0}
+.task{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;font-size:13px;color:#2B2D31;cursor:pointer}
+.task:hover{background:#F3F6FA}.task.on{background:#EAF1FB;color:#0B4FA8}
+.msg{display:flex;gap:12px;max-width:92%}
+.msg .av{width:32px;height:32px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.bub{padding:12px 16px;border-radius:14px;font-size:14px;line-height:22px;color:#1F1F1F}
+.bub.ai{background:#F7F9FC;border:1px solid #EEF1F4}
+.bub.me{background:#EAF1FB}
+.chg{display:flex;flex-direction:column;gap:8px;padding:14px;border:1px solid #E2E6EA;border-radius:12px}
+.chg .kv{font-size:13px;line-height:19px}
+.chg .old{color:#B3261E;text-decoration:line-through}
+.chg .new{color:#137333;font-weight:500}
+.inp{display:flex;align-items:center;gap:10px;min-height:52px;padding:0 8px 0 16px;border:1px solid #E2E6EA;border-radius:14px;background:#fff}
+.inp:focus-within{border-color:#1264C7;box-shadow:0 0 0 2px rgba(18,100,199,.25)}
+.inp input{border:0;outline:0;flex:1;font:15px "Google Sans Text",Roboto,Arial,sans-serif;color:#1F1F1F;background:transparent;min-width:0}
+.pulse{animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.up{animation:up .4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.d1{animation-delay:.06s}.d2{animation-delay:.12s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1100px; box-sizing: border-box; background: #F7F9FC; display: flex; flex-direction: column; position: relative; overflow: hidden">
+  <dc-import name="ProfileHeader" hint-size="1440px,72px"></dc-import>
+  <div style="display: flex; flex: 1; min-height: 0">
+  <dc-import name="SectionRail" active="ia" hint-size="240px,1028px"></dc-import>
+  <div style="flex: 1; min-width: 0; overflow: hidden">
+
+  <div style="margin: 0; display: grid; grid-template-columns: 280px minmax(0, 1fr) 380px; gap: 24px; padding: 24px 24px 96px; box-sizing: border-box">
+    <aside class="card up" style="padding: 18px; display: flex; flex-direction: column; gap: 14px; overflow: hidden">
+      <span class="lab"><span class="ms" style="color: #1264C7">auto_awesome</span>Recomendações</span>
+      <div style="display: flex; flex-direction: column; gap: 2px">
+        <button class="task on"><span class="ms" style="font-size: 18px">description</span>Gerar descrição<span class="badge b-yellow" style="margin-left: auto">nova</span></button>
+        <button class="task"><span class="ms" style="font-size: 18px">key</span>Sugerir palavras-chave</button>
+        <button class="task"><span class="ms" style="font-size: 18px">category</span>Sugerir categorias</button>
+        <button class="task"><span class="ms" style="font-size: 18px">insights</span>Plano comercial para SEO</button>
+        <button class="task"><span class="ms" style="font-size: 18px">reviews</span>Responder 3 avaliações pendentes</button>
+      </div>
+      <div style="height: 1px; background: #EEF1F4"></div>
+      <span class="lab">Histórico</span>
+      <div style="display: flex; flex-direction: column; gap: 2px">
+        <button class="task"><span class="ms" style="font-size: 18px; color: #5F6368">history</span><span style="display: flex; flex-direction: column; align-items: flex-start"><span>Palavras-chave · 5 aplicadas</span><span class="hint">ontem, 16:10</span></span></button>
+        <button class="task"><span class="ms" style="font-size: 18px; color: #5F6368">history</span><span style="display: flex; flex-direction: column; align-items: flex-start"><span>Categorias · 2 aplicadas</span><span class="hint">22/09</span></span></button>
+      </div>
+      <div style="flex: 1"></div>
+      <div style="padding: 12px; border-radius: 10px; background: #F3F6FA; font-size: 12px; line-height: 17px; color: #5F6368">Contexto usado: Gabarito, categoria, descrição atual, 8 palavras monitoradas e 23 avaliações.</div>
+    </aside>
+
+    <section class="card up d1" style="display: flex; flex-direction: column; overflow: hidden">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid #EEF1F4">
+        <div style="display: flex; flex-direction: column; gap: 2px"><span class="h3">Assistente GeoRanking</span><span class="hint">Náutica Caça e Pesca · Barreiras, BA</span></div>
+        <span class="badge b-green"><span class="ms" style="font-size: 14px">verified_user</span>Nada será publicado sem sua confirmação</span>
+      </div>
+      <div style="flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 16px; overflow: hidden">
+        <div class="msg" style="align-self: flex-end; flex-direction: row-reverse">
+          <span class="av" style="background: #EAF1FB; color: #0B4FA8"><span class="ms" style="font-size: 18px">person</span></span>
+          <div class="bub me">Gere uma descrição nova destacando garantia nos motores e a entrega para a região.</div>
+        </div>
+        <div class="msg">
+          <span class="av" style="background: #1264C7; color: #fff"><span class="ms" style="font-size: 18px">auto_awesome</span></span>
+          <div class="bub ai">Li o Gabarito e a descrição atual. Preparei uma versão com 1.180 caracteres que abre com a categoria e a cidade, cita garantia e assistência nos motores e lista as 3 cidades de entrega. Ela usa 5 das 5 palavras-chave principais.<br><br>Coloquei como <b style="font-weight: 500">mudança proposta</b> ao lado. Também notei que "conserto de molinete" é monitorada mas não existe como serviço; posso propor o cadastro.</div>
+        </div>
+        <div class="msg">
+          <span class="av" style="background: #1264C7; color: #fff"><span class="ms" style="font-size: 18px">auto_awesome</span></span>
+          <div class="bub ai" style="display: flex; gap: 6px; align-items: center; padding: 10px 16px"><span class="pulse" style="width: 8px; height: 8px; border-radius: 999px; background: #1264C7"></span><span class="pulse" style="width: 8px; height: 8px; border-radius: 999px; background: #1264C7; animation-delay: .2s"></span><span class="pulse" style="width: 8px; height: 8px; border-radius: 999px; background: #1264C7; animation-delay: .4s"></span></div>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto">
+          <button class="btn btn-outlined btn-sm">Sim, propor o serviço</button>
+          <button class="btn btn-outlined btn-sm">Encurtar a descrição</button>
+          <button class="btn btn-outlined btn-sm">Tom mais formal</button>
+        </div>
+      </div>
+      <div style="padding: 12px 16px 16px; border-top: 1px solid #EEF1F4">
+        <label class="inp" for="ask"><input id="ask" placeholder="Peça algo: descrição, palavras-chave, categorias, respostas…"><button class="iconbtn" aria-label="Anexar"><span class="ms">attach_file</span></button><button class="btn btn-filled" style="height: 40px; padding: 0 14px"><span class="ms">send</span></button></label>
+      </div>
+    </section>
+
+    <aside class="card up d2" style="padding: 18px; display: flex; flex-direction: column; gap: 14px; overflow: hidden">
+      <div style="display: flex; align-items: center; justify-content: space-between"><span class="lab">Mudanças propostas</span><span class="badge b-blue">2</span></div>
+      <div class="chg">
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="badge b-grey"><span class="ms" style="font-size: 14px">description</span>Descrição</span><span class="hint">1.180 caracteres</span></div>
+        <div class="kv"><span class="hint">Atual</span><br><span class="old">A Náutica Caça e Pesca é a loja de referência em Barreiras (BA) para quem vive o campo…</span></div>
+        <div class="kv"><span class="hint">Proposto</span><br><span class="new">Loja de artigos para caça e pesca em Barreiras (BA): equipamentos, motores de popa com garantia e assistência, entrega para Luís Eduardo Magalhães, Barra e Ibotirama…</span></div>
+        <div class="hint">Por quê: categoria e cidade no início; cita garantia; cobre as 5 palavras principais.</div>
+        <div style="display: flex; gap: 6px"><button class="btn btn-filled btn-sm"><span class="ms" style="font-size: 16px">check</span>Aprovar</button><button class="btn btn-outlined btn-sm">Editar</button><button class="btn btn-text btn-sm">Rejeitar</button></div>
+      </div>
+      <div class="chg">
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="badge b-grey"><span class="ms" style="font-size: 14px">build</span>Serviços</span><span class="hint">novo item</span></div>
+        <div class="kv"><span class="hint">Proposto</span><br><span class="new">Conserto de molinetes e carretilhas</span> em "Pesca", a partir de R$ 60</div>
+        <div class="hint">Por quê: palavra monitorada sem serviço correspondente na ficha.</div>
+        <div style="display: flex; gap: 6px"><button class="btn btn-filled btn-sm"><span class="ms" style="font-size: 16px">check</span>Aprovar</button><button class="btn btn-outlined btn-sm">Editar</button><button class="btn btn-text btn-sm">Rejeitar</button></div>
+      </div>
+      <div style="flex: 1"></div>
+      <button class="btn btn-tonal">Aprovar as 2 e levar ao Salvar</button>
+    </aside>
+  </div>
+
+  </div>
+  </div>
+  <footer style="position: absolute; left: 240px; right: 0; bottom: 0; height: 72px; background: #fff; border-top: 1px solid #E2E6EA; box-shadow: 0 -4px 14px rgba(31,35,41,.04)">
+    <div style="padding: 0 24px; height: 100%; display: flex; align-items: center; justify-content: space-between">
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #2B2D31"><span class="ms" style="font-size: 18px; color: #5F6368">info</span>Mudanças aprovadas entram nas abas correspondentes e só vão ao Google quando você salvar.</div>
+      <div style="display: flex; gap: 8px"><button class="btn btn-text">Descartar</button><button class="btn btn-filled" style="opacity: .5">Salvar alterações</button></div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

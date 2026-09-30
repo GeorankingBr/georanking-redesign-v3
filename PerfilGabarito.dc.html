@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Perfil · Gabarito</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap;transition:box-shadow .15s,background .15s}
+.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#0B4FA8}
+.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
+.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-outlined:hover{background:#F3F6FA}
+.btn-text{background:transparent;color:#5F6368}.btn-text:hover{background:#F3F6FA;color:#1F1F1F}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#EAF7EE;color:#137333}.b-yellow{background:#FFF7E0;color:#B06000}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}
+.lab{display:flex;align-items:center;gap:8px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;color:#2B2D31}
+.lab .ms{font-size:18px;color:#5F6368}
+.inp{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 14px;border:1px solid #E2E6EA;border-radius:12px;background:#fff}
+.inp:focus-within{border-color:#1264C7;box-shadow:0 0 0 2px rgba(18,100,199,.25)}
+.inp input,.inp textarea{border:0;outline:0;flex:1;font:14px "Google Sans Text",Roboto,Arial,sans-serif;color:#1F1F1F;background:transparent;min-width:0;padding:0}
+.inp.ta{align-items:flex-start;padding:12px 14px}.inp textarea{resize:none;line-height:22px}
+.hint{font-size:13px;line-height:18px;color:#5F6368}
+.h2{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:22px;line-height:28px;font-weight:500;color:#1F1F1F;margin:0}
+.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:16px;font-weight:600;color:#1F1F1F;margin:0}
+.sec{display:flex;flex-direction:column;gap:14px;padding:22px 0;border-bottom:1px solid #EEF1F4}
+.chip{display:inline-flex;align-items:center;gap:4px;height:32px;padding:0 6px 0 12px;border-radius:999px;background:#EAF1FB;color:#0B4FA8;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500}
+.chip .x{width:22px;height:22px;border-radius:999px;border:0;background:transparent;color:#0B4FA8;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.chip .x:hover{background:#D6E4F7}
+.chipin{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:999px;border:1px dashed #C2D7F5;color:#1264C7;font-size:13px}
+.chipin input{border:0;outline:0;background:transparent;font:13px "Google Sans Text",Roboto,Arial,sans-serif;width:160px}
+.ph{aspect-ratio:4/3;border-radius:12px;background:linear-gradient(135deg,#D6E4F7,#EAF1FB);position:relative;display:flex;align-items:center;justify-content:center;color:#0B4FA8;overflow:hidden}
+.ph .tag{position:absolute;left:8px;bottom:8px}
+.ph.add{background:#fff;border:1px dashed #C2D7F5;cursor:pointer}
+.tip{display:flex;gap:12px;padding:14px 16px;border-radius:12px;background:#F3F6FA;font-size:13px;line-height:19px;color:#2B2D31}
+.tip .ms{flex-shrink:0;color:#1264C7}
+.use{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:#F7F9FC;font-size:13px}
+.up{animation:up .4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.d1{animation-delay:.06s}.d2{animation-delay:.12s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1100px; box-sizing: border-box; background: #F7F9FC; display: flex; flex-direction: column; position: relative; overflow: hidden">
+  <dc-import name="ProfileHeader" hint-size="1440px,72px"></dc-import>
+  <div style="display: flex; flex: 1; min-height: 0">
+  <dc-import name="SectionRail" active="gabarito" hint-size="240px,1028px"></dc-import>
+  <div style="flex: 1; min-width: 0; overflow: hidden">
+
+  <div style="margin: 0; display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 32px; padding: 24px 32px 100px">
+    <div class="up" style="display: flex; flex-direction: column">
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding-bottom: 8px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 class="h2">Gabarito do perfil</h2>
+          <span class="hint">Referência que a IA e a equipe usam para criar postagens, responder avaliações e sugerir textos deste negócio. Não é publicado no Google.</span>
+        </div>
+        <span class="badge b-grey"><span class="ms" style="font-size: 14px">lock</span>Uso interno</span>
+      </div>
+
+      <section class="sec">
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <span class="h3">Banco de fotos</span>
+          <span class="hint">6 fotos · usadas nas postagens e no cartão de avaliação</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px">
+          <div class="ph"><span class="ms" style="font-size: 28px">storefront</span><span class="badge b-grey tag">Fachada</span></div>
+          <div class="ph"><span class="ms" style="font-size: 28px">phishing</span><span class="badge b-grey tag">Produto</span></div>
+          <div class="ph"><span class="ms" style="font-size: 28px">sailing</span><span class="badge b-grey tag">Produto</span></div>
+          <div class="ph"><span class="ms" style="font-size: 28px">groups</span><span class="badge b-grey tag">Equipe</span></div>
+          <div class="ph"><span class="ms" style="font-size: 28px">camping</span><span class="badge b-grey tag">Produto</span></div>
+          <div class="ph add"><span class="ms" style="font-size: 28px">add_photo_alternate</span></div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <span class="h3">Palavras-chave principais</span>
+        <span class="hint">Termos que devem aparecer em textos e postagens. Alinhados com o relatório de palavras-chave.</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <sc-for list="{{kws}}" as="k" hint-placeholder-count="5">
+            <span class="chip">{{k}}<button class="x" aria-label="Remover"><span class="ms" style="font-size: 16px">close</span></button></span>
+          </sc-for>
+          <label class="chipin" for="kw"><span class="ms" style="font-size: 16px">add</span><input id="kw" placeholder="Adicionar palavra"></label>
+        </div>
+      </section>
+
+      <section class="sec">
+        <span class="h3">Palavras para respostas</span>
+        <span class="hint">Termos que a IA deve usar ao responder avaliações: agradecimento, atendimento, experiência.</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <span class="chip">obrigado<button class="x" aria-label="Remover"><span class="ms" style="font-size: 16px">close</span></button></span>
+          <span class="chip">atendimento<button class="x" aria-label="Remover"><span class="ms" style="font-size: 16px">close</span></button></span>
+          <span class="chip">experiência<button class="x" aria-label="Remover"><span class="ms" style="font-size: 16px">close</span></button></span>
+          <span class="chip">volte sempre<button class="x" aria-label="Remover"><span class="ms" style="font-size: 16px">close</span></button></span>
+          <label class="chipin" for="kw2"><span class="ms" style="font-size: 16px">add</span><input id="kw2" placeholder="Adicionar palavra"></label>
+        </div>
+      </section>
+
+      <section class="sec" style="border-bottom: 0">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <span class="lab"><span class="ms">edit_note</span>Preferências de conteúdo</span>
+            <label class="inp ta" for="pref"><textarea id="pref" rows="5">Sempre citar Barreiras e o Oeste Baiano. Mencionar garantia e assistência nos motores. Evitar promessas de preço mais baixo.</textarea></label>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <span class="lab"><span class="ms">quickreply</span>Como responder comentários</span>
+            <label class="inp ta" for="resp"><textarea id="resp" rows="5">Tom cordial e direto, tratar por "você". Agradecer pelo nome. Em críticas, convidar para o WhatsApp da loja. Não usar gírias nem emojis.</textarea></label>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <aside style="display: flex; flex-direction: column; gap: 16px">
+      <div class="card up d1" style="padding: 20px; display: flex; flex-direction: column; gap: 12px">
+        <span class="lab">Onde o gabarito é usado</span>
+        <div class="use"><span class="ms" style="color: #0B4FA8">feed</span><span style="flex: 1">Postagens geradas com IA</span><span class="badge b-green">8 este mês</span></div>
+        <div class="use"><span class="ms" style="color: #0B4FA8">reviews</span><span style="flex: 1">Respostas a avaliações</span><span class="badge b-green">23 este mês</span></div>
+        <div class="use"><span class="ms" style="color: #0B4FA8">description</span><span style="flex: 1">Sugestões de descrição e SEO</span><span class="badge b-grey">sob demanda</span></div>
+        <div class="use"><span class="ms" style="color: #0B4FA8">qr_code_2</span><span style="flex: 1">Cartão de avaliação e mini-site</span><span class="badge b-grey">fotos</span></div>
+      </div>
+      <div class="card up d2" style="padding: 20px; display: flex; flex-direction: column; gap: 10px">
+        <span class="lab">Completude do gabarito</span>
+        <div style="display: flex; align-items: center; gap: 10px"><div style="flex: 1; height: 8px; border-radius: 999px; background: #EEF1F4; overflow: hidden"><div style="width: 80%; height: 100%; background: #1E8E3E"></div></div><span class="gs" style="font-weight: 500; color: #137333">4 de 5</span></div>
+        <span class="hint">Falta: pelo menos 1 foto de "interior da loja" para variar as postagens.</span>
+      </div>
+      <div class="tip"><span class="ms">lightbulb</span>Quanto mais específico o gabarito, menos a IA inventa. Cite marcas que você vende e o que não deve prometer.</div>
+    </aside>
+  </div>
+
+  </div>
+  </div>
+  <footer style="position: absolute; left: 240px; right: 0; bottom: 0; height: 72px; background: #fff; border-top: 1px solid #E2E6EA; box-shadow: 0 -4px 14px rgba(31,35,41,.04)">
+    <div style="padding: 0 32px; height: 100%; display: flex; align-items: center; justify-content: space-between">
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #2B2D31"><span style="width: 8px; height: 8px; border-radius: 999px; background: #F9AB00"></span>2 alterações não salvas<span class="hint">· o gabarito não altera a ficha no Google</span></div>
+      <div style="display: flex; gap: 8px"><button class="btn btn-text">Descartar</button><button class="btn btn-filled"><span class="ms">save</span>Salvar gabarito</button></div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { kws: ['loja de pesca em Barreiras', 'motor de popa', 'isca artificial', 'equipamentos de camping', 'conserto de molinete'] };
+  }
+}
+</script>
+</body>
+</html>

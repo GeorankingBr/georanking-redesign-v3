@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Cliente · Editar perfil</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap}
+.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#0B4FA8}
+.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
+.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #E2E6EA}.btn-outlined:hover{background:#F3F6FA}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.iconbtn{width:36px;height:36px;border-radius:10px;border:0;background:transparent;color:#5F6368;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.iconbtn:hover{background:#F3F6FA;color:#1F1F1F}
+.card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#EAF7EE;color:#137333}.b-yellow{background:#FFF7E0;color:#B06000}.b-red{background:#FCE8E6;color:#B3261E}.b-blue{background:#EAF1FB;color:#0B4FA8}.b-grey{background:#F3F6FA;color:#5F6368}
+.hint{font-size:13px;line-height:18px;color:#5F6368}
+.h1{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:32px;line-height:40px;font-weight:500;margin:0}
+.h3{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:17px;font-weight:600;margin:0}
+.inp{display:flex;align-items:center;gap:10px;height:44px;padding:0 14px;border:1px solid #E2E6EA;border-radius:12px;background:#fff}
+.inp:focus-within{border-color:#1264C7;box-shadow:0 0 0 2px rgba(18,100,199,.25)}
+.inp input{border:0;outline:0;flex:1;font:14px "Google Sans Text",Roboto,Arial,sans-serif;color:#1F1F1F;background:transparent;min-width:0}
+.inp .ms{color:#5F6368}
+.qf{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 12px;border-radius:10px;border:1px solid #E2E6EA;background:#fff;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;color:#2B2D31;cursor:pointer}
+.qf.on{background:#EAF1FB;border-color:#EAF1FB;color:#0B4FA8}
+.pc{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr)) 200px;align-items:center;gap:16px;padding:18px 20px;border-bottom:1px solid #EEF1F4;transition:background .15s}
+.pc:hover{background:#F7F9FC}
+.sec{display:flex;flex-direction:column;gap:10px;padding:16px 20px;border-radius:12px;background:#F7F9FC}
+.up{animation:up .4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.d1{animation-delay:.06s}.d2{animation-delay:.12s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1400px; box-sizing: border-box; background: #F7F9FC; display: flex; overflow: hidden">
+  <dc-import name="SidebarCliente" active="editar" hint-size="264px,1400px"></dc-import>
+
+  <main style="flex: 1; min-width: 0; padding: 32px 40px; display: flex; flex-direction: column; gap: 24px">
+    <div class="up" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h1 class="h1">Meus perfis</h1>
+        <span class="hint" style="font-size: 14px">Perfis da sua conta acompanhados pela GeoRanking. Abra um perfil para editar informações, horários, postagens e mais.</span>
+      </div>
+      <div style="display: flex; gap: 8px">
+        <a href="ClienteNovoPerfil.dc.html" class="btn btn-outlined"><span class="ms">add_location_alt</span>Novo perfil</a>
+        <button class="btn btn-filled"><span class="ms">sync</span>Sincronizar com o Google</button>
+      </div>
+    </div>
+
+    <div class="up d1" style="display: flex; align-items: center; gap: 10px">
+      <label class="inp" for="busca" style="width: 340px"><span class="ms">search</span><input id="busca" placeholder="Buscar perfil por nome ou cidade"></label>
+      <button class="qf on">Todos · 3</button>
+      <button class="qf"><span style="width: 8px; height: 8px; border-radius: 999px; background: #1E8E3E"></span>Saudáveis · 2</button>
+      <button class="qf"><span style="width: 8px; height: 8px; border-radius: 999px; background: #F9AB00"></span>Com pendências · 1</button>
+      <span style="flex: 1"></span>
+      <span class="hint">Período das métricas: últimos 30 dias</span>
+    </div>
+
+    <section class="card up d2" style="overflow: hidden">
+      <div style="display: grid; grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr)) 200px; gap: 16px; padding: 12px 20px; background: #F8FAFC; border-bottom: 1px solid #E2E6EA; font-family: 'Google Sans', Roboto, Arial, sans-serif; font-size: 12px; font-weight: 600; color: #5F6368">
+        <span>Perfil</span><span>Visualizações</span><span>Cliques</span><span>Ranking médio</span><span></span>
+      </div>
+      <sc-for list="{{perfis}}" as="p" hint-placeholder-count="3">
+        <div class="pc">
+          <div style="display: flex; align-items: center; gap: 14px; min-width: 0">
+            <span class="ms" style="width: 48px; height: 48px; border-radius: 12px; background: {{p.avBg}}; color: {{p.avFg}}; display: inline-flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0">storefront</span>
+            <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+              <span class="h3" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{p.nome}}</span>
+              <div style="display: flex; align-items: center; gap: 8px"><span class="hint">{{p.local}}</span><span class="badge {{p.stCls}}"><span class="ms" style="font-size: 14px">{{p.stIcon}}</span>{{p.st}}</span></div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span class="gs" style="font-size: 22px; font-weight: 500">{{p.views}}</span><span class="badge {{p.vCls}}" style="align-self: flex-start">{{p.vDelta}}</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span class="gs" style="font-size: 22px; font-weight: 500">{{p.clicks}}</span><span class="badge {{p.cCls}}" style="align-self: flex-start">{{p.cDelta}}</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span class="gs" style="font-size: 22px; font-weight: 500">{{p.rank}}</span><span class="hint">{{p.rankSub}}</span></div>
+          <div style="display: flex; justify-content: flex-end; gap: 4px">
+            <a href="PerfilBasico.dc.html" class="btn btn-tonal btn-sm"><span class="ms" style="font-size: 18px">edit_square</span>Gerenciar perfil</a>
+            <button class="iconbtn" aria-label="Ver relatório"><span class="ms">query_stats</span></button>
+            <button class="iconbtn" aria-label="Mais"><span class="ms">more_vert</span></button>
+          </div>
+        </div>
+      </sc-for>
+    </section>
+
+    <div class="up d2" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px">
+      <section class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="h3">Pendências nos seus perfis</span><span class="badge b-yellow">2</span></div>
+        <div class="sec">
+          <div style="display: flex; align-items: center; gap: 10px"><span class="ms" style="color: #B06000">schedule</span><span style="font-size: 14px; font-weight: 500; flex: 1">Náutica Caça e Pesca · Domingo sem horário cadastrado</span><a href="PerfilHorarios.dc.html" class="btn btn-tonal btn-sm">Resolver</a></div>
+          <span class="hint">A ficha mostra "Fechado" no domingo. Se abre, cadastre o horário.</span>
+        </div>
+        <div class="sec">
+          <div style="display: flex; align-items: center; gap: 10px"><span class="ms" style="color: #B06000">reviews</span><span style="font-size: 14px; font-weight: 500; flex: 1">Náutica Barra · 3 avaliações sem resposta há 5 dias</span><a href="ClienteComentarios.dc.html" class="btn btn-tonal btn-sm">Responder</a></div>
+          <span class="hint">Respostas em até 48 h aumentam a confiança de quem lê.</span>
+        </div>
+      </section>
+      <section class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="h3">O que a GeoRanking fez esta semana</span><a href="Home.dc.html" style="font-size: 13px; font-family: 'Google Sans', Roboto, Arial, sans-serif; font-weight: 500">Ver tudo</a></div>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px">
+          <div style="display: flex; gap: 10px; align-items: flex-start"><span class="ms" style="font-size: 18px; color: #137333">check_circle</span><span><b style="font-weight: 500">Postagem publicada</b> · "Novos motores de popa 15 HP" <span class="hint">· 27/09</span></span></div>
+          <div style="display: flex; gap: 10px; align-items: flex-start"><span class="ms" style="font-size: 18px; color: #137333">check_circle</span><span><b style="font-weight: 500">6 avaliações respondidas</b> pela IA com o seu gabarito <span class="hint">· 26/09</span></span></div>
+          <div style="display: flex; gap: 10px; align-items: flex-start"><span class="ms" style="font-size: 18px; color: #137333">check_circle</span><span><b style="font-weight: 500">Palavras medidas</b> · "isca artificial" subiu de 9º para 6º <span class="hint">· 25/09</span></span></div>
+          <div style="display: flex; gap: 10px; align-items: flex-start"><span class="ms" style="font-size: 18px; color: #137333">check_circle</span><span><b style="font-weight: 500">Categoria adicional</b> "Loja de equipamentos náuticos" adicionada <span class="hint">· 23/09</span></span></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const mk = (nome, local, st, views, vd, clicks, cd, rank, rankSub) => ({ nome, local, st, stCls: st === 'Saudável' ? 'b-green' : 'b-yellow', stIcon: st === 'Saudável' ? 'check' : 'warning', avBg: st === 'Saudável' ? '#EAF7EE' : '#FFF7E0', avFg: st === 'Saudável' ? '#137333' : '#B06000', views, vDelta: vd, vCls: vd.startsWith('+') ? 'b-green' : 'b-red', clicks, cDelta: cd, cCls: cd.startsWith('+') ? 'b-green' : 'b-red', rank, rankSub });
+    const perfis = [
+      mk('Náutica Caça e Pesca', 'Barreiras · BA', 'Com pendências', '1.284', '+12%', '312', '+8%', '3,8º', '8 palavras · 4 no top 3'),
+      mk('Náutica Barra', 'Barra · BA', 'Saudável', '642', '+21%', '140', '+15%', '5,1º', '6 palavras · 2 no top 3'),
+      mk('Náutica Luís Eduardo', 'Luís Eduardo Magalhães · BA', 'Saudável', '418', '-3%', '96', '+2%', '7,4º', '6 palavras · 1 no top 3')
+    ];
+    return { perfis };
+  }
+}
+</script>
+</body>
+</html>

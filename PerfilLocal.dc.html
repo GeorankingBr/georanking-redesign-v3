@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Perfil · Local e áreas</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap;transition:box-shadow .2s,background .2s}
+.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#1264C7;box-shadow:0 1px 3px rgba(18,100,199,.4),0 4px 12px rgba(18,100,199,.25)}
+.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
+.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #DADCE0}.btn-outlined:hover{background:#F8FAFD;border-color:#C2D7F5}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#E6F4EA;color:#137333}.b-yellow{background:#FEF7E0;color:#B06000}.b-blue{background:#EAF1FB;color:#1264C7}.b-grey{background:#F1F3F4;color:#5F6368}
+.fld{display:flex;flex-direction:column;gap:8px;min-width:0}
+.lab{display:flex;align-items:center;gap:8px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;letter-spacing:.3px;color:#3C4043;text-transform:uppercase}
+.lab .ms{font-size:18px;color:#5F6368}
+.src{display:inline-flex;align-items:center;gap:4px;height:20px;padding:0 8px;border-radius:999px;background:#E6F4EA;color:#137333;font-size:11px;font-weight:500;text-transform:none;letter-spacing:0}
+.src .ms{font-size:13px;color:#137333}
+.inp{display:flex;align-items:center;gap:10px;height:48px;padding:0 14px;border:1px solid #DADCE0;border-radius:12px;background:#fff;transition:border-color .15s,box-shadow .15s}
+.inp:hover{border-color:#9AA0A6}.inp:focus-within{border-color:#1264C7;box-shadow:0 0 0 1px #1264C7}
+.inp input,.inp select{border:0;outline:0;flex:1;font:15px "Google Sans Text",Roboto,Arial,sans-serif;color:#202124;background:transparent;min-width:0;padding:0}
+.inp .ms{color:#5F6368}
+.hint{font-size:12px;line-height:17px;color:#5F6368}
+.chip{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 6px 0 12px;border-radius:999px;background:#EAF1FB;color:#0B4FA8;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;white-space:nowrap}
+.chip .x{width:22px;height:22px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;border:0;background:transparent;color:#0B4FA8;cursor:pointer;padding:0}
+.chip .x:hover{background:#D6E4F7}
+.chip.sug{background:#fff;border:1px dashed #C2D7F5;color:#1264C7;cursor:pointer;padding:0 12px}
+.tip{display:flex;gap:12px;padding:14px 16px;border-radius:14px;background:#F8F9FA;font-size:13px;line-height:19px;color:#3C4043}
+.tip .ms{flex-shrink:0;color:#1264C7}
+.pinbob{animation:bob 2.4s ease-in-out infinite;transform-origin:bottom}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.up{animation:up .5s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.d1{animation-delay:.06s}.d2{animation-delay:.12s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1100px; box-sizing: border-box; background: #F7F9FC; display: flex; flex-direction: column; position: relative; overflow: hidden">
+  <dc-import name="ProfileHeader" hint-size="1440px,72px"></dc-import>
+  <div style="display: flex; flex: 1; min-height: 0">
+  <dc-import name="SectionRail" active="local" hint-size="240px,1028px"></dc-import>
+  <div style="flex: 1; min-width: 0; overflow: hidden">
+
+  <div style="display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 24px; padding: 24px 32px 100px">
+    <div style="display: flex; flex-direction: column; gap: 20px">
+      <section class="card up" style="padding: 32px; display: flex; flex-direction: column; gap: 22px">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 class="gs" style="margin: 0; font-size: 22px; font-weight: 500">Local da empresa</h2>
+            <span class="hint">Endereço da fachada. Alterar o endereço atualiza a ficha no Google e pode exigir reverificação por alguns dias.</span>
+          </div>
+          <span class="badge b-yellow"><span class="ms" style="font-size: 14px">lock</span>Edite só se necessário</span>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 20px">
+          <div class="fld">
+            <span class="lab"><span class="ms">home</span>Endereço completo<span class="src"><span class="ms">sync</span>Google</span></span>
+            <label class="inp" for="end"><input id="end" value="Rua Aníbal Barbosa, 579"></label>
+          </div>
+          <div class="fld">
+            <span class="lab"><span class="ms">markunread_mailbox</span>CEP<span class="src"><span class="ms">sync</span>Google</span></span>
+            <label class="inp" for="cep"><input id="cep" value="47802-031"></label>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
+          <div class="fld">
+            <span class="lab"><span class="ms">location_city</span>Cidade<span class="src"><span class="ms">sync</span>Google</span></span>
+            <label class="inp" for="cid"><input id="cid" value="Barreiras"></label>
+          </div>
+          <div class="fld">
+            <span class="lab"><span class="ms">map</span>Estado (UF)<span class="src"><span class="ms">sync</span>Google</span></span>
+            <label class="inp" for="uf"><select id="uf"><option>BA</option></select><span class="ms">expand_more</span></label>
+          </div>
+          <div class="fld">
+            <span class="lab"><span class="ms">public</span>País<span class="src"><span class="ms">sync</span>Google</span></span>
+            <label class="inp" for="pais"><input id="pais" value="Brasil"></label>
+          </div>
+        </div>
+        <div class="fld">
+          <span class="lab"><span class="ms">location_on</span>Localização no mapa<span class="src"><span class="ms">sync</span>Google</span></span>
+          <div style="display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 16px; align-items: stretch">
+            <div style="height: 168px; border-radius: 14px; background: linear-gradient(135deg, #EAF1FB, #F1F3F4 60%, #E6F4EA); border: 1px solid #DADCE0; position: relative; overflow: hidden">
+              <div style="position: absolute; inset: 0; background-image: linear-gradient(#DADCE0 1px, transparent 1px), linear-gradient(90deg, #DADCE0 1px, transparent 1px); background-size: 40px 40px; opacity: .5"></div>
+              <span class="ms pinbob" style="position: absolute; left: 50%; top: 42%; transform: translate(-50%, -100%); font-size: 44px; color: #D93025; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48">location_on</span>
+              <span class="badge" style="position: absolute; left: 12px; bottom: 12px; background: #fff; color: #3C4043">-12,1523 · -44,9938 (estimado pelo endereço)</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px; justify-content: center">
+              <button class="btn btn-tonal"><span class="ms">edit_location_alt</span>Ajustar pin no mapa</button>
+              <button class="btn btn-outlined"><span class="ms">my_location</span>Usar coordenadas do Google</button>
+              <span class="hint">Sem coordenadas salvas. O pin acima é uma estimativa; confirme para melhorar as rotas.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card up d1" style="padding: 32px; display: flex; flex-direction: column; gap: 18px">
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 class="gs" style="margin: 0; font-size: 22px; font-weight: 500">Área de cobertura</h2>
+            <span class="hint">Cidades e bairros que você atende. Máximo de 20 áreas no Google.</span>
+          </div>
+          <span class="badge b-blue">8 de 20 áreas</span>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr) 160px 140px; gap: 12px">
+          <label class="inp" for="area"><span class="ms">search</span><input id="area" placeholder="Buscar cidade ou bairro"></label>
+          <label class="inp" for="raio"><select id="raio"><option>Raio 15 km</option><option>Raio 5 km</option><option>Raio 10 km</option><option>Raio 25 km</option></select><span class="ms">expand_more</span></label>
+          <button class="btn btn-filled" style="height: 48px"><span class="ms">add</span>Adicionar</button>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <sc-for list="{{areas}}" as="a" hint-placeholder-count="8">
+            <span class="chip">{{a}}<button class="x" aria-label="Remover área"><span class="ms" style="font-size: 16px">close</span></button></span>
+          </sc-for>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span class="hint" style="display: inline-flex; align-items: center; gap: 6px"><span class="ms" style="font-size: 16px; color: #1264C7">auto_awesome</span>Sugestões pelo raio de 15 km</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <button class="chip sug"><span class="ms" style="font-size: 16px">add</span>Luís Eduardo Magalhães, BA</button>
+            <button class="chip sug"><span class="ms" style="font-size: 16px">add</span>São Desidério, BA</button>
+            <button class="chip sug"><span class="ms" style="font-size: 16px">add</span>Angical, BA</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <aside style="display: flex; flex-direction: column; gap: 16px">
+      <div class="card up d1" style="padding: 20px; display: flex; flex-direction: column; gap: 14px">
+        <span class="lab">Como aparece no Google</span>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <span class="gs" style="font-size: 16px; font-weight: 500">Náutica Caça e Pesca</span>
+          <span style="font-size: 13px; color: #3C4043; display: flex; gap: 6px"><span class="ms" style="font-size: 18px; color: #5F6368">location_on</span>Rua Aníbal Barbosa, 579 · Barreiras, BA, 47802-031</span>
+          <span style="font-size: 13px; color: #3C4043; display: flex; gap: 6px"><span class="ms" style="font-size: 18px; color: #5F6368">explore</span>Atende Barreiras e mais 7 áreas</span>
+        </div>
+      </div>
+      <div class="card up d2" style="padding: 20px; display: flex; flex-direction: column; gap: 12px">
+        <span class="lab">Impacto no ranking</span>
+        <span style="font-size: 13px; line-height: 19px; color: #3C4043">Hoje o perfil aparece em <b style="font-weight: 500">6 das 8 áreas</b> cadastradas. Barra e Ibotirama ainda sem posição registrada pelo Radar.</span>
+        <a href="ClienteRelatorioPalavras.dc.html" class="btn btn-tonal btn-sm" style="align-self: flex-start">Ver por área<span class="ms" style="font-size: 18px">arrow_forward</span></a>
+      </div>
+      <div class="tip"><span class="ms">lightbulb</span>Mantenha as áreas dentro de 2 horas de deslocamento da sede. Áreas muito distantes diluem a relevância local.</div>
+    </aside>
+  </div>
+
+  </div>
+  </div>
+  <footer style="position: absolute; left: 240px; right: 0; bottom: 0; height: 76px; background: #fff; border-top: 1px solid #E2E6EA; display: flex; align-items: center; justify-content: space-between; padding: 0 32px">
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 13px; color: #5F6368"><span class="ms" style="font-size: 18px">info</span>Última atualização: 29/09/2026<span class="badge b-grey"><span class="ms" style="font-size: 14px">check</span>Tudo salvo</span></div>
+    <div style="display: flex; gap: 12px"><button class="btn btn-outlined">Cancelar</button><button class="btn btn-filled"><span class="ms">save</span>Salvar alterações</button></div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { areas: ['Barreiras, BA', 'Barra, BA, 47100-000', 'Centro, Barreiras - BA', 'Fátima, BA, 48415-000', 'Cotegipe, BA, 47900-000', 'Ibotirama, BA, 47520-000', 'Baianópolis, BA, 47830-000', 'Barreirinhas, Barreiras - BA'] };
+  }
+}
+</script>
+</body>
+</html>

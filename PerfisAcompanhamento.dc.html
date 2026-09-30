@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Perfis em acompanhamento</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&amp;family=Google+Sans+Text:wght@400;500;700&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;letter-spacing:.1px;border:0;cursor:pointer;white-space:nowrap;transition:box-shadow .2s,background .2s}
+.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#1264C7;box-shadow:0 1px 3px rgba(18,100,199,.4),0 4px 12px rgba(18,100,199,.25)}
+.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
+.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #DADCE0}.btn-outlined:hover{background:#F8FAFD;border-color:#C2D7F5}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.iconbtn{width:36px;height:36px;border-radius:10px;border:0;background:transparent;color:#5F6368;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s}
+.iconbtn:hover{background:#F1F3F4;color:#202124}
+.chip{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border-radius:999px;border:1px solid #DADCE0;background:#fff;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:13px;font-weight:500;color:#3C4043;cursor:pointer;white-space:nowrap;transition:background .15s}
+.chip:hover{background:#F1F3F4}.chip.on{background:#202124;border-color:#202124;color:#fff}
+.card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#E6F4EA;color:#137333}.b-red{background:#FCE8E6;color:#C5221F}.b-yellow{background:#FEF7E0;color:#B06000}.b-blue{background:#EAF1FB;color:#1264C7}.b-grey{background:#F1F3F4;color:#5F6368}
+.search{display:flex;align-items:center;gap:10px;height:44px;padding:0 16px;border:1px solid #DADCE0;border-radius:999px;background:#fff;transition:border-color .15s,box-shadow .15s}
+.search:focus-within{border-color:#1264C7;box-shadow:0 0 0 1px #1264C7}
+.search input{border:0;outline:0;flex:1;font:14px "Google Sans Text",Roboto,Arial,sans-serif;color:#202124;background:transparent;min-width:0}
+table{border-collapse:collapse;width:100%}
+th{font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;line-height:16px;font-weight:500;letter-spacing:.3px;color:#5F6368;text-align:left;padding:12px 16px;border-bottom:1px solid #E8EAED;text-transform:uppercase;white-space:nowrap}
+td{padding:14px 16px;border-bottom:1px solid #F1F3F4;font-size:14px;color:#202124;vertical-align:middle}
+tbody tr{transition:background .15s}tbody tr:hover td{background:#F8FAFD}
+.sw{width:36px;height:20px;border-radius:999px;background:#1264C7;position:relative;display:inline-block;border:0;cursor:pointer;padding:0}
+.sw::after{content:"";position:absolute;top:2px;left:18px;width:16px;height:16px;border-radius:999px;background:#fff;transition:left .2s}
+.sw.off{background:#BDC1C6}.sw.off::after{left:2px}
+.up{animation:up .5s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.d1{animation-delay:.06s}.d2{animation-delay:.12s}.d3{animation-delay:.18s}.d4{animation-delay:.24s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1240px; box-sizing: border-box; background: #F7F9FC; display: flex; overflow: hidden">
+  <dc-import name="AdminRail" active="acompanhamento" hint-size="240px,1720px"></dc-import>
+  <div style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+  <dc-import name="TopBar" contexto="Admin" titulo="Perfis em acompanhamento" hint-size="1200px,60px"></dc-import>
+
+  <main style="padding: 28px 32px 40px; display: flex; flex-direction: column; gap: 24px">
+    <div class="up" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h1 class="gs" style="margin: 0; font-size: 32px; line-height: 40px; font-weight: 400">Perfis em acompanhamento</h1>
+        <p style="margin: 0; font-size: 14px; line-height: 20px; color: #5F6368">Monitore e gerencie perfis com problemas de ranqueamento.</p>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px">
+        <button class="btn btn-outlined"><span class="ms">download</span>Exportar</button>
+        <button class="btn btn-tonal"><span class="ms">radar</span>Sincronizar Radar</button>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+      <div class="card up d1" style="padding: 18px 22px; display: flex; align-items: center; gap: 14px">
+        <span class="ms" style="width: 40px; height: 40px; border-radius: 12px; background: #EAF1FB; color: #0B4FA8; display: inline-flex; align-items: center; justify-content: center">visibility</span>
+        <div style="display: flex; flex-direction: column"><span class="gs" style="font-size: 24px; font-weight: 500; letter-spacing: -.5px">8.626</span><span style="font-size: 12px; color: #5F6368">em acompanhamento</span></div>
+      </div>
+      <div class="card up d2" style="padding: 18px 22px; display: flex; align-items: center; gap: 14px">
+        <span class="ms" style="width: 40px; height: 40px; border-radius: 12px; background: #E6F4EA; color: #137333; display: inline-flex; align-items: center; justify-content: center">check_circle</span>
+        <div style="display: flex; flex-direction: column"><span class="gs" style="font-size: 24px; font-weight: 500; letter-spacing: -.5px">[OK]</span><span style="font-size: 12px; color: #5F6368">com 8+ palavras ranqueadas</span></div>
+      </div>
+      <div class="card up d3" style="padding: 18px 22px; display: flex; align-items: center; gap: 14px">
+        <span class="ms" style="width: 40px; height: 40px; border-radius: 12px; background: #FEF7E0; color: #B06000; display: inline-flex; align-items: center; justify-content: center">warning</span>
+        <div style="display: flex; flex-direction: column"><span class="gs" style="font-size: 24px; font-weight: 500; letter-spacing: -.5px">[ATENÇÃO]</span><span style="font-size: 12px; color: #5F6368">entre 1 e 7 palavras</span></div>
+      </div>
+      <div class="card up d4" style="padding: 18px 22px; display: flex; align-items: center; gap: 14px">
+        <span class="ms" style="width: 40px; height: 40px; border-radius: 12px; background: #FCE8E6; color: #C5221F; display: inline-flex; align-items: center; justify-content: center">error</span>
+        <div style="display: flex; flex-direction: column"><span class="gs" style="font-size: 24px; font-weight: 500; letter-spacing: -.5px">[CRÍTICOS]</span><span style="font-size: 12px; color: #5F6368">zero palavras ou duplicata</span></div>
+      </div>
+    </div>
+
+    <div class="up d2" style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
+      <label class="search" style="width: 320px">
+        <span class="ms" style="color: #5F6368">search</span>
+        <input type="search" placeholder="Buscar por nome, e-mail ou localidade">
+      </label>
+      <span style="width: 1px; height: 28px; background: #DADCE0"></span>
+      <span class="gs" style="font-size: 12px; font-weight: 500; color: #5F6368; text-transform: uppercase; letter-spacing: .3px">Status</span>
+      <button class="chip on">Todos</button>
+      <button class="chip"><span style="width: 8px; height: 8px; border-radius: 999px; background: #1E8E3E"></span>Ok</button>
+      <button class="chip"><span style="width: 8px; height: 8px; border-radius: 999px; background: #F9AB00"></span>Atenção</button>
+      <button class="chip"><span style="width: 8px; height: 8px; border-radius: 999px; background: #D93025"></span>Crítico</button>
+      <button class="chip"><span class="ms" style="font-size: 16px">content_copy</span>Duplicata no Google</button>
+      <span style="width: 1px; height: 28px; background: #DADCE0"></span>
+      <span class="gs" style="font-size: 12px; font-weight: 500; color: #5F6368; text-transform: uppercase; letter-spacing: .3px">Palavras</span>
+      <button class="chip on">Todas</button>
+      <button class="chip">Zero</button>
+      <button class="chip">1–7</button>
+      <button class="chip">8+</button>
+    </div>
+
+    <section class="card up d3" style="overflow: hidden">
+      <table>
+        <thead>
+          <tr>
+            <th style="padding-left: 28px">Perfil</th>
+            <th>Localidade</th>
+            <th>Status</th>
+            <th>Palavras</th>
+            <th>Sincronização</th>
+            <th>Última atualização</th>
+            <th>Acompanhar</th>
+            <th style="text-align: right; padding-right: 28px">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{rows}}" as="r" hint-placeholder-count="7">
+            <tr>
+              <td style="padding-left: 28px">
+                <div style="display: flex; align-items: center; gap: 12px">
+                  <span class="gs" style="width: 40px; height: 40px; border-radius: 12px; background: {{r.avBg}}; color: {{r.avFg}}; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 500; flex-shrink: 0">{{r.ini}}</span>
+                  <div style="display: flex; flex-direction: column; gap: 2px">
+                    <span class="gs" style="font-weight: 500">{{r.nome}}</span>
+                    <span style="font-size: 12px; color: #5F6368">{{r.email}}</span>
+                  </div>
+                </div>
+              </td>
+              <td style="color: #3C4043">{{r.local}}</td>
+              <td><span class="badge {{r.stCls}}"><span style="width: 6px; height: 6px; border-radius: 999px; background: currentColor"></span>{{r.st}}</span></td>
+              <td>
+                <div style="display: flex; align-items: center; gap: 10px">
+                  <span class="gs" style="font-weight: 500; width: 20px">{{r.kw}}</span>
+                  <div style="width: 72px; height: 6px; border-radius: 999px; background: #F1F3F4; overflow: hidden"><div style="height: 100%; border-radius: 999px; background: {{r.kwColor}}; width: {{r.kwPct}}"></div></div>
+                </div>
+              </td>
+              <td><span class="badge {{r.syCls}}"><span class="ms" style="font-size: 14px">{{r.syIcon}}</span>{{r.sy}}</span></td>
+              <td style="color: #5F6368; font-size: 13px">{{r.atual}}</td>
+              <td><button class="sw {{r.swCls}}" aria-label="Alternar acompanhamento"></button></td>
+              <td style="text-align: right; padding-right: 28px">
+                <div style="display: inline-flex; align-items: center; gap: 4px">
+                  <button class="btn btn-tonal btn-sm"><span class="ms" style="font-size: 18px">edit_square</span>Gerenciar perfil</button>
+                  <button class="iconbtn" aria-label="Ver relatório"><span class="ms">bar_chart</span></button>
+                  <button class="iconbtn" aria-label="Mais ações"><span class="ms">more_vert</span></button>
+                </div>
+              </td>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; font-size: 13px; color: #5F6368">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span>Linhas por página</span>
+          <button class="chip" style="height: 30px">7<span class="ms" style="font-size: 16px">expand_more</span></button>
+          <span>1–7 de 8.626</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 4px">
+          <button class="iconbtn" aria-label="Página anterior"><span class="ms">chevron_left</span></button>
+          <span class="gs" style="width: 32px; height: 32px; border-radius: 999px; background: #EAF1FB; color: #0B4FA8; display: inline-flex; align-items: center; justify-content: center; font-weight: 500">1</span>
+          <span style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center">2</span>
+          <span style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center">3</span>
+          <span style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center">…</span>
+          <span style="width: 44px; height: 32px; display: inline-flex; align-items: center; justify-content: center">1.233</span>
+          <button class="iconbtn" aria-label="Próxima página"><span class="ms">chevron_right</span></button>
+        </div>
+      </div>
+    </section>
+  </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1240}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const mk = (ini, nome, email, local, st, kw, sy, atual, on) => {
+      const stMap = { Ok: ['b-green'], 'Atenção': ['b-yellow'], 'Crítico': ['b-red'], 'Duplicata no Google': ['b-grey'] };
+      const syMap = { 'Concluída': ['b-green', 'check'], 'Em andamento': ['b-blue', 'sync'], 'Pendente': ['b-grey', 'schedule'], 'Falhou': ['b-red', 'error'] };
+      const kwColor = kw >= 8 ? '#1E8E3E' : kw > 0 ? '#F9AB00' : '#D93025';
+      const av = st === 'Ok' ? ['#E6F4EA', '#137333'] : st === 'Atenção' ? ['#FEF7E0', '#B06000'] : ['#FCE8E6', '#C5221F'];
+      return { ini, nome, email, local, st, stCls: stMap[st][0], kw, kwPct: Math.min(100, kw / 12 * 100) + '%', kwColor, sy, syCls: syMap[sy][0], syIcon: syMap[sy][1], atual, swCls: on ? '' : 'off', avBg: av[0], avFg: av[1] };
+    };
+    const rows = [
+      mk('EB', 'Estilo Bordados', 'contato@estilobordados.com.br', 'Goiânia · GO', 'Ok', 11, 'Concluída', 'hoje, 14:20', true),
+      mk('CS', 'CSA Casa da Segurança Eletrônica', 'csa@casadaseguranca.com.br', 'Rio Verde · GO', 'Ok', 9, 'Concluída', 'hoje, 09:05', true),
+      mk('OV', 'Oficina Vale Verde', 'oficina@valeverde.com.br', 'Cuiabá · MT', 'Atenção', 5, 'Em andamento', 'ontem, 18:40', true),
+      mk('FC', 'Farmácia Central', 'farmacia@central.com.br', 'Uberlândia · MG', 'Atenção', 3, 'Pendente', 'há 2 dias', true),
+      mk('IH', 'Imobiliária Horizonte', 'contato@imobhorizonte.com.br', 'Palmas · TO', 'Crítico', 0, 'Falhou', 'há 4 dias', true),
+      mk('AR', 'Auto Peças Rodovia', 'vendas@autopecasrodovia.com.br', 'Anápolis · GO', 'Crítico', 0, 'Pendente', 'há 6 dias', false),
+      mk('HS', 'Hotel Serra Azul', 'reservas@hotelserraazul.com.br', 'Campinas · SP', 'Duplicata no Google', 2, 'Concluída', 'há 1 semana', false)
+    ];
+    return { rows };
+  }
+}
+</script>
+</body>
+</html>

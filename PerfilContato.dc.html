@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Perfil · Contato</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Google Sans Text","Google Sans",Roboto,Arial,sans-serif;background:#F7F9FC;color:#1F1F1F;-webkit-font-smoothing:antialiased}
+a{color:#1264C7;text-decoration:none}a:hover{color:#0B4FA8}
+.gs{font-family:"Google Sans",Roboto,Arial,sans-serif}
+.ms{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:20px;line-height:1;display:inline-block;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:14px;font-weight:500;border:0;cursor:pointer;white-space:nowrap;transition:box-shadow .2s,background .2s}
+.btn-filled{background:#1264C7;color:#fff}.btn-filled:hover{background:#1264C7;box-shadow:0 1px 3px rgba(18,100,199,.4),0 4px 12px rgba(18,100,199,.25)}
+.btn-tonal{background:#EAF1FB;color:#0B4FA8}.btn-tonal:hover{background:#D6E4F7}
+.btn-outlined{background:#fff;color:#0B4FA8;border:1px solid #DADCE0}.btn-outlined:hover{background:#F8FAFD;border-color:#C2D7F5}
+.btn-sm{height:36px;padding:0 12px;font-size:13px;border-radius:10px}
+.card{background:#fff;border:1px solid #E2E6EA;border-radius:16px;box-sizing:border-box}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;white-space:nowrap}
+.b-green{background:#E6F4EA;color:#137333}.b-yellow{background:#FEF7E0;color:#B06000}.b-blue{background:#EAF1FB;color:#1264C7}.b-grey{background:#F1F3F4;color:#5F6368}
+.fld{display:flex;flex-direction:column;gap:8px;min-width:0}
+.lab{display:flex;align-items:center;gap:8px;font-family:"Google Sans",Roboto,Arial,sans-serif;font-size:12px;font-weight:500;letter-spacing:.3px;color:#3C4043;text-transform:uppercase}
+.lab .ms{font-size:18px;color:#5F6368}
+.src{display:inline-flex;align-items:center;gap:4px;height:20px;padding:0 8px;border-radius:999px;background:#E6F4EA;color:#137333;font-size:11px;font-weight:500;text-transform:none;letter-spacing:0}
+.src .ms{font-size:13px;color:#137333}
+.inp{display:flex;align-items:center;gap:10px;height:48px;padding:0 14px;border:1px solid #DADCE0;border-radius:12px;background:#fff;transition:border-color .15s,box-shadow .15s}
+.inp:hover{border-color:#9AA0A6}.inp:focus-within{border-color:#1264C7;box-shadow:0 0 0 1px #1264C7}
+.inp input{border:0;outline:0;flex:1;font:15px "Google Sans Text",Roboto,Arial,sans-serif;color:#202124;background:transparent;min-width:0;padding:0}
+.inp .ms{color:#5F6368}
+.inp .pre{font-size:14px;color:#5F6368;padding-right:8px;border-right:1px solid #E8EAED}
+.ok{color:#137333;display:inline-flex;align-items:center;gap:4px;font-size:12px}
+.hint{font-size:12px;line-height:17px;color:#5F6368}
+.tip{display:flex;gap:12px;padding:14px 16px;border-radius:14px;background:#F8F9FA;font-size:13px;line-height:19px;color:#3C4043}
+.tip .ms{flex-shrink:0;color:#1264C7}
+.chk{display:flex;align-items:center;gap:10px;font-size:13px;color:#3C4043}
+.chk .ms{font-size:18px}
+.up{animation:up .5s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.d1{animation-delay:.06s}.d2{animation-delay:.12s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1100px; box-sizing: border-box; background: #F7F9FC; display: flex; flex-direction: column; position: relative; overflow: hidden">
+  <dc-import name="ProfileHeader" hint-size="1440px,72px"></dc-import>
+  <div style="display: flex; flex: 1; min-height: 0">
+  <dc-import name="SectionRail" active="contato" hint-size="240px,1028px"></dc-import>
+  <div style="flex: 1; min-width: 0; overflow: hidden">
+
+  <div style="display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 24px; padding: 24px 32px 100px">
+    <div style="display: flex; flex-direction: column; gap: 20px">
+      <section class="card up" style="padding: 32px; display: flex; flex-direction: column; gap: 24px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 class="gs" style="margin: 0; font-size: 22px; font-weight: 500">Informações de contato</h2>
+          <span class="hint">Como o cliente fala com você a partir da ficha. Telefone e WhatsApp viram botões "Ligar" e "Conversar" no Google.</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+          <div class="fld">
+            <span class="lab"><span class="ms">call</span>Telefone principal<span class="src"><span class="ms">sync</span>Google</span></span>
+            <label class="inp" for="tel"><span class="pre">+55</span><input id="tel" value="(77) 99807-3838"><span class="ok"><span class="ms" style="font-size: 16px; color: #137333">check_circle</span></span></label>
+            <a href="#addtel" style="font-size: 13px; font-family: 'Google Sans', Roboto, Arial, sans-serif; font-weight: 500; display: inline-flex; align-items: center; gap: 4px"><span class="ms" style="font-size: 16px">add</span>Adicionar telefone adicional</a>
+          </div>
+          <div class="fld">
+            <span class="lab"><span class="ms">mail</span>E-mail de contato<span class="src"><span class="ms">sync</span>Google</span></span>
+            <label class="inp" for="email"><input id="email" value="contato@nautica.exemplo.com"></label>
+            <span class="hint">Não aparece na ficha pública. Usado para avisos e recuperação de acesso.</span>
+          </div>
+        </div>
+        <div class="fld">
+          <span class="lab"><span class="ms">language</span>Website / página oficial<span class="src"><span class="ms">sync</span>Google</span></span>
+          <label class="inp" for="site"><span class="pre">https://</span><input id="site" value="georanking.com.br/teste-nautica"><a href="#abrir" class="ms" aria-label="Abrir site" style="font-size: 18px; color: #1264C7">open_in_new</a></label>
+          <span class="ok"><span class="ms" style="font-size: 16px">check_circle</span>Link respondeu em 0,4 s · verificado hoje</span>
+        </div>
+        <div class="fld">
+          <span class="lab"><span class="ms">chat</span>WhatsApp (chat)<span class="src"><span class="ms">sync</span>Google</span></span>
+          <label class="inp" for="wa"><span class="pre">+55</span><input id="wa" value="77 98888-8888"></label>
+          <span class="hint">O Google gera o botão "Conversar" com este número. Use o mesmo número do WhatsApp Business.</span>
+        </div>
+      </section>
+
+      <section class="card up d1" style="padding: 32px; display: flex; flex-direction: column; gap: 24px">
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 class="gs" style="margin: 0; font-size: 22px; font-weight: 500">Perfis de redes sociais</h2>
+            <span class="hint">Aparecem como ícones na ficha. Cole o link completo do perfil.</span>
+          </div>
+          <span class="badge b-green">3 conectadas</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
+          <div class="fld">
+            <span class="lab"><span class="ms">thumb_up</span>Facebook<span class="src"><span class="ms">sync</span>Google</span></span>
+            <label class="inp" for="fb"><span class="pre">facebook.com/</span><input id="fb" value="nautica.codex.teste"></label>
+          </div>
+          <div class="fld">
+            <span class="lab"><span class="ms">photo_camera</span>Instagram<span class="src"><span class="ms">sync</span>Google</span></span>
+            <label class="inp" for="ig"><span class="pre">instagram.com/</span><input id="ig" value="nautica.codex.teste"></label>
+          </div>
+          <div class="fld">
+            <span class="lab"><span class="ms">work</span>LinkedIn<span class="src"><span class="ms">sync</span>Google</span></span>
+            <label class="inp" for="li"><span class="pre">linkedin.com/company/</span><input id="li" value="nautica-codex-teste"></label>
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px">
+          <button class="btn btn-outlined btn-sm"><span class="ms" style="font-size: 18px">add</span>YouTube</button>
+          <button class="btn btn-outlined btn-sm"><span class="ms" style="font-size: 18px">add</span>TikTok</button>
+          <button class="btn btn-outlined btn-sm"><span class="ms" style="font-size: 18px">add</span>Pinterest</button>
+        </div>
+      </section>
+    </div>
+
+    <aside style="display: flex; flex-direction: column; gap: 16px">
+      <div class="card up d1" style="padding: 20px; display: flex; flex-direction: column; gap: 14px">
+        <span class="lab">Botões na ficha do Google</span>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap">
+          <span class="btn btn-outlined btn-sm" style="pointer-events: none"><span class="ms" style="font-size: 18px">call</span>Ligar</span>
+          <span class="btn btn-outlined btn-sm" style="pointer-events: none"><span class="ms" style="font-size: 18px">chat</span>Conversar</span>
+          <span class="btn btn-outlined btn-sm" style="pointer-events: none"><span class="ms" style="font-size: 18px">language</span>Site</span>
+          <span class="btn btn-outlined btn-sm" style="pointer-events: none"><span class="ms" style="font-size: 18px">directions</span>Rotas</span>
+        </div>
+        <span class="hint">Todos os quatro botões ativos. Ligações e conversas contam no relatório de performance.</span>
+      </div>
+      <div class="card up d2" style="padding: 20px; display: flex; flex-direction: column; gap: 12px">
+        <span class="lab">Verificação dos links</span>
+        <span class="chk"><span class="ms" style="color: #1E8E3E">check_circle</span>Site responde (200)</span>
+        <span class="chk"><span class="ms" style="color: #1E8E3E">check_circle</span>Facebook público</span>
+        <span class="chk"><span class="ms" style="color: #1E8E3E">check_circle</span>Instagram público</span>
+        <span class="chk"><span class="ms" style="color: #F9AB00">radio_button_unchecked</span>LinkedIn ainda não verificado</span>
+        <button class="btn btn-tonal btn-sm" style="align-self: flex-start"><span class="ms" style="font-size: 18px">refresh</span>Verificar agora</button>
+      </div>
+      <div class="tip"><span class="ms">lightbulb</span>Perfis com WhatsApp cadastrado recebem em média 30% mais contatos pela ficha do que só com telefone.</div>
+    </aside>
+  </div>
+
+  </div>
+  </div>
+  <footer style="position: absolute; left: 240px; right: 0; bottom: 0; height: 76px; background: #fff; border-top: 1px solid #E2E6EA; display: flex; align-items: center; justify-content: space-between; padding: 0 32px">
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 13px; color: #5F6368"><span class="ms" style="font-size: 18px">info</span>Última atualização: 29/09/2026<span class="badge b-grey"><span class="ms" style="font-size: 14px">check</span>Tudo salvo</span></div>
+    <div style="display: flex; gap: 12px"><button class="btn btn-outlined">Cancelar</button><button class="btn btn-filled"><span class="ms">save</span>Salvar alterações</button></div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
