@@ -54,7 +54,7 @@ a{color:#1264C7;text-decoration:none}
       <div style="display: flex; flex-direction: column; gap: 2px"><span class="h3">Encontrando sua posição</span><span class="hint">Login → home · 650 ms · uma única narrativa: rota, pin, símbolo, tela.</span></div>
       <div style="display: flex; gap: 8px"><button class="btn btn-tonal" onClick="{{replay}}"><span class="ms">replay</span>Reproduzir</button><a href="PainelControle.dc.html" class="btn btn-outlined">Ir para o painel</a></div>
     </div>
-    <div style="flex: 1; position: relative; background: #F7F9FC; overflow: hidden">
+    <div style="flex: 1; position: relative; background: #F7F9FC; overflow: hidden; min-height: 760px">
       <sc-if value="{{show}}" hint-placeholder-val="{{ true }}">
         <div class="old" style="position: absolute; inset: 0; padding: 36px 48px; display: flex; flex-direction: column; gap: 14px; background: #fff">
           <div style="width: 200px; height: 20px; border-radius: 6px; background: #EEF1F4"></div>
@@ -69,9 +69,9 @@ a{color:#1264C7;text-decoration:none}
             <circle class="ring" cx="160" cy="96" r="14" fill="none" stroke="#1264C7" stroke-width="2"></circle>
             <g class="pin pinout"><path d="M160 60c-10 0-18 8-18 18 0 13 18 30 18 30s18-17 18-30c0-10-8-18-18-18z" fill="#1264C7"></path><circle cx="160" cy="78" r="6.5" fill="#fff"></circle></g>
           </svg>
-          <img class="base" src="./assets/d7deb3dbeca88c52d3f7d166aae7502c.png" alt="GeoRanking" style="position: absolute; left: 50%; top: 58%; height: 56px; width: auto">
+          <img class="base" src="./assets/d7deb3dbeca88c52d3f7d166aae7502c.png" alt="GeoRanking" style="position: absolute; left: 50%; top: 52%; height: 52px; width: auto">
         </div>
-        <div class="next" style="position: absolute; left: 0; right: 0; bottom: 0; height: 46%; padding: 24px 48px; box-sizing: border-box; background: #F7F9FC; border-top: 1px solid #E2E6EA; display: flex; flex-direction: column; gap: 12px">
+        <div class="next" style="position: absolute; left: 0; right: 0; bottom: 0; height: 30%; padding: 24px 48px; box-sizing: border-box; background: #F7F9FC; border-top: 1px solid #E2E6EA; display: flex; flex-direction: column; gap: 12px">
           <div style="display: flex; align-items: center; gap: 8px"><span class="badge b-blue">Nova tela entra em 440–650 ms</span><span class="hint">sem bloquear a navegação real</span></div>
           <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px"><div class="card" style="height: 72px"></div><div class="card" style="height: 72px"></div><div class="card" style="height: 72px"></div><div class="card" style="height: 72px"></div></div>
           <div class="card" style="flex: 1"></div>
